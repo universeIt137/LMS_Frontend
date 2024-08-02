@@ -1,0 +1,8 @@
+.hide-on-hover {
+  transition: opacity 0.3s ease, visibility 0.3s ease; /* Optional for smooth transition */
+}
+
+.hide-on-hover:hover {
+  opacity: 0;
+  visibility: visible;
+}
