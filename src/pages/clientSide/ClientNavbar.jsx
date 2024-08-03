@@ -1,8 +1,11 @@
 import lms1 from "../../assets/image/logo-demolms.png";
 import logo2 from "../../assets/image/logo-sm2.png";
+import ClientSideNavbar from "./ClientSideNavbar";
 
 const ClientNavbar = () => {
+  
   return (
+    <>
     <div className="navbar bg-[#E6F1EB]">
       <div className="flex-1">
         <img src={lms1} alt="Logo" />
@@ -43,6 +46,10 @@ const ClientNavbar = () => {
         </div>
       </div>
     </div>
+    <ClientSideNavbar></ClientSideNavbar>
+
+    </>
+
   );
 };
 
