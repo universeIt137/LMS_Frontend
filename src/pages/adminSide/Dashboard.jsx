@@ -1,5 +1,5 @@
+
 import { Outlet } from "react-router-dom";
-import GeneralReport from "./GeneralReport";
 import Navbar from "./Navbar";
 import SideBar from "./SideBar";
 
@@ -11,6 +11,7 @@ const Dashboard = () => {
         <Navbar></Navbar>
       </div>
       <Outlet></Outlet>
+
     </div>
   );
 };
