@@ -1,7 +1,7 @@
 
 const Navbar = () => {
   return (
-    <div className="navbar text-white bg-[#061B64]">
+    <div className="navbar text-white bg-[#061B64]  w-full">
       <div className="navbar-start">
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
