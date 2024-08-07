@@ -5,13 +5,16 @@ import SideBar from "./SideBar";
 
 const Dashboard = () => {
   return (
-    <div className="md:mx-6 lg:mx-14 h-[60vh] bg-[#134571]">
-      <div className="flex bg-[#FEFEFE]  ">
-        <SideBar ></SideBar>
-        <Navbar></Navbar>
-      </div>
-      <Outlet></Outlet>
 
+    <div className="md:mx-6 lg:mx-10 h-[60vh] ">
+
+     <div className="flex">
+             <div><SideBar ></SideBar></div>
+             <div className="bg-[#F3F4FF] w-full" >
+             <Navbar></Navbar>
+             <Outlet></Outlet>
+             </div>
+     </div>
     </div>
   );
 };
