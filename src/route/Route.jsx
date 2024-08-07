@@ -2,6 +2,7 @@ import {
   createBrowserRouter,
 } from "react-router-dom";
 import Dashboard from "../pages/adminSide/Dashboard";
+import Root from "../pages/clientSide/Root";
 import AdminHome from "../pages/adminSide/AdminHome";
 import User from "../pages/adminSide/pages/User";
 
@@ -9,6 +10,11 @@ import User from "../pages/adminSide/pages/User";
   {
     path: "/home ",
     element: <div>Hello world!</div>,
+  },
+  {
+    path: "/",
+    element: <Root></Root>
+
   },
   {
     path:"/admin",
@@ -22,5 +28,6 @@ import User from "../pages/adminSide/pages/User";
     element:<User></User>
    }
   ]
+
   }
 ]);

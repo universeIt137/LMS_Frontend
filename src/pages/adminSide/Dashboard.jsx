@@ -1,9 +1,11 @@
+
 import { Outlet } from "react-router-dom";
 import Navbar from "./Navbar";
 import SideBar from "./SideBar";
 
 const Dashboard = () => {
   return (
+
     <div className="md:mx-6 lg:mx-10 h-[60vh] ">
 
      <div className="flex">
@@ -13,7 +15,6 @@ const Dashboard = () => {
              <Outlet></Outlet>
              </div>
      </div>
-
     </div>
   );
 };
