@@ -26,7 +26,7 @@ const SideBar = () => {
         <NavLink
           to="/admin/dashboard"
           className={({ isActive, isPending }) =>
-            isPending ? "pending text-4xl  " : isActive ? "active text-2xl " : ""
+            isPending ? "pending   " : isActive ? "active text-2xl " : ""
           }
         >
           Dashboard
@@ -40,7 +40,7 @@ const SideBar = () => {
         <NavLink
           to="/admin/dashboard"
           className={({ isActive, isPending }) =>
-            isPending ? "pending text-4xl  " : isActive ? "active text-2xl " : ""
+            isPending ? "pending   " : isActive ? "active text-2xl " : ""
           }
         >
           Students
@@ -54,7 +54,7 @@ const SideBar = () => {
         <NavLink
           to="/admin/dashboard"
           className={({ isActive, isPending }) =>
-            isPending ? "pending text-4xl  " : isActive ? "active text-2xl " : ""
+            isPending ? "pending   " : isActive ? "active text-2xl " : ""
           }
         >
           Teachers
@@ -68,7 +68,7 @@ const SideBar = () => {
         <NavLink
           to="/admin/dashboard"
           className={({ isActive, isPending }) =>
-            isPending ? "pending text-4xl  " : isActive ? "active text-2xl " : ""
+            isPending ? "pending   " : isActive ? "active text-2xl " : ""
           }
         >
           Event
@@ -82,7 +82,7 @@ const SideBar = () => {
         <NavLink
           to="/admin/dashboard"
           className={({ isActive, isPending }) =>
-            isPending ? "pending text-4xl  " : isActive ? "active text-2xl " : ""
+            isPending ? "pending   " : isActive ? "active text-2xl " : ""
           }
         >
           Finance
@@ -96,7 +96,7 @@ const SideBar = () => {
         <NavLink
           to="/admin/dashboard"
           className={({ isActive, isPending }) =>
-            isPending ? "pending text-4xl  " : isActive ? "active text-2xl " : ""
+            isPending ? "pending   " : isActive ? "active text-2xl " : ""
           }
         >
           Food
@@ -110,7 +110,7 @@ const SideBar = () => {
         <NavLink
           to="/admin/dashboard"
           className={({ isActive, isPending }) =>
-            isPending ? "pending text-4xl  " : isActive ? "active text-2xl " : ""
+            isPending ? "pending   " : isActive ? "active text-2xl " : ""
           }
         >
           User
@@ -124,7 +124,7 @@ const SideBar = () => {
         <NavLink
           to="/admin/dashboard"
           className={({ isActive, isPending }) =>
-            isPending ? "pending text-4xl  " : isActive ? "active text-2xl " : ""
+            isPending ? "pending   " : isActive ? "active text-2xl " : ""
           }
         >
           Chat
@@ -138,7 +138,7 @@ const SideBar = () => {
         <NavLink
           to="/admin/dashboard"
           className={({ isActive, isPending }) =>
-            isPending ? "pending text-4xl  " : isActive ? "active text-2xl " : ""
+            isPending ? "pending   " : isActive ? "active text-2xl " : ""
           }
         >
           Lastest Activity
