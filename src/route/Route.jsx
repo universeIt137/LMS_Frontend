@@ -5,15 +5,25 @@ import Dashboard from "../pages/adminSide/Dashboard";
 import Root from "../pages/clientSide/Root";
 import AdminHome from "../pages/adminSide/AdminHome";
 import User from "../pages/adminSide/pages/User";
+import HomePage from "../pages/clientSide/HomePage";
 
  export const router = createBrowserRouter([
-  {
-    path: "/home ",
-    element: <div>Hello world!</div>,
-  },
+ 
   {
     path: "/",
-    element: <Root></Root>
+    element: <Root></Root>,
+    children:[
+    {
+      path:"/home",
+      element:<HomePage></HomePage>
+      
+    },
+    {
+      path:"/about",
+      element:<HomePage></HomePage>
+    }
+
+    ]
 
   },
   {
