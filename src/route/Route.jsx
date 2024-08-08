@@ -6,6 +6,7 @@ import AdminHome from "../pages/adminSide/AdminHome";
 import HomePage from "../pages/clientSide/HomePage";
 import MainLayout from "../layouts/MainLayout";
 import Students from "../pages/adminSide/pages/Students";
+import Teachers from "../pages/adminSide/pages/Teachers";
 
  export const router = createBrowserRouter([
  
@@ -38,7 +39,11 @@ import Students from "../pages/adminSide/pages/Students";
    {
     path:"/admin/students",
     element:<Students></Students>
-   }
+   },
+   {
+    path:"/admin/teachers",
+    element:<Teachers></Teachers>
+   },
   ]
 
   }

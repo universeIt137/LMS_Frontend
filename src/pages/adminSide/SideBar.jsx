@@ -52,7 +52,7 @@ const SideBar = () => {
        <div className="flex  items-center gap-5  py-2 px-4 hover:text-[#4D44B5] hover:rounded-2xl hover:bg-[#F3F4FF] w-[300px] my-4 ">
         <GiTeacher className="w-10 h-10 gap-2" />
         <NavLink
-          to="/admin/dashboard"
+          to="/admin/teachers"
           className={({ isActive, isPending }) =>
             isPending ? "pending   " : isActive ? "active text-2xl " : ""
           }
