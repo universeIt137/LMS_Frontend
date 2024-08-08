@@ -1,4 +1,4 @@
-import React from 'react';
+
 
 import { Outlet } from 'react-router-dom';
 import ClientNavbar from '../components/clideSide/ClientNavbar';
@@ -8,12 +8,16 @@ import ClientFooter from '../components/clideSide/ClientFooter';
 const MainLayout = () => {
     return (
         <div>
-            <div>
-            <ClientNavbar></ClientNavbar>
-            <SubMenu></SubMenu>
-            <Outlet></Outlet>
-            <br />
-            <br />   
+            <div >
+          <div className='w-full'>
+          <ClientNavbar></ClientNavbar>
+         
+          </div>
+         <div className='w-11/12 mx-auto '>
+         <SubMenu></SubMenu>
+         <Outlet></Outlet>
+         </div>
+            
             
             <ClientFooter></ClientFooter>
         
