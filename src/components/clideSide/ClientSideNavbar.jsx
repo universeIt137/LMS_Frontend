@@ -34,26 +34,7 @@ const ClientSideNavbar = () => {
     };
 
     return (
-        <nav className="bg-gray-800 p-4 flex justify-between items-center">
-            <div className="flex space-x-4">
-                <a href="tel:01323289195" className="text-white flex items-center">
-                    <IoIosCall className="mr-2" /> 01323289195
-                </a>
-                <a href="mailto:alaminbdt50@gmail.com" className="text-white flex items-center">
-                    <CgMail className="mr-2" /> alaminbdt50@gmail.com
-                </a>
-            </div>
-            <div className="relative">
-                <input
-                    type="text"
-                    placeholder="English"
-                    className="p-2 rounded border border-gray-300"
-                    onClick={handleInputClick}
-                    readOnly
-                />
-            </div>
-            <LanguageModal isOpen={isModalOpen} onClose={closeModal} />
-        </nav>
+        
     );
 };
 
