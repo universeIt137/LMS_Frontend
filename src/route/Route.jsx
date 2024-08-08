@@ -3,9 +3,9 @@ import {
 } from "react-router-dom";
 import Dashboard from "../pages/adminSide/Dashboard";
 import AdminHome from "../pages/adminSide/AdminHome";
-import User from "../pages/adminSide/pages/User";
 import HomePage from "../pages/clientSide/HomePage";
 import MainLayout from "../layouts/MainLayout";
+import Students from "../pages/adminSide/pages/Students";
 
  export const router = createBrowserRouter([
  
@@ -26,6 +26,8 @@ import MainLayout from "../layouts/MainLayout";
     ]
 
   },
+
+  // start admin route 
   {
     path:"/admin",
     element:<Dashboard></Dashboard>,
@@ -34,8 +36,8 @@ import MainLayout from "../layouts/MainLayout";
       element:<AdminHome></AdminHome>
     },
    {
-    path:"/admin/user",
-    element:<User></User>
+    path:"/admin/students",
+    element:<Students></Students>
    }
   ]
 
