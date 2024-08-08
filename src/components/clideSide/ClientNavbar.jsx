@@ -1,6 +1,6 @@
 import lms1 from "../../assets/image/logo-demolms.png";
 import logo2 from "../../assets/image/logo-sm2.png";
-import ClientSideNavbar from "./ClientSideNavbar";
+
 
 const ClientNavbar = () => {
   
@@ -46,7 +46,7 @@ const ClientNavbar = () => {
         </div>
       </div>
     </div>
-    <ClientSideNavbar></ClientSideNavbar>
+    
 
     </>
 
