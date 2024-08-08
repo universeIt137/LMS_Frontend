@@ -12,7 +12,7 @@ const GeneralReport = () => {
   return (
     <div>
       <div className="grid grid-cols-1 gap-5 lg:grid-cols-5 justify-center">
-        <div className="col-span-3 text-3xl text-white"> General Report</div>
+        <div className="col-span-3 text-3xl text-black"> Dashboard Report</div>
         <div className=" grid grid-cols-3  gap-1 border items-center bg-[#365884] text-[#B7C4D5] rounded-2xl overflow-hidden"> 
           <div className="text-2xl ml-4 hidden md:block w-2"> <MdNextWeek /> </div>
 
