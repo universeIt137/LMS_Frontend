@@ -3,6 +3,7 @@ import circleImg from "../../assets/image/circle2.png"; // Ensure this
 import HomeCards from "../../components/clideSide/HomeCards";
 import AskQuestion from "../../components/clideSide/AskQuestion";
 import ExpertInstructor from "../../components/clideSide/ExpertInstructor";
+import TopTenCourse from "../../components/clideSide/TopTenCourse";
 
 
 
@@ -63,6 +64,9 @@ const HomePage = () => {
       <div>
         <h1 className="text-2xl font-bold">Top courses biplob</h1>
         <p>These are the most popular courses among listen courses learners worldwide</p>
+      </div>
+      <div className="my-24">
+        <TopTenCourse></TopTenCourse>
       </div>
       <div className="my-24">
         <ExpertInstructor></ExpertInstructor>
