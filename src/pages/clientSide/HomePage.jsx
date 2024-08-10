@@ -6,6 +6,7 @@ import ExpertInstructor from "../../components/clideSide/ExpertInstructor";
 import TopTenCourse from "../../components/clideSide/TopTenCourse";
 import TopCategories from './../../components/clideSide/TopCategories';
 import ThinkMoreClearly from "../../components/clideSide/ThinkMoreClearly";
+import LatestBlogs from "../../components/clideSide/LatestBlogs";
 
 
 
@@ -82,6 +83,9 @@ const HomePage = () => {
      </div>
      <div className="my-24">
       <ThinkMoreClearly></ThinkMoreClearly>
+     </div>
+     <div className="my-24">
+    <LatestBlogs></LatestBlogs>
      </div>
 
     </div>
