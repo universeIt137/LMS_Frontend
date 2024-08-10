@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/backend img/A.png"
 import logoText from "../../assets/backend img/Akademi.png"
 import homeLago from "../../assets/backend img/Vector.png"
@@ -15,10 +15,12 @@ const SideBar = () => {
   return (
     //  this is admin lago 
     <div className="bg-[#4D44B5] w-[345px] h-[100%] text-[#C1BBEB]">
+      <Link to='/'>
       <div className=" flex justify-center items-center  gap-3 h-[54px] mb-5">
         <img className="bg-[#FB7D5B] rounded-md h-[30px] w-8" src={logo} alt="" />
         <img src={logoText} alt="" />
       </div>
+      </Link>
       {/* this is nav link  */}
        <div className=" flex justify-end  ">
        <div className="flex  items-center gap-5  py-2 px-4 hover:text-[#4D44B5] hover:rounded-2xl hover:bg-[#F3F4FF] w-[300px] my-4 ">
