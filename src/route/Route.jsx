@@ -7,7 +7,7 @@ import HomePage from "../pages/clientSide/HomePage";
 import MainLayout from "../layouts/MainLayout";
 import Students from "../pages/adminSide/pages/Students";
 import Teachers from "../pages/adminSide/pages/Teachers";
-import CourseBundle from "../pages/clientSide/courseBundle/CourseBundle";
+import CourseBundle from "../pages/clientSide/CourseBundle";
 
 export const router = createBrowserRouter([
 
@@ -24,8 +24,9 @@ export const router = createBrowserRouter([
         path: "/about",
         element: <HomePage></HomePage>
       },
+
       {
-        path: "/courseBundle",
+        path: "/course-bundle",
         element: <CourseBundle></CourseBundle>
       }
 

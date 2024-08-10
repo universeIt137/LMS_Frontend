@@ -3,7 +3,7 @@ const TopCategori = () => {
     return (
         <div>
          
-        <div className="max-w-xs p-8 bg-white rounded-lg shadow-md overflow-hidden">
+        <div className="max-w-xl p-8 bg-white rounded-lg shadow-md overflow-hidden">
          <div className="flex px-4 ">
          <img  src={htmlimg} className="mb-2 w-12" />
          <div className="ml-4">
