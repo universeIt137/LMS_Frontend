@@ -5,6 +5,9 @@ import AskQuestion from "../../components/clideSide/AskQuestion";
 import ExpertInstructor from "../../components/clideSide/ExpertInstructor";
 import TopTenCourse from "../../components/clideSide/TopTenCourse";
 import TopCategories from './../../components/clideSide/TopCategories';
+import ThinkMoreClearly from "../../components/clideSide/ThinkMoreClearly";
+import LatestBlogs from "../../components/clideSide/LatestBlogs";
+import JoinNow from "../../components/clideSide/JoinNow";
 
 
 
@@ -76,9 +79,18 @@ const HomePage = () => {
       <div className="my-24">
         <ExpertInstructor></ExpertInstructor>
       </div>
-     <div className="my-24">
-     <AskQuestion></AskQuestion>
-     </div>
+      <div className="my-24">
+        <AskQuestion></AskQuestion>
+      </div>
+      <div className="my-24">
+        <ThinkMoreClearly></ThinkMoreClearly>
+      </div>
+      <div className="my-24">
+        <LatestBlogs></LatestBlogs>
+      </div>
+      <div className="my-24">
+        <JoinNow></JoinNow>
+      </div>
 
     </div>
   );
