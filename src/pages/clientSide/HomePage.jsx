@@ -4,6 +4,7 @@ import HomeCards from "../../components/clideSide/HomeCards";
 import AskQuestion from "../../components/clideSide/AskQuestion";
 import ExpertInstructor from "../../components/clideSide/ExpertInstructor";
 import TopTenCourse from "../../components/clideSide/TopTenCourse";
+import TopCategories from './../../components/clideSide/TopCategories';
 
 
 
@@ -61,9 +62,13 @@ const HomePage = () => {
 
       </div>
 
-      <div>
-        <h1 className="text-2xl font-bold">Top courses biplob</h1>
+      <div className="justify-center text-center mt-8 mb-8 border">
+        <h1 className="text-2xl font-bold">Top categories</h1>
         <p>These are the most popular courses among listen courses learners worldwide</p>
+      </div>
+
+      <div className="p-8 my-24">
+        <TopCategories></TopCategories>
       </div>
       <div className="my-24">
         <TopTenCourse></TopTenCourse>
