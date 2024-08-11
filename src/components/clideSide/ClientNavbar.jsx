@@ -1,7 +1,6 @@
+
 import lms1 from "../../assets/image/logo-demolms.png";
 import logo2 from "../../assets/image/logo-sm2.png";
-
-
 const ClientNavbar = () => {
   
   return (
@@ -9,7 +8,7 @@ const ClientNavbar = () => {
     <div className="navbar bg-[#E6F1EB]">
       <div className="flex-1">
         <img src={lms1} alt="Logo" />
-      </div>
+      </div>  
       <div className="flex-none gap-2">
         <div className="form-control flex items-center border border-gray-300 bg-transparent p-1 rounded">
           <div className="flex">
