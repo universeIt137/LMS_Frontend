@@ -6,7 +6,7 @@ import CoursebundleHaderSearch from "../../components/clideSide/CoursebundleHade
 const CourseBundle = () => {
     return (
         <div>
-             <CourseBundleBaner></CourseBundleBaner>
+             <CourseBundleBaner  subText={"Course bundle"} titleText={'Course bundle'} ></CourseBundleBaner>
              <CoursebundleHaderSearch></CoursebundleHaderSearch>
            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
            <CompleateBundleCard></CompleateBundleCard>
