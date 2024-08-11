@@ -8,6 +8,7 @@ import MainLayout from "../layouts/MainLayout";
 import Students from "../pages/adminSide/pages/Students";
 import Teachers from "../pages/adminSide/pages/Teachers";
 import CourseBundle from "../pages/clientSide/CourseBundle";
+import BootCamp from "../pages/clientSide/BootCamp";
 
 export const router = createBrowserRouter([
 
@@ -28,6 +29,10 @@ export const router = createBrowserRouter([
       {
         path: "/course-bundle",
         element: <CourseBundle></CourseBundle>
+      },
+      {
+        path: "/bootcamp",
+        element: <BootCamp></BootCamp>
       }
 
     ]
