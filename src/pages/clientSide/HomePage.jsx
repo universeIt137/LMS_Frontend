@@ -8,6 +8,7 @@ import TopCategories from './../../components/clideSide/TopCategories';
 import ThinkMoreClearly from "../../components/clideSide/ThinkMoreClearly";
 import LatestBlogs from "../../components/clideSide/LatestBlogs";
 import JoinNow from "../../components/clideSide/JoinNow";
+import SectionTittle from "../../components/clideSide/SectionTittle";
 
 
 
@@ -65,12 +66,11 @@ const HomePage = () => {
 
       </div>
 
-      <div className="justify-center text-center mt-8 mb-8 border">
-        <h1 className="text-2xl font-bold">Top categories</h1>
-        <p>These are the most popular courses among listen courses learners worldwide</p>
-      </div>
+   <div className="mt-24">
+   <SectionTittle title={`Top categories`} subtitle={`These are the most popular courses among listen courses learners worldwide`}></SectionTittle>
+   </div>
 
-      <div className="p-8 my-24">
+      <div className="p-8 ">
         <TopCategories></TopCategories>
       </div>
       <div className="my-24">

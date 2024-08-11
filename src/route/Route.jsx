@@ -9,25 +9,26 @@ import Students from "../pages/adminSide/pages/Students";
 import Teachers from "../pages/adminSide/pages/Teachers";
 import CourseBundle from "../pages/clientSide/CourseBundle";
 
- export const router = createBrowserRouter([
- 
+export const router = createBrowserRouter([
+
   {
     path: "/",
     element: <MainLayout></MainLayout>,
-    children:[
-    {
-      path:"/",
-      element:<HomePage></HomePage>
-      
-    },
-    {
-      path:"/about",
-      element:<HomePage></HomePage>
-    },
-    {
-      path:"/course-bundle",
-      element:<CourseBundle></CourseBundle>
-    }
+    children: [
+      {
+        path: "/",
+        element: <HomePage></HomePage>
+
+      },
+      {
+        path: "/about",
+        element: <HomePage></HomePage>
+      },
+
+      {
+        path: "/course-bundle",
+        element: <CourseBundle></CourseBundle>
+      }
 
     ]
 
@@ -35,21 +36,21 @@ import CourseBundle from "../pages/clientSide/CourseBundle";
 
   // start admin route 
   {
-    path:"/admin",
-    element:<Dashboard></Dashboard>,
-    children:[{
-      path:"/admin/dashboard",
-      element:<AdminHome></AdminHome>
+    path: "/admin",
+    element: <Dashboard></Dashboard>,
+    children: [{
+      path: "/admin/dashboard",
+      element: <AdminHome></AdminHome>
     },
-   {
-    path:"/admin/students",
-    element:<Students></Students>
-   },
-   {
-    path:"/admin/teachers",
-    element:<Teachers></Teachers>
-   },
-  ]
+    {
+      path: "/admin/students",
+      element: <Students></Students>
+    },
+    {
+      path: "/admin/teachers",
+      element: <Teachers></Teachers>
+    },
+    ]
 
   }
 ]);
