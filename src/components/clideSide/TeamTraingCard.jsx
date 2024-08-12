@@ -2,6 +2,7 @@ import { MdPlayLesson } from "react-icons/md";
 import { RiEnglishInput } from "react-icons/ri";
 import { TbHours24 } from "react-icons/tb";
 import { Link } from "react-router-dom";
+import PropTypes from 'prop-types';
 
 const TeamTraingCard = ( {img, title}) => {
   
@@ -43,5 +44,11 @@ const TeamTraingCard = ( {img, title}) => {
  </div>
  );
 };
+// PropTypes validation
+TeamTraingCard.propTypes = {
+  img: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+};
+
 
 export default TeamTraingCard;
