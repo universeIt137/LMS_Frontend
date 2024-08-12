@@ -7,18 +7,18 @@ import PropTypes from 'prop-types';
 const TeamTraingCard = ( {img, title}) => {
   
  return (
- <div className="flex h-[150px]">
-    <div className="w-1/4 h-[100%]">
-        <img src={img} alt="img messing" />
+ <div className="flex flex-col md:flex-row md:h-[150px]">
+    <div className=" w-full  md:w-2/4 lg:1/4 md:h-[100%]">
+        <img className="h-full" src={img} alt="img messing" />
     </div>
-    <div className=" flex items-center  px-8 w-3/4 bg-base-200 shadow-lg">
+    <div className=" flex items-center justify-center  md:px-8  md:w-2/4  lg:w-3/4 bg-base-200 shadow-lg">
       <Link to='/'>
-      <h2 className="text-xl">{title}</h2>
-      <p>Create By :Jone Doe</p>
-      <div className="grid grid-cols-3 text-[#6e798a] border-b-2 border-[#6e798a]">
+      <h2 className=" text md:text-xl">{title}</h2>
+      <p className="text-sm md:text[14px]">Create By :Jone Doe</p>
+      <div className="flex justify-center  gap-3 md:gap-1 items-center  text-[#6e798a] border-b-2 border-[#6e798a]">
         <p>course</p>
-        <p>DESIGN RULES: Principles + Practices for Great UI Design</p>
-        <div className="flex gap-1">
+        <p className="hidden lg:block">DESIGN RULES: Principles + Practices for Great UI Design</p>
+        <div className="flex md:gap-1">
              <div>
              <RiEnglishInput />
              <p className="text-sm">English</p>
