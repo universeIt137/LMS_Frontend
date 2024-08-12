@@ -9,6 +9,7 @@ import ThinkMoreClearly from "../../components/clideSide/ThinkMoreClearly";
 import LatestBlogs from "../../components/clideSide/LatestBlogs";
 import JoinNow from "../../components/clideSide/JoinNow";
 import SectionTittle from "../../components/clideSide/SectionTittle";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -18,6 +19,9 @@ import SectionTittle from "../../components/clideSide/SectionTittle";
 const HomePage = () => {
   return (
     <div>
+      <Helmet>
+        <title>LMS | HomePage</title>
+      </Helmet>
 
       <div className="h-[80vh] w-full bg-center z-0 bg-no-repeat bg-cover" style={{ backgroundImage: `url(${HomeImg})`, backgroundSize: '70%' }}>
         <div className="flex flex-col h-full justify-between p-4">
