@@ -15,11 +15,11 @@ const BootCamp = () => {
         <BootcampSearch></BootcampSearch>
       </div>
 
-      <div className="flex border">
-        <div className="w-1/4 border">
+      <div className="flex flex-col md:flex-row border">
+        <div className="w-full md:w-1/4 border">
         <BootcapmCategori></BootcapmCategori>
         </div>
-       <div className="w-3/4 grid grid-cols-1 md:grid-cols-3 ml-4">
+       <div className=" w-full md:w-3/4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
        <BootCampCard></BootCampCard>
        <BootCampCard></BootCampCard>
        <BootCampCard></BootCampCard>

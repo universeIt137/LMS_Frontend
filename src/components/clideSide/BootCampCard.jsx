@@ -4,7 +4,7 @@ import bootCard from "../../assets/image/bootcampcard.jpg";
 const BootCampCard = () => {
   return (
     <div className="p-4 flex justify-center">
-      <div className="card w-80 h-auto bg-white rounded-lg shadow-lg overflow-hidden">
+      <div className="card  h-auto bg-white rounded-lg shadow-lg overflow-hidden">
         <figure>
           <img
             src={bootCard}
@@ -29,7 +29,8 @@ const BootCampCard = () => {
           </div>
           <div className="flex justify-between mt-6">
             <button className="btn btn-primary w-1/2 mr-2">View Details</button>
-            <button className="btn w-1/2">Buy Now</button>
+            <button className="btn w-1/2">Buy Now </button>
+            <h1 className="text-red-600">hi</h1>
           </div>
         </div>
       </div>

@@ -10,6 +10,8 @@ import Teachers from "../pages/adminSide/pages/Teachers";
 import CourseBundle from "../pages/clientSide/CourseBundle";
 import TeamTraining from "../pages/clientSide/TeamTraining";
 import BootCamp from "../pages/clientSide/bootCampPage/BootCamp";
+import Login from "../pages/clientSide/loginpage/Login";
+import Register from "../pages/clientSide/registerpage/Register";
 
 export const router = createBrowserRouter([
 
@@ -35,6 +37,14 @@ export const router = createBrowserRouter([
       {
         path: "/team-training",
         element: <TeamTraining></TeamTraining>
+      },
+      {
+        path:"/login",
+        element:<Login></Login>
+      },
+      {
+        path:"/register",
+        element:<Register></Register>
       }
 
     ]
