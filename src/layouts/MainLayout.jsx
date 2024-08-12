@@ -10,12 +10,12 @@ const MainLayout = () => {
     return (
         <div>
             <div>
-                {/* <div className='w-full'>
+                <div className='w-full'>
                     <ClientNavbar></ClientNavbar>
-                </div> */}
+                </div>
                 <div className='w-11/12 mx-auto '>
-                    {/* <SubMenu></SubMenu>
-                    <NavManu></NavManu> */}
+                    <SubMenu></SubMenu>
+                    <NavManu></NavManu>
                     <Outlet></Outlet>
                 </div>
                 <ClientFooter></ClientFooter>
