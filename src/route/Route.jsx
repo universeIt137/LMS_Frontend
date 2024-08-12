@@ -8,12 +8,8 @@ import MainLayout from "../layouts/MainLayout";
 import Students from "../pages/adminSide/pages/Students";
 import Teachers from "../pages/adminSide/pages/Teachers";
 import CourseBundle from "../pages/clientSide/CourseBundle";
-<<<<<<< HEAD
-import BootCamp from "../pages/clientSide/BootCamp";
-=======
 import TeamTraining from "../pages/clientSide/TeamTraining";
-import TeamPageContent from "../components/clideSide/TeamPageContent";
->>>>>>> af27ac996f2c1a6a11b72adfc8324f94679bef71
+import BootCamp from "../pages/clientSide/bootCampPage/BootCamp";
 
 export const router = createBrowserRouter([
 
@@ -26,33 +22,25 @@ export const router = createBrowserRouter([
         element: <HomePage></HomePage>
 
       },
-      {
-        path: "/about",
-        element: <HomePage></HomePage>
-      },
+      
 
       {
         path: "/course-bundle",
         element: <CourseBundle></CourseBundle>
       },
       {
-        path: "/bootcamp",
+        path: "/bootCamp",
         element: <BootCamp></BootCamp>
+      },
+      {
+        path: "/team-training",
+        element: <TeamTraining></TeamTraining>
       }
 
     ]
 
   },
-  {
-    path:"/team-training",
-    element:<TeamTraining></TeamTraining>,
-   children:[
-    {
-      path:"/team-training",
-      element:<TeamPageContent></TeamPageContent>
-    }
-   ]
-  },
+  
 
   // start admin route 
   {
