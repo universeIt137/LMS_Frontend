@@ -14,17 +14,18 @@ const BootcampFilterForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Handle form submission logic here
-    console.log('Selected Category:', selectedCategory);
-    console.log('Search Value:', search);
+
+    // Construct the form action URL with query parameters
+    const formActionURL = `https://demo.creativeitem.com/academy/addons/bootcamp/bootcamp_list?category=${selectedCategory}&search=${encodeURIComponent(search)}`;
+
+    // Redirect to the form action URL
+    window.location.href = formActionURL;
   };
 
   return (
     <div className="p-6 max-w-sm mx-auto bg-white shadow-lg rounded-lg">
-      <form 
-        action="https://demo.creativeitem.com/academy/addons/bootcamp/bootcamp_list" 
-        method="get" 
-        id="bootcamp_filter_form" 
+      <form
+        id="bootcamp_filter_form"
         onSubmit={handleSubmit}
         className="space-y-4"
       >
@@ -59,12 +60,26 @@ const BootcampFilterForm = () => {
           </div>
         </div>
 
-        <input type="hidden" name="search" value={search} />
+        <div>
+          <input
+            type="text"
+            placeholder="Search bootcamps"
+            value={search}
+            onChange={handleSearchChange}
+            className="w-full p-2 border border-gray-300 rounded-lg"
+          />
+        </div>
 
-        
+        <button
+          type="submit"
+          className="w-full py-2 px-4 bg-primary text-white rounded-lg"
+        >
+          Filter Bootcamps
+        </button>
       </form>
     </div>
   );
 };
 
 export default BootcampFilterForm;
+

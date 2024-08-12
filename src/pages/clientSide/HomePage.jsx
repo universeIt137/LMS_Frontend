@@ -16,7 +16,7 @@ const HomePage = () => {
   return (
     <div>
       <Helmet>
-        <title>LMS | HomePage</title>
+        <title> Academy LMS | HomePage</title>
       </Helmet>
 
       <div className="h-[80vh] w-full bg-center z-0 bg-no-repeat bg-cover" style={{ backgroundImage: `url(${HomeImg})`, backgroundSize: '85%' }}>

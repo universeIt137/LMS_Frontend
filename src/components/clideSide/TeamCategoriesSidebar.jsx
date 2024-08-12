@@ -15,7 +15,7 @@ const TeamCategoriesSidebar = () => {
   };
 
   return (
-    <div className="p-4 w-[220px] shadow-md bg-base-200">
+    <div className="p-4 w-full md:w-[220px] shadow-md bg-base-200">
       <h3 className="text-lg font-semibold mb-4">Categories</h3>
 
       <div className="mb-2">

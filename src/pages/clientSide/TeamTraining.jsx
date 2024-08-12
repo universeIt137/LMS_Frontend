@@ -16,11 +16,11 @@ const TeamTraining = () => {
 
 
           </div>
-          <div className='w-11/12 mx-auto '>
+          <div className=' mx-auto '>
 
             <CourseBundleBaner subText={"Team"} titleText={'Team'}></CourseBundleBaner>
-            <div className="flex ">
-              <div>
+            <div className="flex flex-col md:flex-row ">
+              <div className="md:mr-5">
                 <TeamCategoriesSidebar></TeamCategoriesSidebar>
               </div>
               <div>
