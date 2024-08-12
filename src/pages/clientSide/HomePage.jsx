@@ -23,7 +23,7 @@ const HomePage = () => {
         <div className="flex flex-col h-full justify-between p-4">
           <div className="flex justify-between">
             <div className=" w-1/3 p-4">
-              <h1 className="text-3xl font-bold mb-4">Start learning from best platform</h1>
+              <h1 className="text-3xl font-bold mb-4">Start learning from best platform </h1>
               <p>Study any topic, anytime. explore thousands of courses for the lowest price ever!</p>
 
             </div>
