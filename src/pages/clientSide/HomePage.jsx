@@ -19,7 +19,7 @@ const HomePage = () => {
         <title> Academy LMS | HomePage</title>
       </Helmet>
 
-      <div className="h-[80vh] w-full bg-center z-0 bg-no-repeat bg-cover" style={{ backgroundImage: `url(${HomeImg})`, backgroundSize: '85%' }}>
+      <div className="h-[80vh] w-full bg-center z-10 bg-no-repeat bg-cover" style={{ backgroundImage: `url(${HomeImg})`, backgroundSize: '85%' }}>
         <div className="flex flex-col h-full justify-between p-4">
           <div className="flex justify-between">
             <div className=" w-1/3 p-4">
@@ -34,7 +34,9 @@ const HomePage = () => {
         </div>
       </div>
 
-    <HeroSectionCard></HeroSectionCard>
+      <div className="-mt-28 z-0">
+        <HeroSectionCard></HeroSectionCard>
+      </div>
 
       <div className="flex items-center text-center justify-between mt-8  p-4">
         <h1 className="text-2xl font-bold">Explore our upcoming courses </h1>
