@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 
 
 const NavManu = () => {
+  const mainLogo = "https://res.cloudinary.com/dnvmj9pvk/image/upload/v1723544696/UniverseIT/Logo/xvlfi7xrapeoabxyzjji.png";
+
   return (
     <div>
       <div className="navbar bg-base-100">
@@ -36,7 +38,7 @@ const NavManu = () => {
               <li><a>Item 3</a></li>
             </ul>
           </div>
-          <Link to='/' className=" w-40"> <img src="https://demo.creativeitem.com/academy/uploads/system/e0d3336caa3bf40ceae5b4efeeedf541.png" alt="" /></Link>
+          <Link to='/' className=" w-40"> <img src={mainLogo} alt="" /></Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
