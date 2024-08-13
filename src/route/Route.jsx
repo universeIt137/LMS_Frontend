@@ -8,10 +8,12 @@ import MainLayout from "../layouts/MainLayout";
 import Students from "../pages/adminSide/pages/Students";
 import Teachers from "../pages/adminSide/pages/Teachers";
 import CourseBundle from "../pages/clientSide/CourseBundle";
+import BootCamp from "../pages/clientSide/BootCamp";
 import TeamTraining from "../pages/clientSide/TeamTraining";
-import BootCamp from "../pages/clientSide/bootCampPage/BootCamp";
 import Login from "../pages/clientSide/loginpage/Login";
 import Register from "../pages/clientSide/registerpage/Register";
+
+
 
 export const router = createBrowserRouter([
 

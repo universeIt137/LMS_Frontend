@@ -1,6 +1,5 @@
 import { FaChalkboardTeacher, FaCalendarAlt } from "react-icons/fa";
 
-
 const BootCampCard = () => {
   return (
     <div className="p-4 flex justify-center">
