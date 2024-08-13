@@ -6,7 +6,7 @@ const HomeCard = () => {
       <div style={{
         backgroundImage: `url(${CardImage})`,
         backgroundSize: "cover", backgroundRepeat: "no-repeat"
-      }} className="card  h-[400px]" >
+      }} className="card  h-[455px]" >
 
         <div className=" flex flex-col h-[400px]">
           <div className="flex justify-around mt-5  items-center  ">

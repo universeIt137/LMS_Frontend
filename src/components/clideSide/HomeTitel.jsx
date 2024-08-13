@@ -1,6 +1,6 @@
 const HomeTitle = () => {
   return (
-    <div className="flex flex-col md:flex-row justify-between items-center ">
+    <div className="flex flex-col md:flex-row md:justify-between items-center ">
       <div className="md:w-2/3 text-center md:text-left mb-6 md:mb-0">
         <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight md:leading-[4rem] lg:leading-[5rem]">
           <p>Start learning from </p>

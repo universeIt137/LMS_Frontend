@@ -24,11 +24,8 @@ const HomePage = () => {
 
     <HeroSectionCard></HeroSectionCard>
 
-      <div className="flex items-center text-center justify-between mt-8  p-4">
-        <h1 className="text-2xl font-bold">Explore our upcoming courses </h1>
-        <p className="ml-4 max-w-lg">Discover a world of learning opportunities through our upcoming courses, where industry experts and thought leaders will guide you in acquiring new expertise, expanding your horizons, and reaching your full potential.</p>
-      </div>
-
+      
+ 
       <div className="">
         <HomeCards></HomeCards>
       </div>

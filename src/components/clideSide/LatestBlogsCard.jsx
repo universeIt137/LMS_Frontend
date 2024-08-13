@@ -1,32 +1,37 @@
-const LatestBlogsCard = () => {
- return (
- <div>
-<div className="card card-compact bg-base-100  shadow-xl">
-  <figure>
-    <img
-      src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-      alt="Shoes" />
-  </figure>
-  <div className="card-actions justify-start m-2">
-      <button className="btn bg-[#FDE6EC]">Education</button>
-    </div>
-  <div className="card-body ">
-    <h2 className="card-title">Education</h2>
-    <p className=" border-b-2">The corporate world is slowly stepping into the dimension of Artificial Intelligence. This technolog...</p>
-    
-  </div >
-  <div className="flex justify-between p-2 "> 
-    <div className="flex gap-2 ">
-      <div><img className="w-6 h-6 rounded-full"  src="https://demo.creativeitem.com/academy/uploads/user_image/optimized/95f8ffe52fcc64ac943a9bfa83c00d39.jpg" alt="" /></div>
-      <div>Jhon Doe</div>
-    </div>
-    <div>
-      <p>Wed, 22 Dec 2021</p>
-    </div>
-  </div>
-</div>
- </div>
- );
+const LatestBlogsCard = ({img}) => {
+  return (
+      <div className="card card-compact bg-base-100 shadow-lg rounded-lg overflow-hidden">
+          <figure>
+              <img
+                  src={img}
+                  alt="Blog" 
+                  className="w-full h-100 px-2 md:p-0 rounded-2xl object-cover"
+              />
+          </figure>
+          <div className="card-body p-4">
+              <div className="card-actions mb-4">
+                  <button className="btn bg-[#FDE6EC] text-[#FF6F6F] hover:bg-[#FFEBEB] rounded-lg text-xs font-semibold">
+                      Education
+                  </button>
+              </div>
+              <h2 className="card-title  font-bold mb-2">AI-Based learning is the future of Corporate Training</h2>
+              <p className="text-sm text-gray-600 mb-4 border-b-2 border-gray-200 pb-2">
+                  The corporate world is slowly stepping into the dimension of Artificial Intelligence. This technology...
+              </p>
+          </div>
+          <div className="flex items-center justify-between px-4 pb-1 bg-gray-50">
+              <div className="flex items-center ">
+                  <img
+                      className="w-8 h-8 rounded-full"
+                      src="https://demo.creativeitem.com/academy/uploads/user_image/optimized/95f8ffe52fcc64ac943a9bfa83c00d39.jpg"
+                      alt="Author"
+                  />
+                  <span className="text-sm font-medium">Jhon Doe</span>
+              </div>
+              <span className="text-sm text-gray-500">Wed, 22 Dec 2021</span>
+          </div>
+      </div>
+  );
 };
 
 export default LatestBlogsCard;
