@@ -3,7 +3,7 @@ import HomeImg from "../../assets/image/home-1.png"; // Ensure this path is corr
 const HomeBanner = () => {
   return (
     <div
-      className="h-[70vh] md:h-[80vh] w-full bg-center z-0 bg-no-repeat bg-cover "
+      className="h-[70vh] md:h-[80vh] w-full bg-center  bg-no-repeat bg-cover z-50 "
       style={{ backgroundImage: `url(${HomeImg})`, backgroundSize: "100%" }}
     >
       <div className="flex flex-col h-full justify-between">
