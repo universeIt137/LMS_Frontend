@@ -9,21 +9,17 @@ import NavManu from '../components/clideSide/NavManu';
 const MainLayout = () => {
     return (
         <div>
-            <div >
-          <div className='w-full'>
-          <ClientNavbar></ClientNavbar>
-         
-          </div>
-         <div className='w-11/12 mx-auto '>
-         <SubMenu></SubMenu>
-         <NavManu></NavManu>
-         <Outlet></Outlet>
-         </div>
-            
-            
-            <ClientFooter></ClientFooter>
-        
-        </div>
+            <div>
+                <div className='w-full'>
+                    <ClientNavbar></ClientNavbar>
+                </div>
+                <div className='w-11/12 mx-auto '>
+                    <SubMenu></SubMenu>
+                    <NavManu></NavManu>
+                    <Outlet></Outlet>
+                </div>
+                <ClientFooter></ClientFooter>
+            </div>
         </div>
     );
 };

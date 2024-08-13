@@ -1,10 +1,11 @@
+import PropTypes from 'prop-types';
 const ThinkMoreClearlyCard = ({title, discription, img}) => {
   return (
     <div>
       <div className="card card-side bg-base-50 shadow-md p-10">
 
         <div className="card-body w-3/4 ">
-          <h2 className="text-6xl mb-6 ">
+          <h2 className="text-4xl mb-6 ">
             {title}</h2>
           <p className="text-2xl text-[#676c7d]">{discription}</p>
           
@@ -17,6 +18,11 @@ const ThinkMoreClearlyCard = ({title, discription, img}) => {
       </div>
     </div>
   );
+};
+ThinkMoreClearlyCard.propTypes = {
+  title: PropTypes.string.isRequired,
+  discription: PropTypes.string.isRequired,
+  img: PropTypes.string.isRequired,
 };
 
 export default ThinkMoreClearlyCard;

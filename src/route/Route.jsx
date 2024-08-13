@@ -10,7 +10,9 @@ import Teachers from "../pages/adminSide/pages/Teachers";
 import CourseBundle from "../pages/clientSide/CourseBundle";
 import BootCamp from "../pages/clientSide/BootCamp";
 import TeamTraining from "../pages/clientSide/TeamTraining";
-import TeamPageContent from "../components/clideSide/TeamPageContent";
+import Login from "../pages/clientSide/loginpage/Login";
+import Register from "../pages/clientSide/registerpage/Register";
+
 
 
 export const router = createBrowserRouter([
@@ -24,33 +26,33 @@ export const router = createBrowserRouter([
         element: <HomePage></HomePage>
 
       },
-      {
-        path: "/about",
-        element: <HomePage></HomePage>
-      },
+      
 
       {
         path: "/course-bundle",
         element: <CourseBundle></CourseBundle>
       },
       {
-        path: "/bootcamp",
+        path: "/bootCamp",
         element: <BootCamp></BootCamp>
+      },
+      {
+        path: "/team-training",
+        element: <TeamTraining></TeamTraining>
+      },
+      {
+        path:"/login",
+        element:<Login></Login>
+      },
+      {
+        path:"/register",
+        element:<Register></Register>
       }
 
     ]
 
   },
-  {
-    path:"/team-training",
-    element:<TeamTraining></TeamTraining>,
-   children:[
-    {
-      path:"/team-training",
-      element:<TeamPageContent></TeamPageContent>
-    }
-   ]
-  },
+  
 
   // start admin route 
   {

@@ -1,6 +1,5 @@
 import { FaChalkboardTeacher, FaCalendarAlt } from "react-icons/fa";
 
-
 const BootCampCard = () => {
   return (
     <div className="p-4 flex justify-center">
@@ -14,11 +13,11 @@ const BootCampCard = () => {
         </figure>
         <div className="card-body p-6">
           <h2 className="card-title text-2xl font-bold text-gray-800">
-            Coding Doojl
+            Coding Dojo
           </h2>
           <div className="flex justify-between text-sm text-gray-600 mt-2">
             <p className="flex items-center">
-              <FaChalkboardTeacher className="mr-2 text-primary" /> Live Classs
+              <FaChalkboardTeacher className="mr-2 text-primary" /> Live Class
             </p>
             <p className="flex items-center">
               <FaCalendarAlt className="mr-2 text-primary" /> Dec 1996
