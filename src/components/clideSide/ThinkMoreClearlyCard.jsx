@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 const ThinkMoreClearlyCard = ({title, discription, img}) => {
   return (
     <div>
-      <div className="card flex-col-reverse card-side bg-base-50 shadow-md p-10">
+      <div className="card flex-col-reverse md:flex-row card-side bg-base-50 shadow-md p-3">
 
         <div className="card-body w-full md:w-3/4 ">
           <h2 className="text-4xl mb-6 ">
