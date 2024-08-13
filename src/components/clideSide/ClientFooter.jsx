@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const ClientFooter = () => {
     return (
         <div>
-            <footer className="footer w-full bg-[#171719]  text-white p-10">
+            <footer className="footer  w-full bg-[#171719]  text-white p-10">
                 <aside className="space-y-4">
                     <Link to="/"><img className="w-[150px]" src="https://demo.creativeitem.com/academy/uploads/system/b75d56b5a93590ce01464acd96a853f1.png" alt="" /></Link>
                     <p>
@@ -13,8 +13,8 @@ const ClientFooter = () => {
 
                     </p>
                     <p className="text-xl"> Subscribe to our newsletter</p>
-                    <div className="join">
-                        <input className="input input-bordered text-black  join-item" placeholder="Email" />
+                    <div className=" flex  md:join">
+                        <input className="input  input-bordered text-black  join-item" placeholder="Email" />
                         <button className="btn join-item ">Subscribe</button>
                     </div>
                 </aside>
