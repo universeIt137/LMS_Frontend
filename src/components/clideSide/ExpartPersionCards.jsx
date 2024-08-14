@@ -2,7 +2,7 @@ import ExpertPersionCard from "./ExpertPersionCard";
 
 const ExpartPersionCards = () => {
  return (
- <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 md:gap-2 lg:gap-4">
+ <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-4">
  <ExpertPersionCard img={"https://media.licdn.com/dms/image/D5603AQGT3SBXhOLe7w/profile-displayphoto-shrink_800_800/0/1712149505841?e=1728518400&v=beta&t=bJIJS2H8mIqDw5fonkyRNwLJpt5OS1uc5lIfPc-Nzos"} name={"Ashikur Rahman"} discriptioin={"Professional Film Colorist | DaVinci Resolve Trainer"}>
  </ExpertPersionCard>
  <ExpertPersionCard img={"https://media.licdn.com/dms/image/v2/D5635AQH6JnB2L1_dIQ/profile-framedphoto-shrink_800_800/profile-framedphoto-shrink_800_800/0/1720634726680?e=1723744800&v=beta&t=KO4-yYA0sL7r0Xe272tD_Zih44C4fsVqmEBItuoJKYA"} name={"ENGR. Md. Golam Kibriya"} discriptioin={"ENGR. Md. Golam Kibriya, an innovative and passionate developer."}>
