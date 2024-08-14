@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 const ExpertPersionCard = ({img,name, discriptioin}) => {
   return (
     <div >
-      <div className="card bg-base-100  shadow-xl h-[450px]">
-        <figure className="px-10 pt-10 rounded-3xl">
+      <div className="card   pt-5 shadow-xl  h-[500px]">
+        <figure className="p-5 rounded-2xl">
           <img
             src={img}
             alt="Shoes"
-            className="rounded-xl" />
+            className="rounded-2xl bg-no-repeat bg-cover  " />
         </figure>
         <div className="card-body items-center text-center">
           <h2 className="card-title">{name}

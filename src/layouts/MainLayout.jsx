@@ -13,7 +13,7 @@ const MainLayout = () => {
                 <div className='w-full'>
                     <ClientNavbar></ClientNavbar>
                 </div>
-                <div className='w-11/12 mx-auto '>
+                <div className=' w-full md:w-11/12 mx-auto '>
                     <SubMenu></SubMenu>
                     <NavManu></NavManu>
                     <Outlet></Outlet>
