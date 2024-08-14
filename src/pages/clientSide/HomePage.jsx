@@ -1,5 +1,4 @@
-import HomeImg from "../../assets/image/home-1.png"; // Ensure this path 
-import circleImg from "../../assets/image/circle2.png"; // Ensure this 
+
 import HomeCards from "../../components/clideSide/HomeCards";
 import AskQuestion from "../../components/clideSide/AskQuestion";
 import ExpertInstructor from "../../components/clideSide/ExpertInstructor";
@@ -11,6 +10,8 @@ import JoinNow from "../../components/clideSide/JoinNow";
 import SectionTittle from "../../components/clideSide/SectionTittle";
 import { Helmet } from "react-helmet-async";
 import HeroSectionCard from "../../components/clideSide/HeroSectionCard";
+import HomeBanner from "../../components/clideSide/HomeBanner";
+import HomeTitel from "../../components/clideSide/HomeTitel";
 
 const HomePage = () => {
   return (
@@ -18,21 +19,8 @@ const HomePage = () => {
       <Helmet>
         <title> Academy LMS | HomePage</title>
       </Helmet>
-
-      <div className="h-[80vh] w-full bg-center z-0 bg-no-repeat bg-cover" style={{ backgroundImage: `url(${HomeImg})`, backgroundSize: '85%' }}>
-        <div className="flex flex-col h-full justify-between p-4">
-          <div className="flex justify-between">
-            <div className=" w-1/3 p-4">
-              <h1 className="text-3xl font-bold mb-4">Start learning from best platform </h1>
-              <p>Study any topic, anytime. explore thousands of courses for the lowest price ever!</p>
-
-            </div>
-            <div className=" w-1/3 p-4">
-              <img className="w-16 animate-spin-slow" src={circleImg} alt="" />
-            </div>
-          </div>
-        </div>
-      </div>
+       <HomeTitel></HomeTitel>
+    <HomeBanner></HomeBanner>
 
     <HeroSectionCard></HeroSectionCard>
 
