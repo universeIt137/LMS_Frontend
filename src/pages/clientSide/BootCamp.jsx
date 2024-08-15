@@ -19,7 +19,7 @@ const BootCamp = () => {
         <div className="w-full md:w-1/4 border">
         <BootcapmCategori></BootcapmCategori>
         </div>
-       <div className=" w-full md:w-3/4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 ">
+       <div className=" w-full md:w-3/4 grid grid-cols-1  lg:grid-cols-3 ">
        <BootCampCard></BootCampCard>
        <BootCampCard></BootCampCard>
        <BootCampCard></BootCampCard>
