@@ -8,10 +8,10 @@ const AskQuestion = () => {
       {/* AskQuestion headLine */}
       <SectionTittle title={"Frequently asked questions"} subtitle={"Have something to know? Check here if you have any questions about us"}></SectionTittle>
 
-      <div className="w-11/12 mx-auto">
+      <div className=" w-full md:w-11/12 mx-auto">
         {/* question div */}
         <div tabIndex={0} className="collapse collapse-plus border-base-500  border">
-          <div className="collapse-title text-2xl py-5 font-medium hover:text-[#754FFE] list-disc ">
+          <div className="collapse-title text-xl md:text-2xl py-5 font-medium hover:text-[#754FFE] list-disc ">
             <li>What is a Learning Management System (LMS)?</li>
           </div>
           <div className="collapse-content text-[#6E79A4]">
@@ -19,7 +19,7 @@ const AskQuestion = () => {
           </div>
         </div>
         <div tabIndex={0} className="collapse collapse-plus border-base-300  border">
-          <div className="collapse-title text-2xl py-5 font-medium hover:text-[#754FFE] list-disc ">
+          <div className="collapse-title text-xl md:text-2xl py-5 font-medium hover:text-[#754FFE] list-disc ">
             <li>
             How can an LMS benefit educational institutions and organizations?
 
@@ -38,7 +38,7 @@ const AskQuestion = () => {
           </div>
         </div>
         <div tabIndex={0} className="collapse collapse-plus border-base-300  border">
-          <div className="collapse-title text-2xl py-5 font-medium hover:text-[#754FFE] list-disc ">
+          <div className="collapse-title text-xl md:text-2xl py-5 font-medium hover:text-[#754FFE] list-disc ">
             <li>
               What are the key features of an LMS?
 
@@ -49,7 +49,7 @@ const AskQuestion = () => {
           </div>
         </div>
         <div tabIndex={0} className="collapse collapse-plus border-base-300  border">
-          <div className="collapse-title text-2xl py-5 font-medium hover:text-[#754FFE] list-disc ">
+          <div className="collapse-title text-xl md:text-2xl py-5 font-medium hover:text-[#754FFE] list-disc ">
             <li>
             Is an LMS suitable for both academic and corporate settings?
             </li>

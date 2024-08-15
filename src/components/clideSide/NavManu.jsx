@@ -1,7 +1,11 @@
+import { FaUserTie } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 
 const NavManu = () => {
+  const user={
+    email:"coderbiplobKumar@gmail.com"
+  }
   const navLink=<>  <li><Link to='/admin/dashboard'>Dashbord</Link></li>
   <li><Link to='/course-bundle'>Course Bundles</Link></li>
   <li><Link to='/bootCamp'>Boot Camps</Link></li>
@@ -10,14 +14,14 @@ const NavManu = () => {
   
   <li>
     <details>
-      <summary>Parent</summary>
-      <ul className="p-2">
-        <li><a>Submenu 1</a></li>
-        <li><a>Submenu 2</a></li>
+      <summary>Ebook</summary>
+      <ul className="p-2 z-50 md:w-60">
+        <li><a>Submenu </a></li>
+        <li><a>Submenu </a></li>
       </ul>
     </details>
   </li>
-  <li><a>Item 3</a></li></>
+</>
   return (
     <div>
       <div className="navbar bg-base-100">
@@ -51,8 +55,22 @@ const NavManu = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Button</a>
-        </div>
+      {
+                    user ? <>
+                        <span className="hidden md:block"></span>
+                        <a  className="btn btn-sm mx-2">Sign out</a>
+                    </> 
+                    : <Link to="/login">
+                        <button className="btn btn-sm">Login</button>
+                    </Link>
+                }
+        
+         {user?.photoURL? 
+       <img className="h-10 w-10 rounded-full" src={user.photoURL
+       } alt="" /> :
+       <FaUserTie className="h-10 w-10 rounded-full"  ></FaUserTie>  
+      }
+      </div>
       </div>
     </div>
   );
