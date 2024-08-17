@@ -15,7 +15,7 @@ const SubMenu = () => {
     };
 
     return (
-        <nav className="text-black p-4 flex justify-between items-center">
+        <nav className="text-black p-4 flex justify-between items-center border">
             <div className="flex space-x-4">
                 <a href="tel:01323289195" className="flex items-center">
                     <IoIosCall className="mr-2" /> 01323289195
