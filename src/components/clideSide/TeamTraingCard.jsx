@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 
 const TeamTraingCard = ({ img, title }) => {
   return (
-    <div className="flex flex-col md:flex-row h-[500px] md:h-[250px] rounded-lg overflow-hidden shadow-lg transition-all hover:shadow-xl">
+    <div className="flex py-3 flex-col md:flex-row h-[500px] md:h-[250px] rounded-lg overflow-hidden shadow-lg transition-all hover:shadow-xl">
       <div className="w-full md:w-2/4 lg:w-1/3 h-[300px] md:h-full">
         <img 
           className="w-full h-full object-cover  px-4 md:px-0 rounded-t-lg md:rounded-t-none md:rounded-l-lg transition-transform duration-300 hover:scale-105" 
@@ -20,14 +20,14 @@ const TeamTraingCard = ({ img, title }) => {
             <h2 className="text-lg md:text-xl font-semibold text-primary">{title}</h2>
             <p className="text-sm md:text-[14px] text-gray-600 mt-1">Created By: John Doe</p>
           </div>
-          <div className="mt-4">
+          <div className="">
             <div className="flex flex-wrap justify-between items-center text-sm md:text-base text-gray-600">
               <p className="font-semibold">Course</p>
               <p className="hidden lg:block text-sm text-gray-500">
                 DESIGN RULES: Principles + Practices for Great UI Design
               </p>
             </div>
-            <div className="flex justify-start md:justify-between gap-3 mt-2 text-gray-600">
+            <div className="flex justify-start md:justify-between gap-3  text-gray-600">
               <div className="flex items-center gap-1">
                 <RiEnglishInput className="text-xl" />
                 <p>English</p>
@@ -42,7 +42,7 @@ const TeamTraingCard = ({ img, title }) => {
               </div>
             </div>
           </div>
-          <div className="flex justify-between mt-4 border-t pt-2 text-gray-600">
+          <div className="flex justify-between  border-t  text-gray-600">
             <span className="font-semibold text-lg">$4000</span>
             <span>Months</span>
           </div>

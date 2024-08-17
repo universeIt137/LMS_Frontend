@@ -4,7 +4,7 @@ import logo2 from "../../assets/image/logo-sm2.png";
 const ClientNavbar = () => {
   return (
     <>
-      <div className="navbar bg-[#E6F1EB] p-4">
+      <div className="navbar bg-[#E6F1EB] p-1">
         <div className="flex-1">
           <img src={lms1} alt="Logo" className="hidden md:block h-8 md:h-10 lg:h-12" />
         </div>
