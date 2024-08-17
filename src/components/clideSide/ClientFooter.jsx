@@ -2,11 +2,14 @@ import { Link } from "react-router-dom";
 
 
 const ClientFooter = () => {
+
+  const mainLogo = "https://res.cloudinary.com/dnvmj9pvk/image/upload/v1723544696/UniverseIT/Logo/xvlfi7xrapeoabxyzjji.png";
+
     return (
         <div>
             <footer className="footer  w-full bg-[#171719]  text-white p-10">
                 <aside className="space-y-4">
-                    <Link to="/"><img className="w-[150px]" src="https://demo.creativeitem.com/academy/uploads/system/b75d56b5a93590ce01464acd96a853f1.png" alt="" /></Link>
+                    <Link to="/"><img className="w-[150px]" src={mainLogo} alt="" /></Link>
                     <p>
                         Study any topic, anytime. explore thousands of courses for the lowest price ever!
 
