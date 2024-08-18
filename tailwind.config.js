@@ -5,7 +5,11 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        gold: '#FFD700', // Gold color hex code
+      },
+    },
   },
   plugins: [
     require('daisyui'),
