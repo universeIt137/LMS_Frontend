@@ -1,0 +1,1 @@
+export const inputFieldStyle = `w-full rounded-md border px-4 min-h-[45px] border-[#E2E8F0]`
