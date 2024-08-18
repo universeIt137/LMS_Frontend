@@ -2,7 +2,7 @@
 
 const InputLabel = ({ text }) => {
     return (
-        <label className="text-lg font-semibold text-gray-900">
+        <label className="text-base sm:text-lg font-semibold text-gray-900">
             {text}
         </label>
     );

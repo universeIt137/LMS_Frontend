@@ -9,17 +9,20 @@ import InputLabel from "../../../Shared/InputLabel";
 import { inputFieldStyle } from "../../../Shared/InputFieldStyle";
 import { FaArrowRightLong } from "react-icons/fa6";
 import SocialLogin from "../../../Shared/SocialLogin/SocialLogin";
+import { useForm } from "react-hook-form";
+import { IoEyeOffOutline, IoEyeOutline } from "react-icons/io5";
 
 const Login = () => {
-  const [showPassword, setShowPassword] = useState(false);
+  const [passErr, setPassErr] = useState(false)
+  const [showPass, setShowPass] = useState(false);
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-    const email = e.target.email.value;
-    const password = e.target.password.value;
-    // Handle login logic here
-  };
-  
+  const { register, handleSubmit, watch, reset, formState: { errors }, } = useForm()
+
+  const onSubmit = async (data) => {
+    console.log(data);
+    
+
+  }
   return (
     <Container>
       <div
@@ -30,19 +33,30 @@ const Login = () => {
         </Helmet>
         <div className="w-full grid lg:grid-cols-5 gap-5 max-h-[100vh] overflow-hidden">
 
-          <form onSubmit={handleLogin} className="lg:col-span-3 w-full max-w-[600px] mx-auto my-auto p-5">
+          <form onSubmit={handleSubmit(onSubmit)} className="lg:col-span-3 w-full max-w-[600px] mx-auto my-auto p-5">
             <h2 className="text-[32px] font-semibold text-center py-4">Sign in to your account</h2>
             <div className="space-y-4">
               <div className="space-y-2">
                 <InputLabel text={'Email'} />
-                <input className={`${inputFieldStyle}`} placeholder="Email" type="email" />
+                <input {...register("email", { required: true })} className={`${inputFieldStyle}`} placeholder="Email" type="email" />
               </div>
               <div className="space-y-2">
                 <InputLabel text={'Password'} />
-                <input className={`${inputFieldStyle}`} placeholder="Password" type="password" />
+                <div className="relative">
+                  <input onChange={() => setPassErr(false)} {...register("password", {
+                    required: true,
+                    onChange: () => {
+                      setPassErr(false);
+                    }
+                  })} className={`${inputFieldStyle}`} placeholder="Confirm Password" type={!showPass ? 'password' : 'text'} />
+                  <p className="absolute top-0 flex justify-center items-center right-0 h-full px-2 cursor-pointer text-lg" onClick={() => setShowPass(!showPass)}>{!showPass ? <IoEyeOffOutline /> : <IoEyeOutline />}</p>
+                </div>
+                {
+                  passErr && <p className="text-red-500">Passwords do not match</p>
+                }
               </div>
               <button className="text-sm sm:text-base flex gap-2 items-center h-[45px] px-4 sm:px-7 rounded-lg bg-black text-white">Sign in <FaArrowRightLong /></button>
-             <SocialLogin/>
+              <SocialLogin />
             </div>
 
 
