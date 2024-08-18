@@ -1,149 +1,112 @@
-import { FcGoogle } from "react-icons/fc";
-import { Link } from "react-router-dom";
-import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
-
+import registerImg from '../../../assets/image/register.jpeg'
+import Container from "../../../Shared/Container";
+import InputLabel from "../../../Shared/InputLabel";
+import { inputFieldStyle } from "../../../Shared/InputFieldStyle";
+import { FaArrowRightLong } from "react-icons/fa6";
+import SocialLogin from "../../../Shared/SocialLogin/SocialLogin";
+import { useForm } from "react-hook-form";
+import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
 const Register = () => {
-  const [showPassword, setShowPassword] = useState(false);
+  const [showInitialPassword, setShowInitialPassword] = useState(false);
+  const [isSamePassErr, setIsSamePassErr] = useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-
-  const handleRegister = (e) => {
-    e.preventDefault();
-    const name = e.target.name.value;
-    const email = e.target.email.value;
-    const password = e.target.password.value;
-    const confirmPassword = e.target.confirmPassword.value;
-
-    if (password !== confirmPassword) {
-      alert("Passwords do not match");
-      return;
+  const { register, handleSubmit, watch, reset, formState: { errors }, } = useForm()
+  const onSubmit = async (data) => {
+    setIsSamePassErr(false)
+    const initialPass = data?.initialPass;
+    const confirmPass = data?.confirmPass;
+    console.log(confirmPass);
+    if (initialPass !== confirmPass) {
+      setIsSamePassErr(true)
+      return
     }
-    // Handle registration logic here
+    console.log(data);
+
   };
 
   return (
-    <div
-      style={{
-        backgroundImage: `url(https://img.freepik.com/free-vector/futuristic-background-design_23-2148503793.jpg?w=740&t=st=1723483192~exp=1723483792~hmac=7c894aa9d1772e06a28a7efc1ce0aba4a9779a48ca596f2e25702d4d28cd1e99)`,
-      }}
-      className="flex items-center justify-center min-h-screen  bg-no-repeat bg-cover bg-gradient-to-r from-blue-500 to-purple-600"
-    >
-      <Helmet>
-        <title> LMS Register Page</title>
-      </Helmet>
-      <div className="w-full max-w-md p-8 my-10 space-y-8  bg-opacity-20 backdrop-blur-lg rounded-3xl shadow-2xl">
-        <div className="text-center">
-          <h1 className="text-3xl font-bold text-gray-100">Create an Account</h1>
-          <p className="mt-2 text-sm text-gray-200">
-            Please fill in the information below
-          </p>
+    <Container>
+      <div
+
+      >
+        <Helmet>
+          <title>LMS || Register</title>
+        </Helmet>
+        <div className="w-full grid lg:grid-cols-5 gap-5">
+          <img className="w-full object-cover hidden lg:block lg:col-span-2 min-h-full" src={registerImg} alt="" />
+          <form onSubmit={handleSubmit(onSubmit)} className="lg:col-span-3 w-full max-w-[600px] mx-auto my-auto p-5">
+            <h2 className="text-[32px] font-semibold text-center py-4">Create Your Account</h2>
+            <div className="space-y-4">
+              <div className="grid grid-cols-2 gap-3">
+                {/* name  */}
+                <div className="space-y-2">
+                  <InputLabel text={'First Name'} />
+                  <input {...register("firstName", { required: true })} className={`${inputFieldStyle}`} placeholder="First Name" type="text" />
+                </div>
+                <div className="space-y-2">
+                  <InputLabel text={'Last Name'} />
+                  <input {...register("lastName", { required: true })} className={`${inputFieldStyle}`} placeholder="Last Name" type="text" />
+                </div>
+              </div>
+              {/* username  */}
+              <div className="space-y-2">
+                <InputLabel text={'Username'} />
+                <input {...register("username", { required: true })} className={`${inputFieldStyle}`} placeholder="Username" type="text" />
+              </div>
+              {/* email  */}
+              <div className="space-y-2">
+                <InputLabel text={'Email'} />
+                <input {...register("email", { required: true })} className={`${inputFieldStyle}`} placeholder="Email" type="email" />
+              </div>
+              {/* pass  */}
+              <div className="grid sm:grid-cols-2 gap-3">
+                <div className="space-y-2">
+                  <InputLabel text={'Password'} />
+                  <div className="relative">
+                    <input {...register("initialPass", {
+                      required: true,
+                      minLength: 8,
+                      maxLength: 20,
+                      pattern: /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W)/
+                    })} className={`${inputFieldStyle}`} placeholder="Enter Password" type={!showInitialPassword ? 'password' : 'text'} />
+                    <p className="absolute top-0 flex justify-center items-center right-0 h-full px-2 cursor-pointer text-lg" onClick={() => setShowInitialPassword(!showInitialPassword)}>{!showInitialPassword ? <IoEyeOffOutline /> : <IoEyeOutline />}</p>
+                  </div>
+                  {errors?.initialPass?.type === 'required' && <span className='text-red-500'>Password invalid</span>}
+                  {errors?.initialPass?.type === 'minLength' && <span className='text-red-500 '>Password must be minimum 8 characters</span>}
+                  {errors?.initialPass?.type === 'maxLength' && <span className='text-red-500 '>Password must be maximum 20 characters</span>}
+                  {errors?.initialPass?.type === 'pattern' && <span className='text-red-500 '>Password must contain at least one digit, one lowercase letter, and one uppercase letter.</span>}
+                </div>
+                <div className="space-y-2">
+                  <InputLabel text={'Confirm Password'} />
+                  <div className="relative">
+                    <input onChange={() => setIsSamePassErr(false)} {...register("confirmPass", {
+                      required: true,
+                      onChange: () => {
+                        setIsSamePassErr(false);
+                        // Additional logic can be added here if needed
+                      }
+                    })} className={`${inputFieldStyle}`} placeholder="Confirm Password" type={!showConfirmPassword ? 'password' : 'text'} />
+                    <p className="absolute top-0 flex justify-center items-center right-0 h-full px-2 cursor-pointer text-lg" onClick={() => setShowConfirmPassword(!showConfirmPassword)}>{!showConfirmPassword ? <IoEyeOffOutline /> : <IoEyeOutline />}</p>
+                  </div>
+                  {
+                    isSamePassErr && <p className="text-red-500">Passwords do not match</p>
+                  }
+                </div>
+              </div>
+
+              <button className="text-sm sm:text-base flex gap-2 items-center h-[45px] px-4 sm:px-7 rounded-lg bg-black text-white">Create Account <FaArrowRightLong /></button>
+              <SocialLogin />
+            </div>
+
+
+          </form>
+
         </div>
-        <form onSubmit={handleRegister} className="space-y-6">
-          <div className="space-y-1">
-            <label htmlFor="name" className="text-sm font-medium text-gray-200">
-              Name
-            </label>
-            <input
-              type="text"
-              name="name"
-              id="name"
-              placeholder="Enter your name"
-              className="w-full px-4 py-2 text-gray-100 bg-transparent border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-              required
-            />
-          </div>
-          <div className="space-y-1">
-            <label htmlFor="email" className="text-sm font-medium text-gray-200">
-              Email
-            </label>
-            <input
-              type="email"
-              name="email"
-              id="email"
-              placeholder="Enter your email"
-              className="w-full px-4 py-2 text-gray-100 bg-transparent border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-              required
-            />
-          </div>
-          <div className="relative space-y-1">
-            <label
-              htmlFor="password"
-              className="text-sm font-medium text-gray-200"
-            >
-              Password
-            </label>
-            <input
-              type={showPassword ? "text" : "password"}
-              name="password"
-              id="password"
-              placeholder="Enter your password"
-              className="w-full px-4 py-2 text-gray-100 bg-transparent border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-              required
-            />
-            <button
-              type="button"
-              className="absolute inset-y-0 right-0 flex items-center pr-3"
-              onClick={() => setShowPassword(!showPassword)}
-            >
-              {showPassword ? (
-                <AiFillEyeInvisible className="text-gray-500" />
-              ) : (
-                <AiFillEye className="text-gray-500" />
-              )}
-            </button>
-          </div>
-          <div className="relative space-y-1">
-            <label
-              htmlFor="confirmPassword"
-              className="text-sm font-medium text-gray-200"
-            >
-              Confirm Password
-            </label>
-            <input
-              type={showConfirmPassword ? "text" : "password"}
-              name="confirmPassword"
-              id="confirmPassword"
-              placeholder="Confirm your password"
-              className="w-full px-4 py-2 text-gray-100 bg-transparent border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-              required
-            />
-            <button
-              type="button"
-              className="absolute inset-y-0 right-0 flex items-center pr-3"
-              onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-            >
-              {showConfirmPassword ? (
-                <AiFillEyeInvisible className="text-gray-500" />
-              ) : (
-                <AiFillEye className="text-gray-500" />
-              )}
-            </button>
-          </div>
-          <div>
-            <button
-              type="submit"
-              className="w-full px-4 py-2 text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400"
-            >
-              Register
-            </button>
-          </div>
-          <div className="flex items-center justify-center space-x-2">
-            <FcGoogle className="text-2xl" />
-            <p className="text-gray-100">Continue with Google</p>
-          </div>
-          <p className="text-center text-sm text-gray-200">
-            Already have an account?{" "}
-            <Link
-              className="font-medium text-blue-300 hover:underline"
-              to="/login"
-            >
-              Login
-            </Link>
-          </p>
-        </form>
       </div>
-    </div>
+    </Container>
   );
 };
 
