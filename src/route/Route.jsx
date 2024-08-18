@@ -34,7 +34,7 @@ export const router = createBrowserRouter([
         element: <CourseBundle></CourseBundle>
       },
       {
-        path: "/All-Course",
+        path: "/courseDetails",
         element: <CoursePage></CoursePage>
       },
       {
