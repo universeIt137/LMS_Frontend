@@ -91,7 +91,7 @@ const NavManu = () => {
     </li>
 
     <li><Link to='/course-bundle'>Course Bundles</Link></li>
-    <li><Link to='/All-Course'>Course Categories</Link></li>
+    <li><Link to='/course-details'>Course Details</Link></li>
     <li><Link to='/bootCamp'>Boot Camps</Link></li>
     <li><Link to='/team-training'>Team Trainings</Link></li>
     <li>
