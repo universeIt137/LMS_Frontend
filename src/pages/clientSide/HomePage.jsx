@@ -1,4 +1,4 @@
-import HomeCards from "../../components/clideSide/HomeCards";
+
 import AskQuestion from "../../components/clideSide/AskQuestion";
 import ExpertInstructor from "../../components/clideSide/ExpertInstructor";
 import TopTenCourse from "../../components/clideSide/TopTenCourse";
@@ -6,11 +6,11 @@ import TopCategories from './../../components/clideSide/TopCategories';
 import ThinkMoreClearly from "../../components/clideSide/ThinkMoreClearly";
 import LatestBlogs from "../../components/clideSide/LatestBlogs";
 import JoinNow from "../../components/clideSide/JoinNow";
-import SectionTittle from "../../components/clideSide/SectionTittle";
 import { Helmet } from "react-helmet-async";
-import HeroSectionCard from "../../components/clideSide/HeroSectionCard";
 import HomeBanner from "../../components/clideSide/HomeBanner";
 import HomeTitel from "../../components/clideSide/HomeTitel";
+import ClientUserCount from "../../components/clideSide/ClientUserCount";
+import SectionHead from "../../components/clideSide/SectionHead";
 
 const HomePage = () => {
   return (
@@ -18,22 +18,12 @@ const HomePage = () => {
       <Helmet>
         <title> Academy LMS | HomePage</title>
       </Helmet>
-       <HomeTitel></HomeTitel>
-    <HomeBanner></HomeBanner>
-
-    <HeroSectionCard></HeroSectionCard>
-
-      
- 
-      <div className="">
-        <HomeCards></HomeCards>
-      </div>
-
-      <div className="mt-24">
-        <SectionTittle title={`Top categories`} subtitle={`These are the most popular courses among listen courses learners worldwide`}></SectionTittle>
-      </div>
+      <HomeTitel></HomeTitel>
+      <HomeBanner></HomeBanner>
+      <ClientUserCount ></ClientUserCount>
 
       <div className="p-8">
+        <SectionHead title={`Top Categories`}></SectionHead>
         <TopCategories></TopCategories>
       </div>
 
