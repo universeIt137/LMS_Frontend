@@ -27,7 +27,7 @@ const HomePage = () => {
         <TopCategories></TopCategories>
       </div>
 
-      <div className="my-24">
+      <div className="my-15">
         <TopTenCourse></TopTenCourse>
       </div>
 
