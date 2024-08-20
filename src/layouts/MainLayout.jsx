@@ -20,7 +20,7 @@ const MainLayout = () => {
                         <ClientNavbar></ClientNavbar>
                     </div>
                 }
-                <div className=' w-full md:w-11/12 mx-auto '>
+                <div className=' w-full md:w-11/12 mx-auto'>
                     {
                         isHideNavBar ? '' : <div className='w-full'>
                             <SubMenu></SubMenu>

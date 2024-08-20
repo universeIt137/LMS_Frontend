@@ -34,8 +34,10 @@ export const router = createBrowserRouter([
         element: <CourseBundle></CourseBundle>
       },
       {
+
         path: "/course-details",
         element: <CourseDetailsPage></CourseDetailsPage>
+
       },
       {
         path: "/bootCamp",
