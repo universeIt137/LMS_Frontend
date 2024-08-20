@@ -7,7 +7,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        gold: '#FFD700', // Gold color hex code
+        gold: '#FFD700', 
+        primary: "#2563EB",
+
       },
     },
   },
