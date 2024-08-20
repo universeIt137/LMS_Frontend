@@ -12,7 +12,7 @@ import BootCamp from "../pages/clientSide/BootCamp";
 import TeamTraining from "../pages/clientSide/TeamTraining";
 import Login from "../pages/clientSide/loginpage/Login";
 import Register from "../pages/clientSide/registerpage/Register";
-import CoursePage from "../pages/clientSide/course/CoursePage";
+import CourseDetailsPage from "../pages/clientSide/course/CourseDetailsPage";
 
 
 
@@ -34,8 +34,8 @@ export const router = createBrowserRouter([
         element: <CourseBundle></CourseBundle>
       },
       {
-        path: "/All-Course",
-        element: <CoursePage></CoursePage>
+        path: "/course-details",
+        element: <CourseDetailsPage></CourseDetailsPage>
       },
       {
         path: "/bootCamp",
