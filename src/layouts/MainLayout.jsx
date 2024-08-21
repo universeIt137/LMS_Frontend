@@ -15,8 +15,7 @@ const MainLayout = () => {
                     isHideNavBar ? '' : <div className='w-full'>
                         <ClientNavbar></ClientNavbar>
                     </div>
-                }
-                <div className=' w-full md:w-11/12 mx-auto '>
+                } 
 
                     <NavManu></NavManu>
                     <Outlet></Outlet>
