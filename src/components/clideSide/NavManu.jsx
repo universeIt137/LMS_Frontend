@@ -8,9 +8,9 @@ import { useState } from 'react';
 
 
 const NavManu = () => {
-  const user={
-    email:"",
-    photoURL:"",
+  const user = {
+    email: "",
+    photoURL: "",
   }
 
   const navLink = <>
@@ -125,7 +125,7 @@ const NavManu = () => {
         </ul>
       </details>
     </li>
-    <li><Link to='/login'>Find a tutor</Link></li>
+   
     <li>
       <details>
         <summary className="cursor-pointer p-2 text-black">More</summary>
@@ -158,7 +158,7 @@ const NavManu = () => {
 
   </>
   const [isOpen, setIsOpen] = useState(false);
- 
+
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -196,7 +196,7 @@ const NavManu = () => {
           </ul>
         </div>
         <div className="navbar-end flex items-center space-x-4">
-         
+
 
           <button
             className="btn btn-ghost flex items-center p-2"
@@ -213,20 +213,18 @@ const NavManu = () => {
           <Link to="/checkout">
             <FaShoppingCart className="text-xl cursor-pointer" />
           </Link>
-           {user?.email ?(
+          {user?.email ? (
             <>
               <span className="hidden md:block"></span>
               <a className="btn btn-sm mx-2">Sign out</a>
             </>
           ) : (
             <Link to="/login">
-             Login
+              Login
             </Link>
           )}
-            <Link to="/join">
-              Join Now
-            </Link>
           
+
 
         </div>
       </div>
