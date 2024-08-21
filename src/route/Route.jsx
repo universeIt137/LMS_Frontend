@@ -13,6 +13,7 @@ import TeamTraining from "../pages/clientSide/TeamTraining";
 import Login from "../pages/clientSide/loginpage/Login";
 import Register from "../pages/clientSide/registerpage/Register";
 import CourseDetailsPage from "../pages/clientSide/course/CourseDetailsPage";
+import CourseCategoryPage from "../pages/clientSide/courseCatagory/CourseCategoryPage.jsx";
 
 
 
@@ -54,6 +55,11 @@ export const router = createBrowserRouter([
       {
         path:"/register",
         element:<Register></Register>
+      },
+      {
+        path: "/course-category",
+        element: <CourseCategoryPage></CourseCategoryPage>
+
       }
 
     ]
