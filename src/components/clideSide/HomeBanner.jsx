@@ -9,7 +9,7 @@ const HomeBanner = () => {
       <div className="flex flex-col h-full justify-between">
         <div className="flex flex-col md:flex-row justify-between items-center md:items-start h-full md:mt-10">
           <div className="w-full md:w-1/3 p-4 md:p-6 text-center md:text-left space-y-4 h-full items-end">
-            <p className="text-sm md:text-base lg:text-lg">
+            <p className=" hiden md:block text-sm md:text-base lg:text-lg">
               Study any topic, anytime. Explore thousands of courses for the lowest price ever!
             </p>
             <form>

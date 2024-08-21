@@ -1,6 +1,5 @@
 import { Pagination, A11y, Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -16,7 +15,7 @@ const TopTenCards = () => {
       pagination={{ clickable: true }}
       loop={true}
       autoplay={{
-        delay: 1000,
+        delay: 2000,
         disableOnInteraction: false
       }}
       breakpoints={{
@@ -37,8 +36,7 @@ const TopTenCards = () => {
           spaceBetween: 40,
         },
       }}
-      onSwiper={(swiper) => console.log(swiper)}
-      onSlideChange={() => console.log('slide change')}
+     
     >
       <SwiperSlide><TopTenCard /></SwiperSlide>
       <SwiperSlide><TopTenCard /></SwiperSlide>
