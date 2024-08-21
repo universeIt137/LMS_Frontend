@@ -16,7 +16,7 @@ const MainLayout = () => {
                         <ClientNavbar></ClientNavbar>
                     </div>
                 } 
-
+                <div>
                     <NavManu></NavManu>
                     <Outlet></Outlet>
                 </div>
