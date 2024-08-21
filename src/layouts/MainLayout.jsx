@@ -16,8 +16,9 @@ const MainLayout = () => {
                         <ClientNavbar></ClientNavbar>
                     </div>
                 } 
-                <div>
-                    <NavManu></NavManu>
+                <NavManu></NavManu>
+                <div className='w-11/12 mx-auto'>
+                    
                     <Outlet></Outlet>
                 </div>
                 <ClientFooter></ClientFooter>

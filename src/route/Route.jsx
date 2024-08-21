@@ -14,6 +14,9 @@ import Login from "../pages/clientSide/loginpage/Login";
 import Register from "../pages/clientSide/registerpage/Register";
 import CourseDetailsPage from "../pages/clientSide/course/CourseDetailsPage";
 import CourseCategoryPage from "../pages/clientSide/courseCatagory/CourseCategoryPage.jsx";
+import ShoppingCart from "../pages/clientSide/shoppingCart/ShoppingCart.jsx";
+import CheckoutPage from "../pages/clientSide/checkoutPage/CheckoutPage.jsx";
+import OrderComplete from "../pages/clientSide/orderComplete/OrderComplete.jsx";
 
 
 
@@ -61,6 +64,21 @@ export const router = createBrowserRouter([
         element: <CourseCategoryPage></CourseCategoryPage>
 
       }
+      ,
+      {
+        path:"/shopping-cart",
+        element:<ShoppingCart></ShoppingCart>
+      },
+      {
+        path:'checkout',
+        element:<CheckoutPage></CheckoutPage>
+      },
+      {
+        path:'order-complete',
+        element:<OrderComplete></OrderComplete>
+
+      }
+
 
     ]
 
