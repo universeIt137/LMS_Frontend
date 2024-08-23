@@ -32,7 +32,7 @@ const CheckOutOrder = () => {
             </div>
 
           </div>
-          <button className="btn btn-wide bg-[#020617] text-white hover:text-black">Proceed to Checkout</button>
+          <button className="btn  bg-[#020617] text-white w-full hover:text-black mx-auto">Proceed to Checkout</button>
         </div>
       </div>
     </div>

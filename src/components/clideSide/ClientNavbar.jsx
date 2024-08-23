@@ -99,7 +99,7 @@ const ClientNavbar = () => {
 
   return (
     <div className="navbar bg-white shadow-lg">
-      <div className="flex items-center justify-between w-full px-8">
+      <div className="flex items-center justify-between w-full px-2 md:px-6">
         <div className="flex items-center gap-5">
           <div className="dropdown lg:hidden">
             <button tabIndex={0} className="btn btn-ghost">

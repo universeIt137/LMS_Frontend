@@ -4,9 +4,9 @@ import CheckOutOrder from "./CheckOutOrder";
 
 const CheckoutPage = () => {
  return (
- <div>
+ <div className=" my-4 md:my-10">
    <ChackoutNav></ChackoutNav>
-   <div className="flex gap-6 min-h-screen">
+   <div className="flex flex-col md:flex-row gap-6 min-h-screen">
     <CheckoutFrom></CheckoutFrom>
     <CheckOutOrder></CheckOutOrder>
    </div>
