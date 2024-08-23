@@ -1,22 +1,16 @@
 
-import { Outlet, useLocation } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import ClientNavbar from '../components/clideSide/ClientNavbar';
 import ClientFooter from '../components/clideSide/ClientFooter';
-import NavManu from '../components/clideSide/NavManu';
+
 
 const MainLayout = () => {
-    const isLoginPage = useLocation()?.pathname === '/login';
-    const isRegisterPage = useLocation()?.pathname === '/register';
-    const isHideNavBar = (isLoginPage || isRegisterPage) ? true : false;
     return (
         <div>
             <div>
-                {
-                    isHideNavBar ? '' : <div className='w-full'>
-                        <ClientNavbar></ClientNavbar>
-                    </div>
-                } 
-                <NavManu></NavManu>
+               
+                <ClientNavbar></ClientNavbar>
+             
                 <div className='w-11/12 mx-auto'>
                     
                     <Outlet></Outlet>
