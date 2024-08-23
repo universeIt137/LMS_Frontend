@@ -31,7 +31,7 @@ export const router = createBrowserRouter([
         element: <HomePage></HomePage>
 
       },
-      
+
 
       {
         path: "/course-bundle",
@@ -52,12 +52,12 @@ export const router = createBrowserRouter([
         element: <TeamTraining></TeamTraining>
       },
       {
-        path:"/login",
-        element:<Login></Login>
+        path: "/login",
+        element: <Login></Login>
       },
       {
-        path:"/register",
-        element:<Register></Register>
+        path: "/register",
+        element: <Register></Register>
       },
       {
         path: "/course-category",
@@ -66,16 +66,16 @@ export const router = createBrowserRouter([
       }
       ,
       {
-        path:"/shopping-cart",
-        element:<ShoppingCart></ShoppingCart>
+        path: "/shopping-cart",
+        element: <ShoppingCart></ShoppingCart>
       },
       {
-        path:'checkout',
-        element:<CheckoutPage></CheckoutPage>
+        path: 'checkout',
+        element: <CheckoutPage></CheckoutPage>
       },
       {
-        path:'order-complete',
-        element:<OrderComplete></OrderComplete>
+        path: 'order-complete',
+        element: <OrderComplete></OrderComplete>
 
       }
 
@@ -83,7 +83,7 @@ export const router = createBrowserRouter([
     ]
 
   },
-  
+
 
   // start admin route 
   {

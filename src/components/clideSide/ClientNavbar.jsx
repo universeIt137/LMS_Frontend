@@ -92,9 +92,9 @@ const ClientNavbar = () => {
 
     <li><Link to='/bootCamp'>Boot Camps</Link></li>
     <li><Link to='/team-training'>Team Trainings</Link></li>
-  
 
-    
+
+
   </>
 
   return (
