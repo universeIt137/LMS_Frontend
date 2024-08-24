@@ -16,7 +16,7 @@ const ClientFooter = () => {
 
                     </p>
                     <p className="text-xl"> Subscribe to our newsletter</p>
-                    <div className=" flex  md:join">
+                    <div className=" flex flex-col md:flex-row gap-3 md:gap-0  md:join">
                         <input className="input  input-bordered text-black  join-item" placeholder="Email" />
                         <button className="btn join-item ">Subscribe</button>
                     </div>

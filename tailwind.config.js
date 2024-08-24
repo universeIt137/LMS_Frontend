@@ -11,6 +11,9 @@ export default {
         primary: "#2563EB",
 
       },
+      fontFamily: {
+        inter: ['Inter', 'sans-serif'],
+      },
     },
   },
   plugins: [
