@@ -17,6 +17,7 @@ import CourseCategoryPage from "../pages/clientSide/courseCatagory/CourseCategor
 import ShoppingCart from "../pages/clientSide/shoppingCart/ShoppingCart.jsx";
 import CheckoutPage from "../pages/clientSide/checkoutPage/CheckoutPage.jsx";
 import OrderComplete from "../pages/clientSide/orderComplete/OrderComplete.jsx";
+import Mentor from "../pages/clientSide/mentorPage/Mentor.jsx";
 
 
 
@@ -76,6 +77,11 @@ export const router = createBrowserRouter([
       {
         path: 'order-complete',
         element: <OrderComplete></OrderComplete>
+
+      },
+      {
+        path: 'mentor-page',
+        element: <Mentor></Mentor>
 
       }
 

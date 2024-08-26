@@ -3,8 +3,6 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 import { RouterProvider } from 'react-router-dom';
 import { router } from './route/Route';
-import 'bootstrap/dist/css/bootstrap.min.css';
-
 
 import { HelmetProvider } from 'react-helmet-async'
 
