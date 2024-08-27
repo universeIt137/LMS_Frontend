@@ -20,6 +20,8 @@ import OrderComplete from "../pages/clientSide/orderComplete/OrderComplete.jsx";
 import Mentor from "../pages/clientSide/mentorPage/Mentor.jsx";
 import Profile from "../pages/clientSide/profile/Profile.jsx";
 import ProfileForm from "../pages/clientSide/profile/ProfileForm.jsx";
+import MyCourse from "../pages/clientSide/profile/MyCourse.jsx";
+import MyReviews from "../pages/clientSide/profile/MyReviews.jsx";
 
 
 
@@ -93,6 +95,14 @@ export const router = createBrowserRouter([
           {
             path:"profile/form",
             element:<ProfileForm></ProfileForm>
+          },
+          {
+            path:"profile/my-course",
+            element:<MyCourse></MyCourse>
+          },
+          {
+            path:'profile/my-reviews',
+            element:<MyReviews></MyReviews>
           }
         ]
       }

@@ -6,7 +6,7 @@ const Profile = () => {
   return (
     <div className=" flex flex-col md:flex-row gap-2 my-14 ">
      <ProfileSidebar></ProfileSidebar>
-      <Outlet></Outlet>
+     <div className="w-full md:w-3/4"> <Outlet></Outlet></div>
     </div>
   );
 };
