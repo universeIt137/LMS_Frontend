@@ -18,6 +18,8 @@ import ShoppingCart from "../pages/clientSide/shoppingCart/ShoppingCart.jsx";
 import CheckoutPage from "../pages/clientSide/checkoutPage/CheckoutPage.jsx";
 import OrderComplete from "../pages/clientSide/orderComplete/OrderComplete.jsx";
 import Mentor from "../pages/clientSide/mentorPage/Mentor.jsx";
+import Profile from "../pages/clientSide/profile/Profile.jsx";
+import ProfileForm from "../pages/clientSide/profile/ProfileForm.jsx";
 
 
 
@@ -83,7 +85,18 @@ export const router = createBrowserRouter([
         path: 'mentor-page',
         element: <Mentor></Mentor>
 
+      },
+      {
+        path:"profile",
+        element:<Profile></Profile>,
+        children:[
+          {
+            path:"profile/form",
+            element:<ProfileForm></ProfileForm>
+          }
+        ]
       }
+
 
 
     ]
