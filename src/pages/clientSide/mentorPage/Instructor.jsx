@@ -46,7 +46,7 @@ const Instructor = () => {
 
       </div>
       <div className="flex flex-col gap-2">
-        <img src="https://res-console.cloudinary.com/dscp0w1oh/thumbnails/v1/image/upload/v1724693759/RWxsaXBzZV81M19ka3plazk=/drilldown" alt="" />
+        <img src="https://res.cloudinary.com/dscp0w1oh/image/upload/v1724693759/Ellipse_53_dkzek9.png" alt="" />
         <button className="btn btn-outline ">Website</button>
         <button className="btn btn-outline ">Twitter</button>
         <button className="btn btn-outline ">Youtube</button>

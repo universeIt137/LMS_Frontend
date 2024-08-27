@@ -2,7 +2,7 @@ const LearnerReviewCard = () => {
   return (
     <div className="flex flex-col md:flex-row  gap-14 p-5 w-full border">
       <div className="flex gap-1 items-center text-[#334155]">
-        <img className="w-[60px] h-[60px]" src="https://res-console.cloudinary.com/dscp0w1oh/thumbnails/v1/image/upload/v1724704870/RWxsaXBzZV8xOV95MmVwcGY=/drilldown" alt="" />
+        <img className="w-[60px] h-[60px]" src="https://res.cloudinary.com/dscp0w1oh/image/upload/v1724704870/Ellipse_19_y2eppf.png" alt="" />
         <p className="font-bold text-[18px] w-40">Mark Doe</p>
       </div>
       <div>
