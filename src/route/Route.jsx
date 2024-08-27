@@ -71,16 +71,16 @@ export const router = createBrowserRouter([
         element: <ShoppingCart></ShoppingCart>
       },
       {
-        path: 'checkout',
+        path: '/checkout',
         element: <CheckoutPage></CheckoutPage>
       },
       {
-        path: 'order-complete',
+        path: '/order-complete',
         element: <OrderComplete></OrderComplete>
 
       },
       {
-        path: 'mentor-page',
+        path: '/mentor-page',
         element: <Mentor></Mentor>
 
       }
