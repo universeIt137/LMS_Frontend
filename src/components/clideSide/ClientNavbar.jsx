@@ -10,10 +10,10 @@ const ClientNavbar = () => {
   };
 
   const navLink = <>
-    <li className="bg-[#E0D7FF]  ">
+    <li className="  ">
       <details className="group">
-        <summary className="cursor-pointer list-none group-open:before:rotate-90 before:content-none p-2 flex items-center text-[#754ffd]">
-          <FaBars className="mr-2" /> Courses
+        <summary className="cursor-pointer list-none group-open:before:rotate-90 before:content-none p-2 flex items-center ">
+          Courses
         </summary>
         <ul className="p-2 z-50 md:w-60 bg-white  shadow-lg">
           <li className="py-1">
@@ -85,6 +85,7 @@ const ClientNavbar = () => {
         </ul>
       </details>
     </li>
+    
     <li><Link to='/course-category'>Course Category</Link></li>
     <li><Link to='/course-bundle'>Course Bundles</Link></li>
 
