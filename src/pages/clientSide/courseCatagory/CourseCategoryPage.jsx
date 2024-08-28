@@ -38,8 +38,13 @@ const CourseCategoryPage = () => {
                 </div>
             </div>
                 <div className={``} >
-                    <div className="grid lg:grid-cols-4 lg:gap-x-16  md:grid-cols-2 md:gap-x-12" >
+                    <div className="grid lg:grid-cols-4 lg:w-[100%] lg:gap-x-16  md:grid-cols-2 md:w-[100%] sm:border-2 md:gap-x-12" >
                         <CourseFaq></CourseFaq>
+                        <CourseCategoryCard></CourseCategoryCard>
+                        <CourseCategoryCard></CourseCategoryCard>
+                        <CourseCategoryCard></CourseCategoryCard>
+                        <CourseCategoryCard></CourseCategoryCard>
+                        <CourseCategoryCard></CourseCategoryCard>
                         <CourseCategoryCard></CourseCategoryCard>
                         <CourseCategoryCard></CourseCategoryCard>
                         <CourseCategoryCard></CourseCategoryCard>
