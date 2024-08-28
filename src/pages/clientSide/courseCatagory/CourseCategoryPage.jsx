@@ -44,11 +44,6 @@ const CourseCategoryPage = () => {
                         <CourseCategoryCard></CourseCategoryCard>
                         <CourseCategoryCard></CourseCategoryCard>
                         <CourseCategoryCard></CourseCategoryCard>
-                        <CourseCategoryCard></CourseCategoryCard>
-                        <CourseCategoryCard></CourseCategoryCard>
-                        <CourseCategoryCard></CourseCategoryCard>
-                        <CourseCategoryCard></CourseCategoryCard>
-                        <CourseCategoryCard></CourseCategoryCard>
                     </div>
                 </div>
             <div className="
@@ -59,7 +54,7 @@ const CourseCategoryPage = () => {
                             Popular Mentors
                     </h3>
                 </div>
-                <div className=" grid lg:grid-cols-4 sm:grid-cols-2 py-3 " >
+                <div className=" grid gap-3 lg:grid-cols-4 sm:grid-cols-2 py-3 " >
                     <Mentors></Mentors>
                     <Mentors></Mentors>
                     <Mentors></Mentors>
