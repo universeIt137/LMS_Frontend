@@ -41,6 +41,7 @@ const Login = () => {
       let res = await login(data);
       if(res){
         toast.success("Login successfully");
+        console.log(res);
       }else{
         toast.error("Something went wrong");
       }

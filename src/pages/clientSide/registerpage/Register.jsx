@@ -51,12 +51,14 @@ const Register = () => {
       toast.error("Please enter your email");
     }else{
       let res = await registration(data);
-      if(res){
+      if(res[0]){
+        console.log(res);
+        toast.success(`${res}`);
         navigate("/login");
-        toast.success("Account create successfully");
+        
         
       }else{
-        toast.error("Something went wrong");
+        toast.error(`${res[1]}`);
       }
     }
     
