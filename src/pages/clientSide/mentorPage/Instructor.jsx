@@ -1,6 +1,6 @@
 const Instructor = () => {
   return (
-    
+
     <div className=" flex flex-col-reverse gap-6 md:gap-0  md:flex-row justify-between   my-10">
       <div className="space-y-5 w-full md:w-1/2">
         <div className="space-y-2">
@@ -45,8 +45,13 @@ const Instructor = () => {
 
 
       </div>
+
       <div className="flex flex-col gap-2">
-        <img src="https://res.cloudinary.com/dscp0w1oh/image/upload/v1724693759/Ellipse_53_dkzek9.png" alt="" />
+        <div className="avatar">
+          <div className="w-60 rounded-full">
+            <img src="https://res.cloudinary.com/dnvmj9pvk/image/upload/v1724761230/LMS/fvrrb8jtdpqd3eiflfpn.png" />
+          </div>
+        </div>
         <button className="btn btn-outline ">Website</button>
         <button className="btn btn-outline ">Twitter</button>
         <button className="btn btn-outline ">Youtube</button>
