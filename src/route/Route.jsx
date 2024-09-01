@@ -119,7 +119,7 @@ export const router = createBrowserRouter([
     path: "/admin",
     element: <Dashboard></Dashboard>,
     children: [{
-      path: "/admin/dashboard",
+      path: "dashboard",
       element: <AdminHome></AdminHome>
     },
     {
