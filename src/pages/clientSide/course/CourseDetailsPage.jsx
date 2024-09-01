@@ -1,227 +1,154 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { FaFacebookF, FaTwitter, FaLinkedinIn, FaGithub } from 'react-icons/fa';
-import StarRatings from 'react-star-ratings'; // Import StarRatings component
-import { TfiWorld } from "react-icons/tfi";
-import { RiGraduationCapLine } from "react-icons/ri";
-import { CiPlay1 } from "react-icons/ci";
-import { SlBadge } from "react-icons/sl";
-
+import React, { useState } from 'react';
+import StarRatings from 'react-star-ratings';
+import { SiFormspree } from "react-icons/si";
+import { GoProjectRoadmap } from "react-icons/go";
+import { FaCalendarAlt } from "react-icons/fa";
+import { MdOutlineVideoLibrary } from "react-icons/md";
+import { NavLink } from 'react-router-dom';
 
 const CourseDetailsPage = () => {
+    // State to hold the rating value
+    const [rating, setRating] = useState(4); // Default rating is set to 4
+
+    // Function to handle rating change
+    const changeRating = (newRating) => {
+        setRating(newRating);
+    };
+
     return (
-        <div className="">
-            <div className="container mx-auto py-11">
-                <div className="lg:grid grid-cols-3 gap-10 justify-between">
-                    <div className='col-span-2'>
-                        <div className='font-semibold text-sm'>
-                            <Link to="/">Home</Link> <span> &gt; </span>
-                            <Link to="/categories">Categories</Link> <span> &gt; </span>
-                            <Link to="/course/introduction-to-user-experience-design">
-                                Introduction to User Experience Design
-                            </Link>
-                        </div>
-                        <div className='py-10'>
-                            <h1 className="font-bold text-3xl leading-10">Introduction to User Experience Design</h1>
-                            <p className="text-gray-700 text-lg">This course is meticulously crafted to provide you with a foundational understanding of the principles, methodologies, and tools that drive exceptional user experiences in the digital landscape.</p>
-                        </div>
-                        <div>
-                            <div className="mt-6">
-                                <div className="flex items-center space-x-4">
-                                    <p className='text-gold text-2xl'>4.6</p>
-                                    <StarRatings
-                                        rating={4.6} // Default rating
-                                        starRatedColor="gold"
-                                        numberOfStars={5}
-                                        name="rating"
-                                        starDimension="25px"
-                                        starSpacing="1px"
-                                    />
-                                    <p className="text-sm text-gray-700">
-                                        (651651 ratings) | 22 Total Hours. 155 Lectures. All levels
-                                    </p>
-                                </div>
-                                <div className='pt-6 flex items-center gap-2'>
-                                    <img className='w-10 rounded-full h-10' src="https://res.cloudinary.com/dsdgb5c7l/image/upload/v1723976525/image_4_flarz1.png" alt="cardimage" />
-                                    <p>Created By <Link className='text-blue-600'>Your Daddy</Link></p>
-
-                                </div>
-                                <div className='pt-6 flex items-center gap-2'>
-                                    <TfiWorld />
-                                    <p className='text-lg'>English, Spanish, Italian, German</p>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        {/* course description area */}
-
-                        <div className="mt-14">
-                            <div className="flex gap-6 mb-6">
-                                <a href="#desc" className="btn border-gray-400 hover:bg-transparent focus:border-2  focus:border-green-100 btn-xs sm:btn-sm md:btn-md border-2 bg-transparent focus:bg-green-100 hover:border-gray-400 text-sm text-gray-700">Description</a>
-                                <button className="btn border-gray-400 hover:bg-transparent focus:border-2  focus:border-green-100 btn-xs sm:btn-sm md:btn-md border-2 bg-transparent focus:bg-green-100 hover:border-gray-400 text-sm text-gray-700">Instructor</button>
-                                <button className="btn border-gray-400 hover:bg-transparent focus:border-2  focus:border-green-100 btn-xs sm:btn-sm md:btn-md border-2 bg-transparent focus:bg-green-100 hover:border-gray-400 text-sm text-gray-700">Syllabus</button>
-                                <button className="btn border-gray-400 hover:bg-transparent focus:border-2  focus:border-green-100 btn-xs sm:btn-sm md:btn-md border-2 bg-transparent focus:bg-green-100 hover:border-gray-400 text-sm text-gray-700">Reviews</button>
-                            </div>
-                            <hr />
-                            <div>
-                                <div id='desc' className="desc mt-10">
-                                    <h2 className="font-bold text-2xl">Course Description</h2>
-                                    <p className="pt-1 text-gray-700 text-lg">This interactive e-learning course will introduce you to User Experience (UX) design, the art of creating products and services that are intuitive, enjoyable, and user-friendly. Gain a solid foundation in UX principles and learn to apply them in real-world scenarios through engaging modules and interactive exercises. </p>
-                                </div>
-
-                                <div id='desc' className="desc mt-10 mb-6">
-                                    <h2 className="font-bold text-2xl">Certification</h2>
-                                    <p className="pt-1 text-gray-700 text-lg">At Byway, we understand the significance of formal recognition for your hard work and dedication to continuous learning. Upon successful completion of our courses, you will earn a prestigious certification that not only validates your expertise but also opens doors to new opportunities in your chosen field. </p>
-                                </div>
-                                <hr />
-
-                                <div id='desc' className="desc mt-10 pb-10">
-                                    <h2 className="font-bold text-2xl mb-3">Instructor</h2>
-                                    <h2 className="text-primary font-bold text-2xl">Sheikh Hasina</h2>
-                                    <p>UI/UX Designer</p>
-
-                                    <div className="flex gap-4 items-center mt-4">
-                                        <img className="w-28 h-24 rounded-full" src='https://res.cloudinary.com/dsdgb5c7l/image/upload/v1724066484/images_azo3fc.jpg' alt="sh" />
-                                        <div className="">
-                                            <p className="flex items-center gap-2"><SlBadge /><span>40,548 Reviews</span></p>
-                                            <p className="flex items-center gap-2"><RiGraduationCapLine /><span>500 Student</span></p>
-                                            <p className="flex items-center gap-2"><CiPlay1 /><span>15 Plays</span></p>
-                                        </div>
-                                    </div>
-                                    <p className="text-gray-700 text-lg pt-4">With over a decade of industry experience, Ronald brings a wealth of practical knowledge to the classroom. He has played a pivotal role in designing user-centric interfaces for renowned tech companies, ensuring seamless and engaging user experiences.</p>
-                                </div>
-                                <hr />
-                                <div className="syllabus pt-5">
-                                    <h2 className="font-bold text-2xl mb-4">Instructor</h2>
-
-                                    <div tabIndex={0} className="collapse bg-transparent collapse-plus border-base-300 bg-base-200 border rounded-none">
-                                        <div className="collapse-title flex items-center text-xl font-medium">
-                                            <svg
-                                                className="w-4 h-4 mr-3"
-                                                fill="none"
-                                                stroke="currentColor"
-                                                viewBox="0 0 24 24"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                            >
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-                                            </svg>
-                                            <span className="flex-grow font-bold text-lg">Introduction to UX Design</span>
-                                            <div className="flex space-x-4 text-sm text-gray-700">
-                                                <span>5 lessons</span>
-                                                <span>1 hour</span>
-                                            </div>
-                                        </div>
-                                        <div className="collapse-content">
-                                            <p tabindex={0}> Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic eum incidunt sit, vitae quo quisquam expedita, quaerat debitis eligendi adipisci repellat</p>
-                                        </div>
-                                    </div>
-                                    <div tabIndex={0} className="collapse bg-transparent collapse-plus border-base-300 bg-base-200 border rounded-none">
-                                        <div className="collapse-title flex items-center text-xl font-medium">
-                                            <svg
-                                                className="w-4 h-4 mr-3"
-                                                fill="none"
-                                                stroke="currentColor"
-                                                viewBox="0 0 24 24"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                            >
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-                                            </svg>
-                                            <span className="flex-grow font-bold text-lg">Basics of User-Centered Design</span>
-                                            <div className="flex space-x-4 text-sm text-gray-700">
-                                                <span>5 lessons</span>
-                                                <span>1 hour</span>
-                                            </div>
-                                        </div>
-                                        <div className="collapse-content">
-                                            <p tabindex={0} >Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic eum incidunt sit, vitae quo quisquam expedita, quaerat debitis eligendi adipisci repellat</p>
-                                        </div>
-                                    </div>
-                                    <div tabIndex={0} className="collapse bg-transparent collapse-plus border-base-300 bg-base-200 border rounded-none">
-                                        <div className="collapse-title flex items-center text-xl font-medium">
-                                            <svg
-                                                className="w-4 h-4 mr-3"
-                                                fill="none"
-                                                stroke="currentColor"
-                                                viewBox="0 0 24 24"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                            >
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-                                            </svg>
-                                            <span className="flex-grow font-bold text-lg">Elements of User Experience</span>
-                                            <div className="flex space-x-4 text-sm text-gray-700">
-                                                <span>5 lessons</span>
-                                                <span>1 hour</span>
-                                            </div>
-                                        </div>
-                                        <div className="collapse-content">
-                                            <p tabindex={0}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic eum incidunt sit, vitae quo quisquam expedita, quaerat debitis eligendi adipisci repellat</p>
-                                        </div>
-                                    </div>
-                                    <div tabIndex={0} className="collapse bg-transparent collapse-plus border-base-300 bg-base-200 border rounded-none">
-                                        <div className="collapse-title flex items-center text-xl font-medium">
-                                            <svg
-                                                className="w-4 h-4 mr-3"
-                                                fill="none"
-                                                stroke="currentColor"
-                                                viewBox="0 0 24 24"
-                                                xmlns="http://www.w3.org/2000/svg"
-                                            >
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-                                            </svg>
-                                            <span className="flex-grow font-bold text-lg">Visual Design Principles</span>
-                                            <div className="flex space-x-4 text-sm text-gray-700">
-                                                <span>5 lessons</span>
-                                                <span>1 hour</span>
-                                            </div>
-                                        </div>
-                                        <div className="collapse-content">
-                                            <p tabindex={0}> Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic eum incidunt sit, vitae quo quisquam expedita, quaerat debitis eligendi adipisci repellat</p>
-                                        </div>
-                                    </div>
-
-
-                                </div>
-                            </div>
-
-
-                        </div>
-
-
+        <div className='pt-16 pb-16 '>
+            <div>
+                <div className='max-w-[50%]' >
+                    <div className='flex items-center w-32 py-2 px-2 bg-red-200 rounded-3xl'>
+                    <div>
+                            <img 
+                                src="https://cdn.ostad.app/public/upload/2024-05-13T11-13-35.024Z-LiveClass-line.svg" 
+                                alt="Live Course" 
+                            />
                     </div>
-                    <div className="card rounded-2xl h-max shadow-lg p-5">
-                        <img src="https://res.cloudinary.com/dsdgb5c7l/image/upload/v1723976525/image_4_flarz1.png" alt="cardimage" />
-                        <div className="p-7">
-                            <div className="flex items-center gap-4">
-                                <h2 className="font-semibold text-2xl">$49.5</h2>
-                                <h2 className="font-semibold text-lg text-gray-900"><del>$99.5</del></h2>
-                                <h2 className="font-semibold text-lg text-green-600">$50% off</h2>
+                    <div>
+                            <p className='text-sm text-red-600 ml-2 font-bold'>লাইভ কোর্স</p>
+                    </div>
+                </div>
+                    <h1 className='text-2xl font-bold text-slate-900 my-3'>
+                    Full Stack Web Development with JavaScript <br /> (MERN)
+                    </h1>
+                    <div className='flex items-baseline ' >
+                        <div>
+                            <p className='text-[12px] font-bold ' >4.8</p>
+                        </div>
+                    <div className='ml-2' >
+                        <StarRatings className="text-[4px]"
+                            rating={rating} // Use state variable
+                            starRatedColor="#20b486"
+                            changeRating={changeRating} // Use state update function
+                            numberOfStars={1}
+                            name='rating'
+                            starDimension="15px"
+                            starSpacing = "2px"
+                        />
+                    </div>
+                </div>
+                <p className='mt-2 text-[#7b7b7d] text-sm font-[500] ' >
+                    ১ বারই কোর্স কিনুন। ফ্রন্টএন্ড ওয়েব ডেভেলপমেন্ট এবং ব্যাকেন্ড ওয়েব ডেভেলপমেন্ট - ২ টা ক্যারিয়ার ট্র্যাকের দরজাই ওপেন রাখুন। কারন এক্সেস তো থাকবে লাইফটাইমই! আর সাথে ৩ টা জিনিস রাখবেন- ল্যাপটপ বা কম্পিউটার, ইন্টারনেট কানেকশন ও শেখার অদম্য ইচ্ছা। বিজয় আপনারই!
+                </p>
+                    <div className='flex items-center my-2 ' >
+                        <div>
+                            <NavLink to={"/checkout"} >
+                            <button class="btn btn-warning font-[600] ">
+                                ব্যাচে ভর্তি হোন
+                            </button>
+                            </NavLink>
+                        </div>
+                        <dir>
+                            <h1 className='text-xl font-bold -ml-5 text-[#000000] ' >
+                                ৳৮,০০০
+                            </h1>
+                        </dir>
+                    </div>
+                    <div className='flex items-center gap-2 ' >
+                        <div className='flex items-center text-[11px] font-[500]
+                            shadow-md w-40 p-2 rounded-md bg-[#f3f4f7] ' >
+                            <div className='ml-5' >
+                                <i> <SiFormspree></SiFormspree> </i>
                             </div>
-                            <Link className='btn hover:bg-white hover:text-neutral-900 hover:border-2 hover:border-neutral-900 border-0 bg-neutral-900 text-white w-full rounded-md text-sm'>Add to Cart</Link>
-                            <Link className='btn mt-4 hover:bg-neutral-900 hover:text-white bg-white border-2 hover:border-0 border-neutral-900 text-black w-full rounded-md text-sm'>Buy Now</Link>
-                            <hr className="my-4 border-gray-300" />
-                            <p className="font-semibold text-center text-lg">Share</p>
-                            <div className="flex justify-center space-x-4 mt-4">
-                                {/* Social Icons */}
-                                <a href="#" className="text-blue-600 hover:text-blue-800 bg-white shadow-lg rounded-full p-2 hover:bg-slate-50">
-                                    <FaFacebookF size={24} />
-                                </a>
-                                <a href="#" className="text-blue-400 hover:text-blue-600 bg-white shadow-lg rounded-full p-2 hover:bg-slate-50">
-                                    <FaTwitter size={24} />
-                                </a>
-                                <a href="#" className="text-blue-700 hover:text-blue-900 bg-white shadow-lg rounded-full p-2 hover:bg-slate-50">
-                                    <FaLinkedinIn size={24} />
-                                </a>
-                                <a href="#" className="text-gray-900 hover:text-gray-950 bg-white shadow-lg rounded-full p-2 hover:bg-slate-50">
-                                    <FaGithub size={24} />
-                                </a>
+                            <div className='' >
+                                <p className='ml-1' >৪৮ টি  লাইভ ক্লাস</p>
                             </div>
-
-
-
+                        </div>
+                        <div className='flex items-center text-[11px] font-[500]
+                            shadow-md w-40 p-2 rounded-md bg-[#f3f4f7] ' >
+                            <div className='ml-5' >
+                                <i className=''  > <GoProjectRoadmap></GoProjectRoadmap> </i>
+                            </div>
+                            <div className='ml-2' >
+                                <p  >১০ টি প্রজেক্ট</p>
+                            </div>
+                        </div>
+                        <div className='flex items-center text-[11px] font-[500]
+                            shadow-md w-28 p-2 rounded-md bg-[#f3f4f7] ' >
+                            <div className='ml-1' >
+                                <i  > <FaCalendarAlt></FaCalendarAlt> </i>
+                            </div>
+                            <div className='ml-1' >
+                                <p  >২৫ দিন বাকি</p>
+                            </div>
+                        </div>
+                        <div className='flex items-center text-[11px]  font-[500]
+                            shadow-md w-48 p-2 rounded-md bg-[#f3f4f7] ' >
+                            <div className='' >
+                                <i> <MdOutlineVideoLibrary></MdOutlineVideoLibrary> </i>
+                            </div>
+                            <div className='ml-1' >
+                                <p >৮০৭ টি  প্রি রেকর্ডেড ভিডিও</p>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <div className='max-w-[50%]' >
+                    
+                </div>
+
+                {/* live class time support class time start */}
+
+                <div className=' grid lg:grid-cols-4 md:grid-col-2  gap-2 mt-10 ' >
+                    <div className=' bg-slate-300  shadow-md
+                    h-[110px] p-10 
+                    transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 rounded-3xl hover:text-[white]
+                    '>
+                        <p className='text-center' >
+                            ব্যাচ শুরু <br /> বৃহস্পতিবার ২৬ সেপ্টেম্বর
+                        </p>
+                    </div>
+                    <div className=' bg-slate-300  shadow-md
+                    h-[110px] p-10 
+                    transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 rounded-3xl hover:text-[white]
+                    ' >
+                        <p className='text-center' >
+                        লাইভ ক্লাস <br /> রাত ১০:১৫- ১১:৪৫ (বৃহ,শনি)
+                        </p>
+                    </div>
+                    <div className=' bg-slate-300 shadow-md
+                    h-[110px] p-10 
+                    transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 rounded-3xl hover:text-[white]
+                    ' >
+                        <p className='text-center' >
+                            ৩০০ সিট বাকি
+                        </p>
+                    </div>
+                    <div className=' bg-slate-300 shadow-md
+                    h-[110px] p-10 
+                    transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 rounded-3xl hover:text-[white]
+                    ' >
+                        <p className='text-center' >
+                            ভর্তি চলছে ৮ম ব্যাচে
+                        </p>
+                    </div>
+                </div>
+
+                {/* live class time support class time end */}
+
+
 
             </div>
         </div>
