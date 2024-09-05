@@ -12,6 +12,7 @@ import data from "../../../data";
 import "./course.css";
 import { IoIosArrowUp } from "react-icons/io";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
+import SuccessfulStudent from "./SuccessfulStudent";
 
 const CourseDetailsPage = () => {
   // State to hold the rating value
@@ -367,7 +368,7 @@ const CourseDetailsPage = () => {
 
       <div>
         <h1 className="text-center md:text-2xl lg:text-3xl lg:font-bold ">
-          কী কী থাকতে হবে
+          কী কী <span className="text-[#ffc000]" >থাকতে</span> হবে
         </h1>
       </div>
 
@@ -392,6 +393,11 @@ const CourseDetailsPage = () => {
             <h1 className="py-4 ml-4 md:text-xl lg:text-xl " >ভালো ইন্টারনেট কানেকশন</h1>
         </div>
       </div>
+
+      <div>
+            <SuccessfulStudent></SuccessfulStudent>
+      </div>
+
     </div>
   );
 };
