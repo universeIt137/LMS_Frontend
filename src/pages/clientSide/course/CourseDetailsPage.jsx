@@ -10,6 +10,9 @@ import Project from "./Project";
 import Instructor from "./Instructor";
 import data from "../../../data";
 import "./course.css";
+import { IoIosArrowUp } from "react-icons/io";
+import { MdOutlineKeyboardArrowDown } from "react-icons/md";
+
 const CourseDetailsPage = () => {
   // State to hold the rating value
   const [rating, setRating] = useState(4); // Default rating is set to 4
@@ -20,7 +23,12 @@ const CourseDetailsPage = () => {
     setRating(newRating);
   };
 
-  const toggle = () => {};
+  const toggle = (i) => {
+    if (show == i) {
+      return setShow(null);
+    }
+    return setShow(i);
+  };
 
   return (
     <div className="pt-16 pb-16 ">
@@ -252,23 +260,76 @@ const CourseDetailsPage = () => {
         </div>
 
         <div className="curriculum">
-          <div className="grid lg:grid-cols-2 ">
+          <div className="curriculum-data">
             {data.map((item, i) => {
               return (
                 <div key={i}>
-                  <div className="title">
+                  <div
+                    className="title"
+                    onClick={() => {
+                      toggle(i);
+                    }}
+                  >
                     {/* week div */}
-                    <div className="w-16 h-16 bg-[#20b486]  ">
-                      <h1 className="text-center mt-5 ">{item.week}</h1>
+                    <div className="w-16 h-16 bg-[#20b486]  rounded-2xl   ">
+                      <h1 className="text-center text:md font-bold text-[white] mt-5 ">
+                        {item.week} সপ্তাহ{" "}
+                      </h1>
                     </div>
                     {/* title div */}
                     <div>
                       <h3>{item.title}</h3>
                     </div>
                     {/* icon div */}
-                    <div></div>
+                    <div>
+                      <i>
+                        {show === i ? (
+                          <MdOutlineKeyboardArrowDown />
+                        ) : (
+                          <IoIosArrowUp />
+                        )}
+                      </i>
+                    </div>
                   </div>
-                  <div className="content"></div>
+                  <div className="content">
+                    <div className="flex items-center justify-between " >
+                      {/* record video  div */}
+                      <div className="flex items-center px-4 rounded-md py-1  bg-[#b8b8b8] " >
+                        <div>
+                          <img
+                            src="https://res.cloudinary.com/dj2edy2rg/image/upload/v1725429764/video-icon_ylmamc.svg"
+                            alt=""
+                          />
+                        </div>
+                        <div>
+                          <p>
+                            {
+                              item.recorded_video
+                            }
+                            recorded video
+                          </p>
+                        </div>
+                      </div>
+                      {/* live class div */}
+                      <div className="flex items-center " >
+                        <div>
+                            <img 
+                            src="https://res.cloudinary.com/dj2edy2rg/image/upload/v1725433042/live-class_i2kxac.png" 
+                            alt="" />
+                        </div>
+                        <div>
+                            <p>
+                              {
+                                item.live_class
+                              }
+                              live class
+                            </p>
+                        </div>
+                      </div>
+                      {/* quiz div */}
+                      <div></div>
+                    </div>
+                  </div>
                 </div>
               );
             })}
