@@ -12,6 +12,8 @@ import data from "../../../data";
 import "./course.css";
 import { IoIosArrowUp } from "react-icons/io";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
+import SuccessfulStudent from "./SuccessfulStudent";
+import Feedback from "./Feedback";
 
 const CourseDetailsPage = () => {
   // State to hold the rating value
@@ -195,7 +197,7 @@ const CourseDetailsPage = () => {
           <nav className="">
             <ul
               className="flex flex-wrap lg:flex gap-6 lg:justify-between lg:items-center
-                        lg:py-8 md:py-6 my-8
+                        lg:py-8 md:py-6 my-8 sticky z-50 
                         "
             >
               <li>
@@ -217,7 +219,7 @@ const CourseDetailsPage = () => {
                 <a href="#instructor">ইন্সট্রাক্টর</a>
               </li>
               <li>
-                <NavLink to={""}>জব পেয়েছে যারা</NavLink>
+                <a href="#successful-student">জব পেয়েছে যারা</a>
               </li>
               <li>
                 <NavLink to={""}>রিভিউ</NavLink>
@@ -236,7 +238,7 @@ const CourseDetailsPage = () => {
 
         {/* curriculum area start */}
         <div>
-          <h1 className="text-center lg:text-3xl font-bold lg:pb-4 text-[#1d2939] ">
+          <h1 className="text-center lg:text-3xl font-bold lg:pb-4 text-[#1d2939] my-4 ">
             কারিকুলাম
           </h1>
           <div className=" flex justify-center items-center gap-4 lg:flex lg:justify-center lg:items-center lg:gap-x-10 ">
@@ -259,8 +261,8 @@ const CourseDetailsPage = () => {
           </div>
         </div>
 
-        <div className="curriculum">
-          <div className="curriculum-data">
+        <div className="curriculum   ">
+          <div className="curriculum-data  ">
             {data.map((item, i) => {
               return (
                 <div key={i}>
@@ -291,43 +293,55 @@ const CourseDetailsPage = () => {
                       </i>
                     </div>
                   </div>
-                  <div className="content">
-                    <div className="flex items-center justify-between " >
-                      {/* record video  div */}
-                      <div className="flex items-center px-4 rounded-md py-1  bg-[#b8b8b8] " >
+
+                  <div className={show === i ? "content isShow" : "content"}>
+                    <div className="border border-1 border-white mb-2 "></div>
+                    <div className="flex items-center py-1 justify-between px-5 pb-6 ">
+                      {/* record video div */}
+                      <div className="flex items-center px-4 rounded-md py-1 bg-[#b8b8b8]">
                         <div>
                           <img
                             src="https://res.cloudinary.com/dj2edy2rg/image/upload/v1725429764/video-icon_ylmamc.svg"
-                            alt=""
+                            alt="Recorded Video Icon"
                           />
                         </div>
                         <div>
-                          <p>
-                            {
-                              item.recorded_video
-                            }
-                            recorded video
+                          <p className="text-sm font-semibold">
+                            {item.recorded_video} recorded video
                           </p>
                         </div>
                       </div>
                       {/* live class div */}
-                      <div className="flex items-center " >
+                      <div className="flex items-center gap-1">
                         <div>
-                            <img 
-                            src="https://res.cloudinary.com/dj2edy2rg/image/upload/v1725433042/live-class_i2kxac.png" 
-                            alt="" />
+                          <img
+                            src="https://res.cloudinary.com/dj2edy2rg/image/upload/v1725433042/live-class_i2kxac.png"
+                            alt="Live Class Icon"
+                          />
                         </div>
                         <div>
-                            <p>
-                              {
-                                item.live_class
-                              }
-                              live class
-                            </p>
+                          <p className="text-sm font-semibold">
+                            {item.live_class} live class
+                          </p>
                         </div>
                       </div>
                       {/* quiz div */}
-                      <div></div>
+                      <div className="flex items-center">
+                        <div>
+                          <img
+                            src="https://res.cloudinary.com/dj2edy2rg/image/upload/v1725432891/checkbox-1_csxtfo.png"
+                            alt="Quiz Icon"
+                          />
+                        </div>
+                        <div>
+                          <p className="text-sm font-semibold">
+                            {item.quiz} Quiz
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <p className="px-3 pb-4 text-[#515151] ">{item.des}</p>
                     </div>
                   </div>
                 </div>
@@ -350,6 +364,45 @@ const CourseDetailsPage = () => {
       <div id="instructor">
         <Instructor></Instructor>
       </div>
+
+      {/* কী কী থাকতে হবে */}
+
+      <div>
+        <h1 className="text-center md:text-2xl lg:text-3xl lg:font-bold ">
+          কী কী <span className="text-[#ffc000]" >থাকতে</span> হবে
+        </h1>
+      </div>
+
+      <div className="flex flex-col  md:flex-row md:justify-center md:items-center md:gap-4
+      lg:flex-row lg:justify-center lg:items-center l:gap-5 lg:my-8 md:my-6 my-4  gap-y-4 " >
+        <div className="max:w-[32%] bg-[#cfcfcf] rounded-xl " >
+            <img className="w-[20%] pt-8 ml-4  "
+            src="https://res.cloudinary.com/dj2edy2rg/image/upload/v1725518555/laptop_efvkvw.png" 
+            alt="" />
+            <h1 className="py-4 ml-4 md:text-xl lg:text-xl " >ল্যাপটপ/ডেস্কটপ (৪ জিবি র‍্যাম)</h1>
+        </div>
+        <div className="max:w-[32%] bg-[#cfcfcf] rounded-xl " >
+            <img className="w-[20%] pt-8 ml-4  "
+            src="https://res.cloudinary.com/dj2edy2rg/image/upload/v1725518555/laptop_efvkvw.png" 
+            alt="" />
+            <h1 className="py-4 ml-4 md:text-xl lg:text-xl " >লেগে থাকার মানসিকতা</h1>
+        </div>
+        <div className="max:w-[32%] bg-[#cfcfcf] rounded-xl " >
+            <img className="w-[20%] pt-8 ml-4  "
+            src="https://res.cloudinary.com/dj2edy2rg/image/upload/v1725518555/laptop_efvkvw.png" 
+            alt="" />
+            <h1 className="py-4 ml-4 md:text-xl lg:text-xl " >ভালো ইন্টারনেট কানেকশন</h1>
+        </div>
+      </div>
+
+      <div id="successful-student" >
+            <SuccessfulStudent></SuccessfulStudent>
+      </div>
+
+      <div>
+        <Feedback></Feedback>
+      </div>
+
     </div>
   );
 };
