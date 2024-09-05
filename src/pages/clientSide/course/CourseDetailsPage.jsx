@@ -8,15 +8,19 @@ import { NavLink } from "react-router-dom";
 import GetCourse from "./GetCourse";
 import Project from "./Project";
 import Instructor from "./Instructor";
-
+import data from "../../../data";
+import "./course.css";
 const CourseDetailsPage = () => {
   // State to hold the rating value
   const [rating, setRating] = useState(4); // Default rating is set to 4
+  const [show, setShow] = useState(null);
 
   // Function to handle rating change
   const changeRating = (newRating) => {
     setRating(newRating);
   };
+
+  const toggle = () => {};
 
   return (
     <div className="pt-16 pb-16 ">
@@ -222,6 +226,9 @@ const CourseDetailsPage = () => {
 
         {/* curriculum area start */}
         <div>
+          <h1 className="text-center lg:text-3xl font-bold lg:pb-4 text-[#1d2939] ">
+            কারিকুলাম
+          </h1>
           <div className=" flex justify-center items-center gap-4 lg:flex lg:justify-center lg:items-center lg:gap-x-10 ">
             <div className="flex items-center gap-3 ">
               <img
@@ -242,141 +249,56 @@ const CourseDetailsPage = () => {
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-2 lg:gap-8 lg:py-12">
-          <div className="collapse collapse-plus bg-base-200 my-4 transition-all duration-500">
-            <input type="checkbox" />
-            <div className="collapse-title text-xl font-medium">
-              <div className="flex gap-5 items-center">
-                <div className="w-[75px] bg-[#20b486] p-2 text-center rounded-2xl text-white">
-                  <p className="text-sm font-bold">সপ্তাহ ০</p>
-                </div>
-                <div>
-                  <p className="text-sm font-semibold">
-                    শুরুর আগের শুরু (ক্লাস শুরুর আগেই যারা ইনরোল করেছেন তাদের
-                    জন্য)
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="collapse-content">
-              <div className="flex items-center bg-[#eaecf0] w-[165px] rounded-md px-1 gap-3">
-                <div>
-                  <img
-                    src="https://res.cloudinary.com/dj2edy2rg/image/upload/v1725429764/video-icon_ylmamc.svg"
-                    alt="video-icon"
-                  />
-                </div>
-                <div>
-                  <p className="text-sm text-[#322b28]">77 recorded video</p>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div className="curriculum">
+          <div className="grid lg:grid-cols-2 " >
+            {data.map((item, i) => {
+              return (
+                <div key={i} >
+                  <div className="title">
+                        {/* week div */}
+                        <div className="w-16 h-16 bg-[#20b486]  " >
+                            <h1 className="text-center mt-5 " > 
+                              {
+                                item.week
+                              } 
+                            </h1>
+                        </div>
+                        {/* title div */}
+                        <div>
+                            <h3>
+                              {
+                                item.title
+                              }
+                            </h3>
+                        </div>
+                        {/* icon div */}
+                        <div>
 
-          {/* Second accordion */}
-          <div className="collapse collapse-plus my-4 bg-base-200 transition-all duration-500">
-            <input type="checkbox" />
-            <div className="collapse-title text-xl font-medium ">
-              <div className="flex gap-5 items-center">
-                <div className="w-[75px] bg-[#20b486] p-2 text-center rounded-2xl text-white">
-                  <p className="text-sm font-bold">সপ্তাহ ১</p>
-                </div>
-                <div>
-                  <p className="text-sm font-semibold">
-                    [Foundation] ইন্ট্রোডাকশন অব ওয়েব ডেভেলপমেন্ট এবং HTML
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="collapse-content  ">
-              <div className="flex items-center justify-between bg-[#eaecf0] rounded-md px-1 gap-2">
-                <div className="flex items-center py-2 px-3">
-                  <div>
-                    <img
-                      src="https://res.cloudinary.com/dj2edy2rg/image/upload/v1725429764/video-icon_ylmamc.svg"
-                      alt="video-icon"
-                    />
+                        </div>
                   </div>
-                  <div>
-                    <p className="text-sm text-[#322b28]">77 recorded video</p>
-                  </div>
-                </div>
-                <div className="flex gap-2 items-center">
-                  <div>
-                    <img
-                      src="https://res.cloudinary.com/dj2edy2rg/image/upload/v1725433042/live-class_i2kxac.png"
-                      alt="live-class-icon"
-                    />
-                  </div>
-                  <div>
-                    <p className="text-sm text-[#322b28]">3 live class</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-2">
-                  <div>
-                    <img
-                      src="https://res.cloudinary.com/dj2edy2rg/image/upload/v1725432891/checkbox-1_csxtfo.png"
-                      alt="quiz-icon"
-                    />
-                  </div>
-                  <div>
-                    <p className="text-sm text-[#322b28]">1 Quiz</p>
-                  </div>
-                </div>
-              </div>
-              <div>
-                <p>
-                  VS Code Setup for HTML | Structural Tags | Text Formatting |
-                  List | Link | Image and Multimedia | Table | Form | Semantic
-                  Tags | Scripting | Interactive Element | Special Purpose Tags
-                  | Advance web page structure | Meta | SEO Meta | HTTP-Equiv
-                  Meta | Open Graph | Twitter Card | Mobile Device Meta |
-                  Security Meta | Cache Control Meta Tags | Manifest
-                  Configurations | Meta tags for progressive web application
-                  (PWA)
-                </p>
-              </div>
-            </div>
-          </div>
+                  <div className="content">
 
-          {/* Third accordion */}
-          <div className="collapse my-4 collapse-plus bg-base-200 transition-all duration-500">
-            <input type="checkbox" />
-            <div className="collapse-title text-xl font-medium">
-              Click to open this one
-            </div>
-            <div className="collapse-content">
-              <p>hello</p>
-            </div>
-          </div>
-
-          {/* Fourth accordion */}
-          <div className="collapse my-4 collapse-plus bg-base-200 transition-all duration-500">
-            <input type="checkbox" />
-            <div className="collapse-title text-xl font-medium">
-              Click to open this one
-            </div>
-            <div className="collapse-content">
-              <p>hello</p>
-            </div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
 
         {/* curriculum area end */}
       </div>
 
-        {/* get the course  */}
+      {/* get the course  */}
 
-        <div id="get-course" >
-            <GetCourse></GetCourse>
-        </div>
-        <div>
-            <Project></Project>
-        </div>
-        <div>
-            <Instructor></Instructor>
-        </div>
-
+      <div id="get-course">
+        <GetCourse></GetCourse>
+      </div>
+      <div>
+        <Project></Project>
+      </div>
+      <div>
+        <Instructor></Instructor>
+      </div>
     </div>
   );
 };
