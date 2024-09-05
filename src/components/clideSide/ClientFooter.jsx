@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 
 const ClientFooter = () => {
-
+    
   const mainLogo = "https://res.cloudinary.com/dnvmj9pvk/image/upload/v1723544696/UniverseIT/Logo/xvlfi7xrapeoabxyzjji.png";
 
     return (
@@ -23,7 +23,7 @@ const ClientFooter = () => {
                 </aside>
                 <nav>
                     <h6 className="footer-title text-white">Top categories</h6>
-                    <Link to="/html-css" className="link link-hover">HTML & CSS</Link>
+                    <Link to="/course-details" className="link link-hover">Course Details</Link>
                     <Link to="/color-theory" className="link link-hover">Color Theory</Link>
                     <Link to="/photoshop" className="link link-hover">Photoshop</Link>
                     <Link to="/wordpress-theme" className="link link-hover">WordPress Theme</Link>
