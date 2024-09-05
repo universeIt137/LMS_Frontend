@@ -22,6 +22,7 @@ import Profile from "../pages/clientSide/profile/Profile.jsx";
 import ProfileForm from "../pages/clientSide/profile/ProfileForm.jsx";
 import MyCourse from "../pages/clientSide/profile/MyCourse.jsx";
 import MyReviews from "../pages/clientSide/profile/MyReviews.jsx";
+import DashboardLayout from "../layouts/DashboardLayout.jsx";
 
 
 
@@ -116,21 +117,7 @@ export const router = createBrowserRouter([
 
   // start admin route 
   {
-    path: "/admin",
-    element: <Dashboard></Dashboard>,
-    children: [{
-      path: "dashboard",
-      element: <AdminHome></AdminHome>
-    },
-    {
-      path: "/admin/students",
-      element: <Students></Students>
-    },
-    {
-      path: "/admin/teachers",
-      element: <Teachers></Teachers>
-    },
-    ]
-
+    path: "/dashboard",
+    element: <DashboardLayout></DashboardLayout>
   }
 ]);
