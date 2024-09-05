@@ -16,6 +16,7 @@ import SuccessfulStudent from "./SuccessfulStudent";
 import Feedback from "./Feedback";
 
 const CourseDetailsPage = () => {
+  // window.scrollTo(0, 0);
   // State to hold the rating value
   const [rating, setRating] = useState(4); // Default rating is set to 4
   const [show, setShow] = useState(null);
