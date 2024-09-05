@@ -9,7 +9,9 @@ export default {
       colors: {
         gold: '#FFD700', 
         primary: "#2563EB",
-        dasboard_theme:"#211d47",
+        dashboard_theme: "#2c265f",
+        
+          
 
       },
       fontFamily: {
