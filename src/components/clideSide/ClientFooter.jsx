@@ -36,7 +36,10 @@ const ClientFooter = () => {
                     <Link to="/blog" className="link link-hover">Blog</Link>
                     <Link to="/all-courses" className="link link-hover">All courses</Link>
                     <Link to="/sign-up" className="link link-hover">Sign up</Link>
+
+                    <Link to="/profile" className="link link-hover">Profile</Link>
                     <Link to="/mentor-page" className="link link-hover">Mentors</Link>
+
                 </nav>
                 <nav>
                     <h6 className="footer-title">Help</h6>

@@ -27,6 +27,7 @@
     "react-router-dom": "^6.25.1",
     "react-star-ratings": "^2.3.0",
     "react-time-picker": "^7.0.0",
+    "recharts": "^2.12.7",
     "sort-by": "^0.0.2",
     "swiper": "^11.1.9",
     "zustand": "^4.5.5"

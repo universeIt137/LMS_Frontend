@@ -4,7 +4,7 @@ import { SiFormspree } from "react-icons/si";
 import { GoProjectRoadmap } from "react-icons/go";
 import { FaCalendarAlt } from "react-icons/fa";
 import { MdOutlineVideoLibrary } from "react-icons/md";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import GetCourse from "./GetCourse";
 import Project from "./Project";
 import Instructor from "./Instructor";
@@ -204,7 +204,9 @@ const CourseDetailsPage = () => {
                 <NavLink to={""}>কোর্সটি যাদের জন্য</NavLink>
               </li>
               <li>
-                <NavLink to={""}>ইন্সট্রাক্টর</NavLink>
+                {/* <NavLink to={""}>ইন্সট্রাক্টর</NavLink> */}
+                {/* <Link to="#instructor">ইন্সট্রাক্টর</Link> */}
+                <a href="#instructor">ইন্সট্রাক্টর</a>
               </li>
               <li>
                 <NavLink to={""}>জব পেয়েছে যারা</NavLink>
@@ -250,35 +252,23 @@ const CourseDetailsPage = () => {
         </div>
 
         <div className="curriculum">
-          <div className="grid lg:grid-cols-2 " >
+          <div className="grid lg:grid-cols-2 ">
             {data.map((item, i) => {
               return (
-                <div key={i} >
+                <div key={i}>
                   <div className="title">
-                        {/* week div */}
-                        <div className="w-16 h-16 bg-[#20b486]  " >
-                            <h1 className="text-center mt-5 " > 
-                              {
-                                item.week
-                              } 
-                            </h1>
-                        </div>
-                        {/* title div */}
-                        <div>
-                            <h3>
-                              {
-                                item.title
-                              }
-                            </h3>
-                        </div>
-                        {/* icon div */}
-                        <div>
-
-                        </div>
+                    {/* week div */}
+                    <div className="w-16 h-16 bg-[#20b486]  ">
+                      <h1 className="text-center mt-5 ">{item.week}</h1>
+                    </div>
+                    {/* title div */}
+                    <div>
+                      <h3>{item.title}</h3>
+                    </div>
+                    {/* icon div */}
+                    <div></div>
                   </div>
-                  <div className="content">
-
-                  </div>
+                  <div className="content"></div>
                 </div>
               );
             })}
@@ -296,7 +286,7 @@ const CourseDetailsPage = () => {
       <div>
         <Project></Project>
       </div>
-      <div>
+      <div id="instructor">
         <Instructor></Instructor>
       </div>
     </div>

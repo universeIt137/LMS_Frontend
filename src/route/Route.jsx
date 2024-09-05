@@ -18,6 +18,11 @@ import ShoppingCart from "../pages/clientSide/shoppingCart/ShoppingCart.jsx";
 import CheckoutPage from "../pages/clientSide/checkoutPage/CheckoutPage.jsx";
 import OrderComplete from "../pages/clientSide/orderComplete/OrderComplete.jsx";
 import Mentor from "../pages/clientSide/mentorPage/Mentor.jsx";
+import Profile from "../pages/clientSide/profile/Profile.jsx";
+import ProfileForm from "../pages/clientSide/profile/ProfileForm.jsx";
+import MyCourse from "../pages/clientSide/profile/MyCourse.jsx";
+import MyReviews from "../pages/clientSide/profile/MyReviews.jsx";
+import DashboardLayout from "../layouts/DashboardLayout.jsx";
 
 
 
@@ -83,7 +88,26 @@ export const router = createBrowserRouter([
         path: '/mentor-page',
         element: <Mentor></Mentor>
 
+      },
+      {
+        path:"profile",
+        element:<Profile></Profile>,
+        children:[
+          {
+            path:"profile/form",
+            element:<ProfileForm></ProfileForm>
+          },
+          {
+            path:"profile/my-course",
+            element:<MyCourse></MyCourse>
+          },
+          {
+            path:'profile/my-reviews',
+            element:<MyReviews></MyReviews>
+          }
+        ]
       }
+
 
 
     ]
@@ -93,21 +117,7 @@ export const router = createBrowserRouter([
 
   // start admin route 
   {
-    path: "/admin",
-    element: <Dashboard></Dashboard>,
-    children: [{
-      path: "/admin/dashboard",
-      element: <AdminHome></AdminHome>
-    },
-    {
-      path: "/admin/students",
-      element: <Students></Students>
-    },
-    {
-      path: "/admin/teachers",
-      element: <Teachers></Teachers>
-    },
-    ]
-
+    path: "/dashboard",
+    element: <DashboardLayout></DashboardLayout>
   }
 ]);
