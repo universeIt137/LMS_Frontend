@@ -1,18 +1,26 @@
+.curriculum-data{
+  margin: 40px  0;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap:20px
+}
+
 .title{
     display: flex;
     align-items: center;
     justify-content:space-between;
-    /* background-color: rgb(178, 178, 150); */
+    background-color: #e6e6e6;
     margin-bottom: 10px;
     cursor: pointer;
+    padding: 10px 15px;
     
   }
-  .content{
+  /* .content{
       max-height: 0px;
       background-color: gray;
       overflow: hidden;
       transition: all  0.5s cubic-bezier(0,1,0,1) ;
-  }
+  } */
   
   
   .content.isShow {
