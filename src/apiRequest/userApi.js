@@ -7,7 +7,6 @@ export const registration = async (postBody)=>{
     try {
         let res = await axios.post(`${baseUrl}/user/sign-up`,postBody);
         if(res.data["status"]==="success"){
-            console.log(res);
             return res.data["status"];
         }
     } catch (error) {

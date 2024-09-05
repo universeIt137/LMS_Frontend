@@ -52,7 +52,6 @@ const Register = () => {
     }else{
       let res = await registration(data);
       if(res[0]){
-        console.log(res);
         toast.success(`${res}`);
         navigate("/login");
         
