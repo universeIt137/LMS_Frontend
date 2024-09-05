@@ -13,6 +13,7 @@ import "./course.css";
 import { IoIosArrowUp } from "react-icons/io";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import SuccessfulStudent from "./SuccessfulStudent";
+import Feedback from "./Feedback";
 
 const CourseDetailsPage = () => {
   // State to hold the rating value
@@ -196,7 +197,7 @@ const CourseDetailsPage = () => {
           <nav className="">
             <ul
               className="flex flex-wrap lg:flex gap-6 lg:justify-between lg:items-center
-                        lg:py-8 md:py-6 my-8
+                        lg:py-8 md:py-6 my-8 sticky z-50 
                         "
             >
               <li>
@@ -218,7 +219,7 @@ const CourseDetailsPage = () => {
                 <a href="#instructor">ইন্সট্রাক্টর</a>
               </li>
               <li>
-                <NavLink to={""}>জব পেয়েছে যারা</NavLink>
+                <a href="#successful-student">জব পেয়েছে যারা</a>
               </li>
               <li>
                 <NavLink to={""}>রিভিউ</NavLink>
@@ -394,8 +395,12 @@ const CourseDetailsPage = () => {
         </div>
       </div>
 
-      <div>
+      <div id="successful-student" >
             <SuccessfulStudent></SuccessfulStudent>
+      </div>
+
+      <div>
+        <Feedback></Feedback>
       </div>
 
     </div>
