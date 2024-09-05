@@ -4,7 +4,7 @@ import { SiFormspree } from "react-icons/si";
 import { GoProjectRoadmap } from "react-icons/go";
 import { FaCalendarAlt } from "react-icons/fa";
 import { MdOutlineVideoLibrary } from "react-icons/md";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import GetCourse from "./GetCourse";
 import Project from "./Project";
 import Instructor from "./Instructor";
@@ -200,7 +200,9 @@ const CourseDetailsPage = () => {
                 <NavLink to={""}>কোর্সটি যাদের জন্য</NavLink>
               </li>
               <li>
-                <NavLink to={""}>ইন্সট্রাক্টর</NavLink>
+                {/* <NavLink to={""}>ইন্সট্রাক্টর</NavLink> */}
+                {/* <Link to="#instructor">ইন্সট্রাক্টর</Link> */}
+                <a href="#instructor">ইন্সট্রাক্টর</a>
               </li>
               <li>
                 <NavLink to={""}>জব পেয়েছে যারা</NavLink>
@@ -373,7 +375,7 @@ const CourseDetailsPage = () => {
         <div>
             <Project></Project>
         </div>
-        <div>
+        <div id="instructor">
             <Instructor></Instructor>
         </div>
 
