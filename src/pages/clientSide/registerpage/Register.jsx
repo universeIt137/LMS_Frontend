@@ -54,15 +54,11 @@ const Register = () => {
       if(res[0]){
         toast.success(`${res}`);
         navigate("/login");
-        
-        
       }else{
         toast.error(`${res[1]}`);
       }
     }
-    
-
-  }
+  };
 
   return (
     <Container>
