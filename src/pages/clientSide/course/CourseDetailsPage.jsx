@@ -153,9 +153,9 @@ const CourseDetailsPage = () => {
 
         <div className=" grid lg:grid-cols-4 md:grid-col-3  gap-2 mt-10 ">
           <div
-            className=" bg-slate-300  shadow-md
+            className=" bg-[#dfdee7]  shadow-md
                     h-[110px] p-10 
-                    transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-100 hover:bg-indigo-500 duration-300 rounded-3xl hover:text-[white]
+                    transition ease-in-out delay-150  hover:-translate-y-2  hover:bg-indigo-500 duration-300 rounded-3xl hover:text-[white]
                     "
           >
             <p className="text-center">
@@ -163,9 +163,9 @@ const CourseDetailsPage = () => {
             </p>
           </div>
           <div
-            className=" bg-slate-300  shadow-md
+            className=" bg-[#dfdee7]  shadow-md
                     h-[110px] p-10 
-                    transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 rounded-3xl hover:text-[white]
+                    transition ease-in-out delay-150  hover:-translate-y-1  hover:bg-indigo-500 duration-300 rounded-3xl hover:text-[white]
                     "
           >
             <p className="text-center">
@@ -173,9 +173,9 @@ const CourseDetailsPage = () => {
             </p>
           </div>
           <div
-            className=" bg-[#eae9ef] shadow-md
+            className=" bg-[#dfdee7] shadow-md
                     h-[110px] p-10 
-                    transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 rounded-3xl hover:text-[white]
+                    transition ease-in-out delay-150  hover:-translate-y-1  hover:bg-indigo-500 duration-300 rounded-3xl hover:text-[white]
                     "
           >
             <p className="text-center">৩০০ সিট বাকি</p>
@@ -183,7 +183,7 @@ const CourseDetailsPage = () => {
           <div
             className=" bg-[#dfdee7] shadow-md
                     h-[110px] p-10 
-                    transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300 rounded-3xl hover:text-[white]
+                    transition ease-in-out delay-150  hover:-translate-y-1 hover:bg-indigo-500 duration-300 rounded-3xl hover:text-[white]
                     "
           >
             <p className="text-center  ">ভর্তি চলছে ৮ম ব্যাচে</p>
@@ -202,17 +202,17 @@ const CourseDetailsPage = () => {
                         "
             >
               <li>
-                <NavLink to={"#curriculum"}>কারিকুলাম</NavLink>
+                <a href="">কারিকুলাম</a>
                 {/* <a href="curriculum">কারিকুলাম</a> */}
               </li>
               <li>
-                <NavLink to={"#get-course"}>কোর্সে আপনি পাচ্ছেন</NavLink>
+                <a href="#get-course">কোর্সে আপনি পাচ্ছেন</a>
               </li>
               <li>
-                <NavLink to={""}>প্রজেক্টসমুহ</NavLink>
+                <a href="#project">প্রজেক্টসমুহ</a>
               </li>
               <li>
-                <NavLink to={""}>কোর্সটি যাদের জন্য</NavLink>
+                <a href="">কোর্সটি যাদের জন্য</a>
               </li>
               <li>
                 {/* <NavLink to={""}>ইন্সট্রাক্টর</NavLink> */}
@@ -359,7 +359,7 @@ const CourseDetailsPage = () => {
       <div id="get-course">
         <GetCourse></GetCourse>
       </div>
-      <div>
+      <div id="project" >
         <Project></Project>
       </div>
       <div id="instructor">
