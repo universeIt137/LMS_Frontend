@@ -44,13 +44,13 @@ const Sidebar = () => {
                             >
                                 <MdAddCircleOutline className='font-bold text-xl' />
                                 <span className={`${isSidebarOpen ? 'block' : 'hidden'}`}>
-                                    <p className='font-bold'>Add Course</p>
+                                    <NavLink to={"/dashboard/add-course"}><p className='font-bold'>Add Course</p></NavLink>
                                 </span>
                             </NavLink>
                         </li>
                         <li>
                             <NavLink
-                                to="/order-management"
+                                to="/dashboard/manage-courses"
                                 className="flex items-center space-x-3 p-3 rounded-lg transition duration-200  hover:shadow-md hover:border-b"
                                 activeClassName="bg-indigo-900 shadow-lg"
                             >

@@ -23,6 +23,8 @@ import ProfileForm from "../pages/clientSide/profile/ProfileForm.jsx";
 import MyCourse from "../pages/clientSide/profile/MyCourse.jsx";
 import MyReviews from "../pages/clientSide/profile/MyReviews.jsx";
 import DashboardLayout from "../layouts/DashboardLayout.jsx";
+import AddCoursePage from "../pages/adminSide/courseRelatedPage/addCourse/AddCoursePage.jsx";
+import ManageCoursePage from './../pages/adminSide/courseRelatedPage/manageCourse/ManageCoursePage';
 
 
 
@@ -118,6 +120,18 @@ export const router = createBrowserRouter([
   // start admin route 
   {
     path: "/dashboard",
-    element: <DashboardLayout></DashboardLayout>
+    element: <DashboardLayout></DashboardLayout>,
+    children: [
+      {
+        path : "add-course",
+        element : <AddCoursePage></AddCoursePage>
+      },
+      {
+        path : "manage-courses",
+        element : <ManageCoursePage></ManageCoursePage>
+      }
+      
+
+      ]
   }
 ]);
