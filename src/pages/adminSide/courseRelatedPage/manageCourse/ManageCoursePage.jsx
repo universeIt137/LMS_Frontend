@@ -65,7 +65,9 @@ const ManageCoursePage = () => {
   return (
     <div className="container mx-auto p-4">
       <h2 className="text-xl font-semibold mb-4">Course Management</h2>
-      <div className="overflow-x-auto">
+
+      {/* Table on Larger Screens */}
+      <div className="hidden md:block overflow-x-auto">
         <table className="min-w-full bg-white border border-gray-200 shadow-md rounded-lg">
           <thead>
             <tr className="bg-gray-100 text-gray-600 uppercase text-sm leading-normal">
@@ -107,12 +109,44 @@ const ManageCoursePage = () => {
                   <div className="flex item-center justify-center gap-2 text-2xl">
                     <IoMdAddCircleOutline />
                     <MdDeleteOutline />
+                    
                   </div>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
+      </div>
+
+      {/* Responsive Card Layout for Mobile Devices */}
+      <div className="block md:hidden">
+        {courses.map((course, index) => (
+          <div key={index} className="bg-white shadow-md rounded-lg p-4 mb-4">
+            <div className="flex items-center mb-4">
+              <img
+                src={course.course_img}
+                alt={course.course_name}
+                className="w-16 h-16 rounded-full object-cover mr-4"
+              />
+              <div>
+                <h3 className="font-semibold">{course.course_name}</h3>
+                <p className="text-sm text-gray-600">Instructor: {course.instructor_name}</p>
+              </div>
+            </div>
+            <div className="grid grid-cols-2 gap-4 text-sm text-gray-600">
+              <div>
+                <span className="font-medium">Total Seats:</span> {course.total_sit}
+              </div>
+              <div>
+                <span className="font-medium">Batch No:</span> {course.batch_no}
+              </div>
+            </div>
+            <div className="flex justify-end mt-4 text-2xl">
+            <IoMdAddCircleOutline />
+            <MdDeleteOutline />
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   )
