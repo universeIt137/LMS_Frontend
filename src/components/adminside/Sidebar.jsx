@@ -24,7 +24,7 @@ const Sidebar = () => {
             >
                 <div className="flex justify-between items-center p-4 gap-8">
                     <div className={`text-2xl font-bold ${!isSidebarOpen && 'hidden'}`}>
-                        <p className=''>LMS</p>
+                       <NavLink to={"/"} > <p className=''>LMS</p></NavLink>
                     </div>
                     <button
                         onClick={toggleSidebar}
