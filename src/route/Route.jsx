@@ -28,6 +28,19 @@ import ManageCoursePage from './../pages/adminSide/courseRelatedPage/manageCours
 import AdminLoginPage from "../pages/adminSide/adminLogin/AdminLoginPage.jsx";
 import RegisterAdminPage from "../pages/adminSide/adminRegister/RegisterAdminPage.jsx";
 import PrivateRoutes from "./PrivateRoutes.jsx";
+import { getToken } from "../helper/sessionHelper.js";
+import UpdateCoursePage from "../pages/adminSide/courseRelatedPage/updateCourse/UpdateCoursePage.jsx";
+import CourseDetailsCreatePage from "../pages/adminSide/courseRelatedPage/courseDetailsCreate/CourseDetailsCreatePage.jsx";
+import ManageCourseDetailsPage from "../pages/adminSide/manageCourseDetails/ManageCourseDetailsPage.jsx";
+
+const token = {
+  headers: {
+    'Authorization': `${getToken()}`
+  }
+}
+
+
+
 
 
 
@@ -140,9 +153,22 @@ export const router = createBrowserRouter([
       {
         path : "manage-courses",
         element : <ManageCoursePage></ManageCoursePage>
+      },
+      {
+        path : "course-update/:id",
+        element : <UpdateCoursePage></UpdateCoursePage>
+      },
+      {
+        path : "course-details-create/:id",
+        element : <CourseDetailsCreatePage></CourseDetailsCreatePage>
+      },
+      {
+        path : "manage-courses-details",
+        element : <ManageCourseDetailsPage></ManageCourseDetailsPage>
       }
       
 
       ]
   }
+  
 ]);

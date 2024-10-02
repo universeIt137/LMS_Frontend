@@ -60,6 +60,18 @@ const Sidebar = () => {
                                 </span>
                             </NavLink>
                         </li>
+                        <li>
+                            <NavLink
+                                to="/dashboard/manage-courses-details"
+                                className="flex items-center space-x-3 p-3 rounded-lg transition duration-200  hover:shadow-md hover:border-b"
+                                activeClassName="bg-indigo-900 shadow-lg"
+                            >
+                                <MdOutlineManageSearch className='font-bold text-xl' />
+                                <span className={`${isSidebarOpen ? 'block' : 'hidden'}`}>
+                                    <p className='font-bold'>Manage Courses-Details</p>
+                                </span>
+                            </NavLink>
+                        </li>
                     </ul>
                 </nav>
             </aside>
