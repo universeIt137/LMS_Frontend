@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react'
 import { IoMdAddCircleOutline } from 'react-icons/io';
-import { MdDeleteOutline } from 'react-icons/md';
+import { MdDeleteOutline, MdManageAccounts } from 'react-icons/md';
 import { FaEdit } from "react-icons/fa";
 import {  NavLink, useParams } from 'react-router-dom';
 import courseStore from '../../../../apiRequest/courseApi';
 import LoderReact from '../../../../components/loder/LoderReact';
 import {toast} from 'react-hot-toast';
 import { deleteAlert } from '../../../../helper/deleteAlert';
+import Swal from 'sweetalert2';
+import { FiCommand } from 'react-icons/fi';
 
 const ManageCoursePage = () => {
   const {allCourseList,allCourseListApi,deleteCourseApi} = courseStore();
@@ -25,7 +27,13 @@ const ManageCoursePage = () => {
         let resp = await deleteCourseApi(id)
         if (resp){
           await allCourseListApi();
-          toast.success("Course deleted successfully");
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Course Data Deleted",
+            showConfirmButton: false,
+            timer: 1500
+          });
         }else {
             errorToast("Delete fail");
         }
@@ -51,7 +59,7 @@ const ManageCoursePage = () => {
                 <th className="py-3 px-6 text-left">Course Name</th>
                 <th className="py-3 px-6 text-left">Instructor Name</th>
                 <th className="py-3 px-6 text-left">Total Seats</th>
-                <th className="py-3 px-6 text-left">Batch No</th>
+                <th className="py-3 px-6 text-left"> Course Details</th>
                 <th className="py-3 px-6 text-center">Actions</th>
               </tr>
             </thead>
@@ -78,13 +86,14 @@ const ManageCoursePage = () => {
                   <td className="py-3 px-6 text-left">
                     <span>{course.total_sit}</span>
                   </td>
-                  <td className="py-3 px-6 text-left">
-                    <span>{course.batch_no}</span>
+                  <td className="py-3 px-6 flex items-center justify-center text-center">
+                    
+                    <NavLink to={`/dashboard/course-details-create/${course._id}`} ><FiCommand className='text-center text-3xl' /></NavLink>
                   </td>
                   <td className="py-3 px-6 text-center">
                     <div className="flex item-center justify-center gap-2 text-2xl">
                       <div className='-mr-1' >
-                      <NavLink to={`/dashboard/course-details-create/${course._id}`} ><IoMdAddCircleOutline /></NavLink>
+                     
                       </div>
                       <div className=' cursor-pointer' onClick={handleDeleteCourse.bind(this,course._id)} >
                         <MdDeleteOutline />

@@ -5,20 +5,25 @@ import toast, { ToastIcon } from 'react-hot-toast';
 import courseStore from '../../../../apiRequest/courseApi';
 import instructorStore from '../../../../apiRequest/instructorApi';
 import { useNavigate, useParams } from 'react-router-dom';
+import { uploadImg } from '../../../../uploadImage/UploadImage';
+import Swal from 'sweetalert2';
 
 
 const UpdateCoursePage = () => {
-  const {courseCreateApi,singleCourseData,allCourseListApi,singleCourseDataApi,updateCourseApi} = courseStore();
-  const {instructorNameDropDown,instructorNameDropDownDropDownApi} = instructorStore();
-  const {id} = useParams();
- 
+  const { courseCreateApi, singleCourseData, allCourseListApi, singleCourseDataApi, updateCourseApi } = courseStore();
+  const { instructorNameDropDown, instructorNameDropDownDropDownApi } = instructorStore();
+  const { id } = useParams();
 
-  useEffect(()=>{
-    (async()=>{
-      await instructorNameDropDownDropDownApi();                                                
+  const { course_img: incomingCourseImg } = singleCourseData;
+
+  // console.log(incomingCourseImg);
+
+  useEffect(() => {
+    (async () => {
+      await instructorNameDropDownDropDownApi();
       await singleCourseDataApi(id);
     })()
-  },[]);
+  }, []);
 
 
 
@@ -35,20 +40,35 @@ const UpdateCoursePage = () => {
     const total_sit = e.target.total_sit.value;
     const batch_no = e.target.batch_no.value;
 
+    let CourseImageUrl = incomingCourseImg;
+    if (!image?.name) {
+
+      CourseImageUrl = incomingCourseImg
+    } else {
+      CourseImageUrl = await uploadImg(image);
+    }
+
     const payload = {
-        image : image,
-        course_name : course_name,
-        instructor_name : instructor_name,
-        total_sit : total_sit,
-        batch_no : batch_no
+      course_img: CourseImageUrl,
+      course_name: course_name,
+      instructor_name: instructor_name,
+      total_sit: total_sit,
+      batch_no: batch_no,
+
     };
-    let res = await updateCourseApi(id,payload);
-    if(res){
-        await allCourseListApi();
-        toast.success("Course updated successfully");
-        navigate("/dashboard/manage-courses");
-    }else{
-        toast.error("Something went wrong");
+    let res = await updateCourseApi(id, payload);
+    if (res) {
+      await allCourseListApi();
+      navigate("/dashboard/manage-courses");
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Course data has been updated successfully",
+        showConfirmButton: false,
+        timer: 1500
+      });
+    } else {
+      toast.error("Something went wrong");
     }
   };
 
@@ -69,26 +89,26 @@ const UpdateCoursePage = () => {
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                 placeholder="Enter Course Name"
                 defaultValue={singleCourseData?.course_name}
-                key = {Date.now()}
+                key={Date.now()}
               />
             </div>
 
-          
+
 
             {/* Instructor Name */}
             <div className="mb-6">
               <label htmlFor="instructor_name" className="block text-sm font-medium text-gray-700 mb-2">
                 Instructor Name
               </label>
-              <select  name='instructor_name' id="instructor_name" className="block w-full p-2 border border-gray-300 rounded-md">
+              <select name='instructor_name' id="instructor_name" className="block w-full p-2 border border-gray-300 rounded-md">
                 <option key={Date.now()} defaultValue={singleCourseData?.instructor_name}>Select Instructor</option>
                 {instructorNameDropDown && instructorNameDropDown.map((item, i) => (
-                  <option  key={i} value={item.instructor_name}>
+                  <option key={i} value={item.instructor_name}>
                     {item?.instructor_name}
                   </option>
                 ))}
               </select>
-          </div>
+            </div>
 
 
             {/* Total Sit */}
@@ -117,29 +137,30 @@ const UpdateCoursePage = () => {
                 defaultValue={singleCourseData?.batch_no}
                 key={Date.now()}
               />
-            </div> 
+            </div>
           </div>
 
-           <div className="avatar">
-                <div className="w-12 rounded-full ">
-                <img key={Date.now()} src= {singleCourseData?.course_img}/>
+          <div className="avatar">
+            <div className="w-12 rounded-full ">
+              <img key={Date.now()} src={singleCourseData?.course_img} />
 
-                </div>
             </div>
+          </div>
 
 
-            {/* Course Image */}
-            <div className="mb-6">
-              <label htmlFor="course_img" className="block text-sm font-medium text-gray-700 mb-2">Course Image</label>
-              <input
+          {/* Course Image */}
+          <div className="mb-6">
+            <label htmlFor="course_img" className="block text-sm font-medium text-gray-700 mb-2">Course Image</label>
+            <input
                 type="file"
                 id="course_img"
                 name="course_img"
                 accept="image/*"
-                className="w-full px-4 py-2 border border-dashed border-indigo-500 rounded-lg bg-gray-50 text-indigo-500 file:bg-indigo-500 file:text-white file:px-4 file:py-2 file:rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                 
+                className="w-full px-4 py-2 border border-dashed border-indigo-500 rounded-lg bg-gray-50 text-indigo-500 file:bg-indigo-500 file:text-white file:px-4 file:py-2 file:rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                required
               />
-            </div>
+          </div>
 
           {/* Submit Button */}
           <div className="mt-8">
