@@ -12,7 +12,7 @@ const courseStore = create((set)=>({
             return false;
         }
     },
-    singleCourseData : null,
+    singleCourseData : [],
     singleCourseDataApi : async (id)=>{
         let res = await axiosPublic.get(`/single-course/${id}`);
         if(res.data.status === 'success'){

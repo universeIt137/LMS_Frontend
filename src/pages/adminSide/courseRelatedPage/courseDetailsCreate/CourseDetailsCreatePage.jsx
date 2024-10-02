@@ -3,6 +3,8 @@ import courseStore from './../../../../apiRequest/courseApi';
 import { useParams } from "react-router-dom";
 import courseDetailsStore from "../../../../apiRequest/courseDetailsApi";
 import toast from "react-hot-toast";
+import { uploadVideo } from "../../../../uploadVideo/UploadVideo";
+import Swal from "sweetalert2";
 
 const CourseDetailsCreatePage = () => {
   const {singleCourseDataApi,singleCourseData} = courseStore();
@@ -16,18 +18,31 @@ const CourseDetailsCreatePage = () => {
 const handleCourseDetailsCreate = async (e) => {
   e.preventDefault();
   const course_id = e.target.course_id.value;
-  const title = e.target.title.value;
+  const title_courseDetail = e.target.title_courseDetail.value;
   const description = e.target.description.value;
   const rating = e.target.rating.value;
   const course_fee = e.target.course_fee.value;
   const total_live_class = e.target.total_live_class.value;
+  // const youtube_link = e.target.youtube_link.value;
   const total_project = e.target.total_project.value;
   const total_video = e.target.total_video.value;
   const course_duration = e.target.course_duration.value;
   const course_video = e.target.course_video.files[0];
+
+
+  let VideoUrl = '';
+
+    if (!course_video?.name) {
+      VideoUrl = ''
+    } else {
+      VideoUrl = await uploadVideo(course_video);
+  }
+  
+  console.log(VideoUrl);
+
   const payload = {
     course_id,
-    title,
+    title:title_courseDetail,
     description,
     rating,
     course_fee,
@@ -35,11 +50,20 @@ const handleCourseDetailsCreate = async (e) => {
     total_project,
     total_video,
     course_duration,
-    course_video,
+    course_video: VideoUrl,
   }
+
+
+
   let res = await createCourseDetailsApi(payload);
   if(res){
-    toast.success("Course details create successfully");
+    Swal.fire({
+      position: "top-end",
+      icon: "success",
+      title: "Course Details has been saved",
+      showConfirmButton: false,
+      timer: 1500
+    });
   }else{
     toast.error("Something went wrong");
   }
@@ -68,7 +92,7 @@ const handleCourseDetailsCreate = async (e) => {
             <label htmlFor="title" className="block text-gray-700">Title</label>
             <input
               type="text"
-              name="title"
+              name="title_courseDetail"
               id="title"
               className="w-full p-2 border border-gray-300 rounded mt-1"
               placeholder="Enter Course Title"
@@ -160,6 +184,18 @@ const handleCourseDetailsCreate = async (e) => {
               id = "course_video"
               name="course_video"
               className="w-full p-2 border border-gray-300 rounded mt-1"
+            />
+          </div>
+
+          {/* title    */}
+          <div className="mb-4">
+            <label htmlFor="title" className="block text-gray-700">Or put youtube link of Video</label>
+            <input
+              type="text"
+              name="youtube_link"
+              id="title"
+              className="w-full p-2 border border-gray-300 rounded mt-1"
+              placeholder="Enter Course Title"
             />
           </div>
         </div>
