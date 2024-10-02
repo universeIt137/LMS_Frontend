@@ -25,6 +25,9 @@ import MyReviews from "../pages/clientSide/profile/MyReviews.jsx";
 import DashboardLayout from "../layouts/DashboardLayout.jsx";
 import AddCoursePage from "../pages/adminSide/courseRelatedPage/addCourse/AddCoursePage.jsx";
 import ManageCoursePage from './../pages/adminSide/courseRelatedPage/manageCourse/ManageCoursePage';
+import AdminLoginPage from "../pages/adminSide/adminLogin/AdminLoginPage.jsx";
+import RegisterAdminPage from "../pages/adminSide/adminRegister/RegisterAdminPage.jsx";
+import PrivateRoutes from "./PrivateRoutes.jsx";
 
 
 
@@ -115,12 +118,20 @@ export const router = createBrowserRouter([
     ]
 
   },
+  {
+    path: "/admin-login",
+    element: <AdminLoginPage></AdminLoginPage>
+  },
+  {
+    path: "/admin-register",
+    element: <RegisterAdminPage></RegisterAdminPage>
+  },
 
 
   // start admin route 
   {
     path: "/dashboard",
-    element: <DashboardLayout></DashboardLayout>,
+    element: <PrivateRoutes><DashboardLayout></DashboardLayout></PrivateRoutes>,
     children: [
       {
         path : "add-course",
