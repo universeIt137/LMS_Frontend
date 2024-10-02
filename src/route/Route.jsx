@@ -25,6 +25,17 @@ import MyReviews from "../pages/clientSide/profile/MyReviews.jsx";
 import DashboardLayout from "../layouts/DashboardLayout.jsx";
 import AddCoursePage from "../pages/adminSide/courseRelatedPage/addCourse/AddCoursePage.jsx";
 import ManageCoursePage from './../pages/adminSide/courseRelatedPage/manageCourse/ManageCoursePage';
+import { getToken } from "../helper/sessionHelper.js";
+import UpdateCoursePage from "../pages/adminSide/courseRelatedPage/updateCourse/UpdateCoursePage.jsx";
+
+const token = {
+  headers: {
+    'Authorization': `${getToken()}`
+  }
+}
+
+
+
 
 
 
@@ -129,9 +140,14 @@ export const router = createBrowserRouter([
       {
         path : "manage-courses",
         element : <ManageCoursePage></ManageCoursePage>
+      },
+      {
+        path : "course-update/:id",
+        element : <UpdateCoursePage></UpdateCoursePage>
       }
       
 
       ]
   }
+  
 ]);
