@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { uploadImg } from '../../../../uploadImage/UploadImage';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import toast from 'react-hot-toast';
 import courseStore from '../../../../apiRequest/courseApi';
+import instructorStore from '../../../../apiRequest/instructorApi';
 
 
 const AddCoursePage = () => {
   const {courseCreateApi} = courseStore();
+  const {instructorNameDropDown,instructorNameDropDownDropDownApi} = instructorStore();
   const [formData, setFormData] = useState({
     course_name: '',
     course_img: '',
@@ -15,6 +17,13 @@ const AddCoursePage = () => {
     total_sit: '',
     batch_no: ''
   });
+
+  useEffect(()=>{
+    (async()=>{
+      await instructorNameDropDownDropDownApi();
+    })()
+  },[]);
+
 
   
 
@@ -52,6 +61,8 @@ const AddCoursePage = () => {
     }else{
       toast.error("Failed to create course");
     }
+    
+    e.target.reset();
 
   };
 
@@ -80,17 +91,19 @@ const AddCoursePage = () => {
 
             {/* Instructor Name */}
             <div className="mb-6">
-              <label htmlFor="instructor_name" className="block text-sm font-medium text-gray-700 mb-2">Instructor Name</label>
-              <input
-                type="text"
-                id="instructor_name"
-                name="instructor_name"
-                onChange={handleChange}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                placeholder="Enter Instructor Name"
-                required
-              />
-            </div>
+              <label htmlFor="instructor_name" className="block text-sm font-medium text-gray-700 mb-2">
+                Instructor Name
+              </label>
+              <select name='instructor_name' onChange={handleChange} id="instructor_name" className="block w-full p-2 border border-gray-300 rounded-md">
+                <option value="">Select Instructor</option>
+                {instructorNameDropDown && instructorNameDropDown.map((item, i) => (
+                  <option key={i} value={item.instructor_name}>
+                    {item?.instructor_name}
+                  </option>
+                ))}
+              </select>
+          </div>
+
 
             {/* Total Sit */}
             <div className="mb-6">
