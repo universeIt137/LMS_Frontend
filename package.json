@@ -30,6 +30,7 @@
     "react-time-picker": "^7.0.0",
     "recharts": "^2.12.7",
     "sort-by": "^0.0.2",
+    "sweetalert2": "^11.14.1",
     "swiper": "^11.1.9",
     "zustand": "^4.5.5"
   },

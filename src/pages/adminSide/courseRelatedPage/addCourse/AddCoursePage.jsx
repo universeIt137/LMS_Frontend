@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
+import { uploadImg } from '../../../../uploadImage/UploadImage';
+import axios from 'axios';
+import Swal from 'sweetalert2';
+import toast from 'react-hot-toast';
+import courseStore from '../../../../apiRequest/courseApi';
+
 
 const AddCoursePage = () => {
+  const {courseCreateApi} = courseStore();
   const [formData, setFormData] = useState({
     course_name: '',
     course_img: '',
@@ -9,15 +16,43 @@ const AddCoursePage = () => {
     batch_no: ''
   });
 
+  
+
+
+
   // Handle form input changes
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   // Handle form submission
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
+    const image = e.target.course_img.files[0];
+
+    let ImageUrl = '';
+
+    if (!image?.name) {
+        ImageUrl = ''
+    } else {
+      ImageUrl = await uploadImg(image);
+    }
+
+    formData.course_img = ImageUrl ;
+
+    let res = await courseCreateApi(formData);
+    if(res){
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Your work has been saved",
+        showConfirmButton: false,
+        timer: 1500
+      });
+    }else{
+      toast.error("Failed to create course");
+    }
+
   };
 
   return (
@@ -95,7 +130,7 @@ const AddCoursePage = () => {
                 id="course_img"
                 name="course_img"
                 accept="image/*"
-                onChange={handleChange}
+                
                 className="w-full px-4 py-2 border border-dashed border-indigo-500 rounded-lg bg-gray-50 text-indigo-500 file:bg-indigo-500 file:text-white file:px-4 file:py-2 file:rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
                 required
               />
