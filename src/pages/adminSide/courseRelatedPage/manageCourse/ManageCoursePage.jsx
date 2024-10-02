@@ -2,32 +2,36 @@ import React, { useEffect } from 'react'
 import { IoMdAddCircleOutline } from 'react-icons/io';
 import { MdDeleteOutline } from 'react-icons/md';
 import { FaEdit } from "react-icons/fa";
-import { Link, NavLink } from 'react-router-dom';
+import {  NavLink, useParams } from 'react-router-dom';
 import courseStore from '../../../../apiRequest/courseApi';
 import LoderReact from '../../../../components/loder/LoderReact';
-import toast from 'react-hot-toast';
+import {toast} from 'react-hot-toast';
+import { deleteAlert } from '../../../../helper/deleteAlert';
 
 const ManageCoursePage = () => {
   const {allCourseList,allCourseListApi,deleteCourseApi} = courseStore();
-  const handleDeleteCourse = async (id)=>{
-    let res = await deleteCourseApi(id);
-    if(res){
-      Swal.fire({
-        position: "top-end",
-        icon: "success",
-        title: "Course delete successfully",
-        showConfirmButton: false,
-        timer: 1500
-      });
-    }else{
-      toast.error("Course delete failed");
-    }
-  }
+
   useEffect(() => {
     (async()=>{
       await allCourseListApi();
     })()
   }, []);
+
+ 
+
+  const handleDeleteCourse  = async (id) => {
+    let deleteResp = await deleteAlert();
+    if (deleteResp.isConfirmed){
+        let resp = await deleteCourseApi(id)
+        if (resp){
+          await allCourseListApi();
+          toast.success("Course deleted successfully");
+        }else {
+            errorToast("Delete fail");
+        }
+    }
+
+};
   
   if(allCourseList === null){
     return (
@@ -79,17 +83,17 @@ const ManageCoursePage = () => {
                   </td>
                   <td className="py-3 px-6 text-center">
                     <div className="flex item-center justify-center gap-2 text-2xl">
-                      <IoMdAddCircleOutline />
-                      <div className=' cursor-pointer' onClick={()=>{handleDeleteCourse.bind(this , course._id )}} >
-                      <MdDeleteOutline />
+                      <div className='-mr-1' >
+                      <NavLink to={`/dashboard/course-details-create/${course._id}`} ><IoMdAddCircleOutline /></NavLink>
+                      </div>
+                      <div className=' cursor-pointer' onClick={handleDeleteCourse.bind(this,course._id)} >
+                        <MdDeleteOutline />
                       </div>
                       <div>
-                        <NavLink title='update' to={`/dashboard/course-update/${course._id} `}>
+                        <NavLink title='update' to={`/dashboard/course-update/${course._id}`}>
                           <FaEdit className="text-2xl  " />
                         </NavLink>
                       </div>
-                      
-                      
                     </div>
                   </td>
                 </tr>

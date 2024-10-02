@@ -25,8 +25,13 @@ import MyReviews from "../pages/clientSide/profile/MyReviews.jsx";
 import DashboardLayout from "../layouts/DashboardLayout.jsx";
 import AddCoursePage from "../pages/adminSide/courseRelatedPage/addCourse/AddCoursePage.jsx";
 import ManageCoursePage from './../pages/adminSide/courseRelatedPage/manageCourse/ManageCoursePage';
+import AdminLoginPage from "../pages/adminSide/adminLogin/AdminLoginPage.jsx";
+import RegisterAdminPage from "../pages/adminSide/adminRegister/RegisterAdminPage.jsx";
+import PrivateRoutes from "./PrivateRoutes.jsx";
 import { getToken } from "../helper/sessionHelper.js";
 import UpdateCoursePage from "../pages/adminSide/courseRelatedPage/updateCourse/UpdateCoursePage.jsx";
+import CourseDetailsCreatePage from "../pages/adminSide/courseRelatedPage/courseDetailsCreate/CourseDetailsCreatePage.jsx";
+import ManageCourseDetailsPage from "../pages/adminSide/manageCourseDetails/ManageCourseDetailsPage.jsx";
 
 const token = {
   headers: {
@@ -126,12 +131,20 @@ export const router = createBrowserRouter([
     ]
 
   },
+  {
+    path: "/admin-login",
+    element: <AdminLoginPage></AdminLoginPage>
+  },
+  {
+    path: "/admin-register",
+    element: <RegisterAdminPage></RegisterAdminPage>
+  },
 
 
   // start admin route 
   {
     path: "/dashboard",
-    element: <DashboardLayout></DashboardLayout>,
+    element: <PrivateRoutes><DashboardLayout></DashboardLayout></PrivateRoutes>,
     children: [
       {
         path : "add-course",
@@ -144,6 +157,14 @@ export const router = createBrowserRouter([
       {
         path : "course-update/:id",
         element : <UpdateCoursePage></UpdateCoursePage>
+      },
+      {
+        path : "course-details-create/:id",
+        element : <CourseDetailsCreatePage></CourseDetailsCreatePage>
+      },
+      {
+        path : "manage-courses-details",
+        element : <ManageCourseDetailsPage></ManageCourseDetailsPage>
       }
       
 

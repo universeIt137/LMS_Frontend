@@ -46,6 +46,15 @@ const courseStore = create((set)=>({
             return false;
         }
     },
+    courseNameList : [],
+    courseNameListApi : async ()=>{
+        let res = await axiosPublic.get(`/all-course-name`);
+        if(res.data.status ==='success'){
+            set({courseNameList : res.data.data});
+        }else{
+            return false;
+        }
+    }
 }));
 
 export default courseStore;

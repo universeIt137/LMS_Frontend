@@ -1,6 +1,31 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
+import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 const AdminNavbar = () => {
+    const { logOut } = useContext(AuthContext);
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        logOut()
+            .then(res => {
+                console.log('Logout successfully');
+                navigate('/');
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Logout Successful",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+            })
+            .catch(err => {
+                console.log(err.message);
+        })
+    }
+
     return (
         <>
             <div className="navbar bg-base-100">
@@ -56,7 +81,7 @@ const AdminNavbar = () => {
                                 </a>
                             </li>
                             <li><a>Settings</a></li>
-                            <li><a>Logout</a></li>
+                            <li onClick={handleLogout}><a>Logout</a></li>
                         </ul>
                     </div>
                 </div>
