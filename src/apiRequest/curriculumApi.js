@@ -12,7 +12,33 @@ const curriculumStore = create((set)=>({
         } else{
             return false;
         }
-    }
+    },
+    allCurriculumDataList : [],
+    allCurriculumDataApi : async ()=>{
+        let res = await axiosPublic.get(`/all/curriculum/admin`);
+        if(res.data["status"] ==='success'){
+            set({allCurriculumDataList : res.data.data});
+        } else{
+            return false;
+        }
+    },
+    singleCurriculumData : [],
+    singleCurriculumDataApi : async (id) => {
+        let res = await axiosPublic.get(`/single/curriculum/${id}`);
+        if(res.data["status"] ==='success'){
+            set({singleCurriculumData : res.data.data});
+        } else{
+            return false;
+        }
+    },
+    updateCurriculumDataApi : async (id,payload) => {
+        let res = await axiosPublic.put(`/curriculum/update/${id}`,payload);
+        if(res.data["status"]==="success"){
+            return res.data["status"];
+        } else{
+            return false;
+        }
+    },
 }));
 
 export default curriculumStore;
