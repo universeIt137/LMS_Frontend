@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react'
 import courseStore from '../../../../apiRequest/courseApi';
+import curriculumStore from '../../../../apiRequest/curriculumApi';
 
 const CurriculumCreatePage = () => {
   const {courseNameList,courseNameListApi} = courseStore();
+  const {createCurriculumApi} = curriculumStore();
   useEffect(()=>{
     (async()=>{
         await courseNameListApi();
@@ -10,6 +12,26 @@ const CurriculumCreatePage = () => {
 },[]);
 const handelSubmitValue  = async (e) =>{
   e.preventDefault();
+  const course_id = e.target.course_id.value;
+  const record_video = e.target.record_video.value;
+  const live_class = e.target.live_class.value;
+  const quiz = e.target.quiz.value;
+  const title = e.target.title.value;
+  const description = e.target.description.value;
+
+  const payload = {
+    course_id,
+    record_video,
+    live_class,
+    quiz,
+    title,
+    description
+  };
+
+  let res = await
+
+
+
 }
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
