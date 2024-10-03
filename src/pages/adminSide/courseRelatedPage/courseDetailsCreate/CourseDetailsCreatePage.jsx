@@ -83,7 +83,7 @@ const CourseDetailsCreatePage = () => {
     }
   }) 
 
-  console.log(courseDetail)
+
 
   return (
     <>
@@ -229,8 +229,9 @@ const CourseDetailsCreatePage = () => {
       </div>
 
       <div className="CourseDetails">
-        <CourseDetailsTable courseDetails = {courseDetail}></CourseDetailsTable>
+        <CourseDetailsTable detail = {detail}></CourseDetailsTable>
       </div>
+      
     </>
   );
 };
