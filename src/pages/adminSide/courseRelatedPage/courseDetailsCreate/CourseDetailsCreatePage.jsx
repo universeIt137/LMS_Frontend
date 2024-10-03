@@ -75,15 +75,15 @@ const CourseDetailsCreatePage = () => {
     e.target.reset();
   };
 
-  const { data: detail = {} } = useQuery({
-    queryKey: ['detail'],
+  const { data: courseDetail = {} } = useQuery({
+    queryKey: ['courseDetail'],
     queryFn: async () => {
       const res = await axiosPublic(`get-single-course-details/${id}`);
-      return res.data;
+      return res.data.data[0];
     }
   }) 
 
-  
+
 
   return (
     <>
@@ -228,12 +228,10 @@ const CourseDetailsCreatePage = () => {
 
       </div>
 
-      {
-        detail ? <div className="CourseDetails">
-        <CourseDetailsTable detail = {detail}></CourseDetailsTable> 
+      <div className="CourseDetails">
+        <CourseDetailsTable detail = {detail}></CourseDetailsTable>
       </div>
-      : ""
-      }
+      
     </>
   );
 };
