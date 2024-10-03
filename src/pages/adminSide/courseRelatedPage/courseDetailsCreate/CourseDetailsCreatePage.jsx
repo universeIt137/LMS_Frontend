@@ -229,7 +229,7 @@ const CourseDetailsCreatePage = () => {
       </div>
 
       <div className="CourseDetails">
-        <CourseDetailsTable detail = {detail}></CourseDetailsTable>
+        <CourseDetailsTable courseDetails = {courseDetail}></CourseDetailsTable>
       </div>
       
     </>
