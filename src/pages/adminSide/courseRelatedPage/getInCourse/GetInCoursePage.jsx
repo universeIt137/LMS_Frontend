@@ -1,18 +1,52 @@
 import React, { useEffect } from 'react'
 import courseStore from '../../../../apiRequest/courseApi';
+import { uploadImg } from '../../../../uploadImage/UploadImage';
+import getInCourseStore from '../../../../apiRequest/getInCourseApi';
+import Swal from 'sweetalert2';
+import toast from 'react-hot-toast';
 const GetInCoursePage = () => {
     const {courseNameList,courseNameListApi} = courseStore();
+    const {getInCourseCreateApi} = getInCourseStore()
     useEffect(()=>{
         (async()=>{
             await courseNameListApi();
         })()
     },[]);
-    const handleSubmitForm = (e)=>{
+    const handleSubmitForm = async (e)=>{
+        e.preventDefault();
         const course_id = e.target.course_id.value;
         const title = e.target.title.value;
         const description = e.target.description.value;
-        const nav_logo = e.target.nav_logo.files[0]
-        e.preventDefault();
+        const logo = e.target.logo.files[0];
+
+        let ImageUrl = '';
+
+        if (!logo?.name) {
+            ImageUrl = ''
+        } else {
+          ImageUrl = await uploadImg(logo);
+        }
+
+        const payload = {
+            course_id,
+            title,
+            description,
+            logo : ImageUrl
+        };
+
+        let res = await getInCourseCreateApi(payload);
+        if(res){
+            Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "Course created successfully",
+                showConfirmButton: false,
+                timer: 1500
+              });
+        }else{
+            toast.error("Course creation failed");
+        }
+        e.target.reset();
     }
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
@@ -49,13 +83,14 @@ const GetInCoursePage = () => {
           </div>
            {/* Nav Logo */}
            <div>
-            <label htmlFor="nav_logo" className="block text-sm font-medium text-gray-700">
-              Navigation Logo
+            <label htmlFor="logo" className="block text-sm font-medium text-gray-700">
+              Logo
             </label>
             <input
               type="file"
-              id="nav_logo"
-              name="nav_logo"
+              id="logo"
+              name="logo"
+                accept="image/*"
               className="mt-1 block w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500"
               required
             />

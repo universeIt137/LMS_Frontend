@@ -228,9 +228,12 @@ const CourseDetailsCreatePage = () => {
 
       </div>
 
-      <div className="CourseDetails">
-        <CourseDetailsTable detail = {detail}></CourseDetailsTable>
+      {
+        detail ? <div className="CourseDetails">
+        <CourseDetailsTable detail = {detail}></CourseDetailsTable> 
       </div>
+      : ""
+      }
     </>
   );
 };

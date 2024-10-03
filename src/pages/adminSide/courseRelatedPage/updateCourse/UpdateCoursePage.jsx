@@ -158,7 +158,6 @@ const UpdateCoursePage = () => {
                 accept="image/*"
                 
                 className="w-full px-4 py-2 border border-dashed border-indigo-500 rounded-lg bg-gray-50 text-indigo-500 file:bg-indigo-500 file:text-white file:px-4 file:py-2 file:rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-                required
               />
           </div>
 
