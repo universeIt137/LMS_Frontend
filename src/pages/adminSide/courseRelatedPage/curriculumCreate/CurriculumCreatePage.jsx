@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import courseStore from '../../../../apiRequest/courseApi';
 import curriculumStore from '../../../../apiRequest/curriculumApi';
+import CurriculumTable from './CurriculumTable';
 
 const CurriculumCreatePage = () => {
   const {courseNameList,courseNameListApi} = courseStore();
@@ -28,12 +29,13 @@ const handelSubmitValue  = async (e) =>{
     description
   };
 
-  let res = await
+  // let res = await
 
 
 
 }
   return (
+    <>
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-4xl">
         <h1 className="text-2xl font-bold mb-6 text-gray-800 text-center">Curriculum Form</h1>
@@ -139,7 +141,14 @@ const handelSubmitValue  = async (e) =>{
           </div>
         </form>
       </div>
+
+      
     </div>
+
+    <div className="alreadyUploaded max-w-4xl">
+        <CurriculumTable></CurriculumTable>
+      </div>
+    </>
   )
 }
 
