@@ -23,7 +23,7 @@ const handleCourseDetailsCreate = async (e) => {
   const rating = e.target.rating.value;
   const course_fee = e.target.course_fee.value;
   const total_live_class = e.target.total_live_class.value;
-  // const youtube_link = e.target.youtube_link.value;
+  const youtube_video_url = e.target.youtube_video_url.value;
   const total_project = e.target.total_project.value;
   const total_video = e.target.total_video.value;
   const course_duration = e.target.course_duration.value;
@@ -50,6 +50,7 @@ const handleCourseDetailsCreate = async (e) => {
     total_project,
     total_video,
     course_duration,
+    youtube_video_url,
     course_video: VideoUrl,
   }
 
@@ -187,19 +188,18 @@ const handleCourseDetailsCreate = async (e) => {
             />
           </div>
 
-          {/* title    */}
+          {/* youtube_video_url    */}
           <div className="mb-4">
-            <label htmlFor="title" className="block text-gray-700">Or put youtube link of Video</label>
+            <label htmlFor="youtube_video_url" className="block text-gray-700">Or put youtube link of Video</label>
             <input
               type="text"
-              name="youtube_link"
+              name="youtube_video_url"
               id="title"
               className="w-full p-2 border border-gray-300 rounded mt-1"
-              placeholder="Enter Course Title"
+              placeholder="youtube_video_url"
             />
           </div>
         </div>
-
         <div className="text-center mt-6">
           <button
             type="submit"
