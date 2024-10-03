@@ -8,6 +8,7 @@ import Swal from "sweetalert2";
 import CourseDetailsTable from "./CourseDetailsTable";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../../../hook/UseAxiosPublic";
+import ManageDataTable from "../ManageDataTable";
 
 const CourseDetailsCreatePage = () => {
   const { singleCourseDataApi, singleCourseData } = courseStore();
@@ -228,8 +229,11 @@ const CourseDetailsCreatePage = () => {
 
       </div>
 
-      <div className="CourseDetails">
+      {/* <div className="CourseDetails">
         <CourseDetailsTable courseDetails = {courseDetail}></CourseDetailsTable>
+      </div> */}
+      <div>
+        <ManageDataTable></ManageDataTable>
       </div>
       
     </>
