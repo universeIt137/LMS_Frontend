@@ -50,6 +50,7 @@ const ClientFooter = () => {
                     <Link to="/faq" className="link link-hover">Faq</Link>
                     <Link to="/refund-policy" className="link link-hover">Refund policy</Link>
                     <Link to="/dashboard" className="link link-hover">Dashboard</Link>
+                    <Link to="/dashboard/instructor-create" className="link link-hover">Instructor</Link>
                 </nav>
             </footer>
 

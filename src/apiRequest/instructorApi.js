@@ -11,6 +11,14 @@ const instructorStore = create((set)=>({
         } else{
             return false;
         }
+    },
+    instructorCreateApi : async function(payload){
+        let res = await axiosPublic.post(`/instructor/create`,payload);
+        if(res.data["status"] ==='success'){
+            return res.data["status"];
+        } else{
+            return false;
+        }
     }
 }));
 

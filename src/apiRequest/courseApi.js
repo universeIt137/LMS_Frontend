@@ -23,7 +23,7 @@ const courseStore = create((set)=>({
     },
     allCourseList : null,
     allCourseListApi : async ()=>{
-        let res = await axiosPublic.get(`/admin-all-course`);
+        let res = await axiosPublic.get(`/all-course`);
         if(res.data.status === 'success'){
             set({allCourseList : res.data.data});
         }else{
