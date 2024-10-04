@@ -36,6 +36,7 @@ import GetInCoursePage from "../pages/adminSide/courseRelatedPage/getInCourse/Ge
 import CurriculumCreatePage from './../pages/adminSide/courseRelatedPage/curriculumCreate/CurriculumCreatePage';
 import UpdateCurriculumPage from './../pages/adminSide/courseRelatedPage/curriculumCreate/UpdateCurriculumPage';
 import InstructorCreatePage from "../pages/adminSide/instructor/InstructorCreatePage.jsx";
+import ProjectCreatePage from './../pages/adminSide/courseRelatedPage/project/ProjectCreatePage';
 
 const token = {
   headers: {
@@ -187,6 +188,10 @@ export const router = createBrowserRouter([
       path : "instructor-create",
       element : <InstructorCreatePage></InstructorCreatePage>
     },
+    {
+      path : "project-create",
+      element : <ProjectCreatePage></ProjectCreatePage>
+    }
       
 
       ]
