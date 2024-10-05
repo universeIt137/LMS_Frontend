@@ -77,6 +77,7 @@ const ProjectCreatePage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
+
             Create New Project
           </motion.h2>
 
@@ -105,6 +106,54 @@ const ProjectCreatePage = () => {
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
+
+            <label htmlFor="project_img" className="block text-gray-700 font-semibold mb-2">
+              Project Image
+            </label>
+            <input
+              type="file"
+              id="project_img"
+              name="project_img"
+              required
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            />
+          </motion.div>
+
+          {/* Project Name */}
+          <motion.div
+            className="mb-4"
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+          >
+            <label htmlFor="project_name" className="block text-gray-700 font-semibold mb-2">
+              Project Name
+            </label>
+            <input
+              type="text"
+              id="project_name"
+              name="project_name"
+              required
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              placeholder="Enter project name"
+            />
+          </motion.div>
+
+          {/* Course ID */}
+          <motion.div
+            className="mb-4"
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
+            <label htmlFor="course_id" className="block text-gray-700 font-semibold mb-2">
+              Course Name
+            </label>
+            <select
+              id="course_id"
+              name="course_id"
+              required
+              className="form-select w-full px-3 py-[10px] mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-indigo-200"
             >
               <label htmlFor="project_name" className="block text-gray-700 font-semibold mb-2">
                 Project Name

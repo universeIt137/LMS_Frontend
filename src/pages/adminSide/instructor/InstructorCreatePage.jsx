@@ -5,11 +5,11 @@ import instructorStore from '../../../apiRequest/instructorApi';
 import Swal from 'sweetalert2';
 
 const InstructorCreatePage = () => {
-    const {courseNameList,courseNameListApi} = courseStore();
+    const {singleCourseDataApi,singleCourseData} = courseStore();
     const {instructorCreateApi} = instructorStore();
     useEffect(()=>{
         (async()=>{
-            await courseNameListApi();
+            await singleCourseDataApi();
         })()
     },[]);
     const handleValueSubmit = async (e) =>{
@@ -54,9 +54,9 @@ const InstructorCreatePage = () => {
     }
   return (
     <div>
-        <div className="flex justify-center items-center  max-h-[calc(100vh-135px)] ">
+        <div className="flex justify-center items-center  min-h-[calc(100vh-135px)] ">
       <div className="bg-white shadow-md rounded-lg p-8 max-w-lg w-full">
-        <h2 className="text-2xl font-bold text-center mb-6">Instructor Create</h2>
+        <h2 className="text-2xl font-bold text-center mb-6"> {singleCourseData?.course_name}  Instructor Create</h2>
         
         <form onSubmit={handleValueSubmit} >
           {/* Instructor Name */}
@@ -103,12 +103,9 @@ const InstructorCreatePage = () => {
           <div className="mb-4">
             <label htmlFor="course_name" className="block text-gray-700 font-semibold mb-2">Course Name</label>
             <select id="course_id" name="course_id" className="form-select w-full px-3 py-[10px] mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-indigo-200">
-                <option value="">Select Course</option>
-              {
-                courseNameList.map((course, index) => (
-                  <option key={index} value={course._id}>{course.course_name}</option>
-                ))
-              }
+      
+                  <option  value={singleCourseData?._id}>{singleCourseData?.course_name}</option>
+      
             </select>
           </div>
 
