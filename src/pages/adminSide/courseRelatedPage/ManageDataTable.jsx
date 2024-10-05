@@ -5,7 +5,7 @@ import { RxUpdate } from 'react-icons/rx';
 import { Link } from 'react-router-dom';
 
 const ManageDataTable = () => {
-
+  window.screenTop(0,0)
   return (
     <div>
       <div className="min-h-screen flex items-center justify-center bg-gray-100">
@@ -57,7 +57,7 @@ const ManageDataTable = () => {
                 <tr className="hover:bg-gray-100">
                   <td className="border border-gray-300 px-4 py-2 font-bold w-1/2">Course Successful Student</td>
                   <td className="flex justify-center px-4 py-2 border  ">
-                    <Link to="/dashboard/curriculum-create"><MdOutlineKeyboardCommandKey className='text-3xl'/></Link>
+                    <Link to="/dashboard/successful-course-student-create"><MdOutlineKeyboardCommandKey className='text-3xl'/></Link>
 
                   </td>
                 </tr>
