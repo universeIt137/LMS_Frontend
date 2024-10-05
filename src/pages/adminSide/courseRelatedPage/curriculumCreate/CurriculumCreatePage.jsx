@@ -2,6 +2,12 @@ import React, { useEffect } from 'react'
 import courseStore from '../../../../apiRequest/courseApi';
 import curriculumStore from '../../../../apiRequest/curriculumApi';
 import CurriculumTable from './CurriculumTable';
+
+import { Helmet } from 'react-helmet-async';
+
+const CurriculumCreatePage = () => {
+  window.scrollTo(0, 0);
+  const {courseNameList,courseNameListApi} = courseStore();
 import Swal from 'sweetalert2';
 
 const CurriculumCreatePage = () => {
@@ -49,6 +55,9 @@ const handelSubmitValue  = async (e) =>{
 }
   return (
     <>
+      <Helmet>
+        <title>Dashboard | Curriculum</title>
+      </Helmet>
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-4xl">
         <h1 className="text-2xl font-bold mb-6 text-gray-800 text-center"> {singleCourseData?.course_name} Curriculum Form</h1>
@@ -154,7 +163,7 @@ const handelSubmitValue  = async (e) =>{
       
     </div>
 
-    <div className="alreadyUploaded max-w-4xl">
+    <div className=" alreadyUploaded max-w-4xl mx-auto">
         <CurriculumTable></CurriculumTable>
       </div>
     </>
