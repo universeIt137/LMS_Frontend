@@ -5,11 +5,11 @@ import getInCourseStore from '../../../../apiRequest/getInCourseApi';
 import Swal from 'sweetalert2';
 import toast from 'react-hot-toast';
 const GetInCoursePage = () => {
-    const {courseNameList,courseNameListApi} = courseStore();
+    const {singleCourseData,singleCourseDataApi} = courseStore();
     const {getInCourseCreateApi} = getInCourseStore()
     useEffect(()=>{
         (async()=>{
-            await courseNameListApi();
+            await singleCourseDataApi();
         })()
     },[]);
     const handleSubmitForm = async (e)=>{
@@ -51,19 +51,14 @@ const GetInCoursePage = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="bg-white my-4 p-8 rounded-lg shadow-lg w-full max-w-lg">
-        <h1 className="text-2xl font-bold mb-6 text-gray-800 text-center">Provide course form </h1>
+        <h1 className="text-2xl font-bold mb-6 text-gray-800 text-center"> {singleCourseData.course_name} Provide course </h1>
 
         <form onSubmit={handleSubmitForm} className="space-y-6">
           {/* Course ID */}
         <div className="mb-4">
             <label htmlFor="course_id" className="block text-gray-700 font-medium mb-2">Course Name</label>
             <select id="course_id" name="course_id" className="form-select w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-indigo-200">
-                <option value="">Select Course</option>
-              {
-                courseNameList.map((course, index) => (
-                  <option key={index} value={course._id}>{course.course_name}</option>
-                ))
-              }
+                  <option  value={singleCourseData._id}>{singleCourseData.course_name}</option>
             </select>
         </div>
 

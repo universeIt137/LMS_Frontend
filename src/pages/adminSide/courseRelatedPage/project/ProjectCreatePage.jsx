@@ -83,6 +83,7 @@ const ProjectCreatePage = () => {
               type="file"
               id="project_img"
               name="project_img"
+              required
               className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
             />
           </motion.div>
@@ -101,6 +102,7 @@ const ProjectCreatePage = () => {
               type="text"
               id="project_name"
               name="project_name"
+              required
               className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
               placeholder="Enter project name"
             />
@@ -119,6 +121,7 @@ const ProjectCreatePage = () => {
             <select
               id="course_id"
               name="course_id"
+              required
               className="form-select w-full px-3 py-[10px] mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-indigo-200"
             >
               <option value="">Select Course</option>
