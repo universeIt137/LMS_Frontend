@@ -3,22 +3,40 @@ import { FaRegEdit } from 'react-icons/fa';
 import { MdDeleteOutline } from 'react-icons/md';
 import { NavLink, useParams } from 'react-router-dom';
 import curriculumStore from '../../../../apiRequest/curriculumApi';
+import courseStore from '../../../../apiRequest/courseApi';
+import { deleteAlert } from '../../../../helper/deleteAlert';
+import toast from 'react-hot-toast';
 
 const CurriculumTable = () => {
-  const { allCurriculumDataApi, allCurriculumDataList } = curriculumStore();
+  const {singleCourseDataApi,singleCourseData} = courseStore();
+  const { allCurriculumDataApi, allCurriculumDataList,deleteCurriculumDataApi} = curriculumStore();
   const { id } = useParams();
 
   useEffect(() => {
     (async () => {
       await allCurriculumDataApi();
+      await singleCourseDataApi(id);
     })();
   }, []);
+
+  const handleDeleteCurriculum = async (id) => {
+    const res = await deleteAlert();
+    if (res.isConfirmed) {
+      let res = await deleteCurriculumDataApi(id);
+      if (res) {
+        await allCurriculumDataApi();
+        toast.success(res);
+      }
+    }else{
+      toast.error('Delete operation cancelled');
+    }
+  };
 
   return (
     <div className="ml-5 w-full mx-auto flex items-center justify-center my-10 bg-gray-100">
       <div className="w-full mx-auto">
         <div className="bg-white p-6 rounded-lg shadow-lg w-full">
-          <h2 className="text-2xl font-bold text-center mb-4 text-gray-800">Course Curriculums</h2>
+          <h2 className="text-2xl font-bold text-center mb-4 text-gray-800"> {singleCourseData.course_name} Course Curriculums</h2>
 
           {/* Add overflow-x-auto for responsiveness */}
           <div className="overflow-x-auto">
@@ -64,7 +82,9 @@ const CurriculumTable = () => {
                               <FaRegEdit />
                             </NavLink>
                             <span title="delete" className="cursor-pointer text-[22px]">
-                              <MdDeleteOutline />
+                             <div onClick={handleDeleteCurriculum.bind(this, item._id)} >
+                             <MdDeleteOutline />
+                             </div>
                             </span>
                           </div>
                         </td>

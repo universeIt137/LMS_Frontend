@@ -3,16 +3,18 @@ import courseStore from '../../../../apiRequest/courseApi';
 import curriculumStore from '../../../../apiRequest/curriculumApi';
 import CurriculumTable from './CurriculumTable';
 import Swal from 'sweetalert2';
+import { useParams } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 const CurriculumCreatePage = () => {
+  const {id} = useParams();
   const {singleCourseData,singleCourseDataApi} = courseStore();
-  const {createCurriculumApi} = curriculumStore();
+  const {createCurriculumApi,allCurriculumDataApi,allCurriculumDataList} = curriculumStore();
   useEffect(()=>{
     (async()=>{
-        await singleCourseDataApi();
+        await singleCourseDataApi(id);
     })()
 },[]);
-console.log(singleCourseData[0]?.course_name);
 const handelSubmitValue  = async (e) =>{
   e.preventDefault();
   const course_id = e.target.course_id.value;
@@ -33,11 +35,12 @@ const handelSubmitValue  = async (e) =>{
 
   let res = await createCurriculumApi(payload);
   if(res){
+    await allCurriculumDataApi()
     Swal.fire({
       position: 'top-end',
       icon:'success',
       title: 'Curriculum created successfully',
-    })
+    });
   }else{
     Swal.fire({
       position: 'top-end',

@@ -39,6 +39,14 @@ const curriculumStore = create((set)=>({
             return false;
         }
     },
+    deleteCurriculumDataApi : async (id) => {
+        let res = await axiosPublic.delete(`/curriculum/delete/${id}`);
+        if(res.data["status"]==="success"){
+            return res.data["status"];
+        } else{
+            return false;
+        }
+    }
 }));
 
 export default curriculumStore;
