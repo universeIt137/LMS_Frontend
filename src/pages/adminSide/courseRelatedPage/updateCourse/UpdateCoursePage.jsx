@@ -41,8 +41,8 @@ const UpdateCoursePage = () => {
     const batch_no = e.target.batch_no.value;
 
     let CourseImageUrl = incomingCourseImg;
-    if (!image?.name) {
 
+    if (!image?.name) {
       CourseImageUrl = incomingCourseImg
     } else {
       CourseImageUrl = await uploadImg(image);

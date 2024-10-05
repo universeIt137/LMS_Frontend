@@ -4,12 +4,15 @@ import { uploadImg } from '../../../../uploadImage/UploadImage';
 import getInCourseStore from '../../../../apiRequest/getInCourseApi';
 import Swal from 'sweetalert2';
 import toast from 'react-hot-toast';
+import GetInCourseTablePage from '../getInCourseTable/GetInCourseTablePage';
+import { useParams } from 'react-router-dom';
 const GetInCoursePage = () => {
+  const {id} = useParams();
     const {singleCourseData,singleCourseDataApi} = courseStore();
-    const {getInCourseCreateApi} = getInCourseStore()
+    const {getInCourseCreateApi,getInCourseListApi} = getInCourseStore()
     useEffect(()=>{
         (async()=>{
-            await singleCourseDataApi();
+            await singleCourseDataApi(id);
         })()
     },[]);
     const handleSubmitForm = async (e)=>{
@@ -36,6 +39,7 @@ const GetInCoursePage = () => {
 
         let res = await getInCourseCreateApi(payload);
         if(res){
+          await getInCourseListApi()
             Swal.fire({
                 position: "top-end",
                 icon: "success",
@@ -49,6 +53,7 @@ const GetInCoursePage = () => {
         e.target.reset();
     }
   return (
+    <>
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="bg-white my-4 p-8 rounded-lg shadow-lg w-full max-w-lg">
         <h1 className="text-2xl font-bold mb-6 text-gray-800 text-center"> {singleCourseData.course_name} Provide course </h1>
@@ -115,6 +120,8 @@ const GetInCoursePage = () => {
         </form>
       </div>
     </div>
+    <GetInCourseTablePage></GetInCourseTablePage>
+    </>
   )
 }
 
