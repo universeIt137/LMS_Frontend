@@ -6,12 +6,12 @@ import projectStore from '../../../../apiRequest/projectApi';
 import Swal from 'sweetalert2';
 
 const ProjectCreatePage = () => {
-  const { courseNameList, courseNameListApi } = courseStore();
+  const { singleCourseDataApi, singleCourseData } = courseStore();
   const { projectCreateApi } = projectStore();
 
   useEffect(() => {
     (async () => {
-      await courseNameListApi();
+      await singleCourseDataApi();
     })();
   }, []);
 
@@ -65,7 +65,8 @@ const ProjectCreatePage = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          Create New Project
+          
+          {singleCourseData?.course_name} Create New Project
         </motion.h2>
 
         <form onSubmit={handleSubmit}>
@@ -124,12 +125,10 @@ const ProjectCreatePage = () => {
               required
               className="form-select w-full px-3 py-[10px] mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-indigo-200"
             >
-              <option value="">Select Course</option>
-              {courseNameList.map((course, index) => (
-                <option key={index} value={course._id}>
-                  {course.course_name}
+                <option  value={singleCourseData?._id}>
+                  {singleCourseData?.course_name}
                 </option>
-              ))}
+            
             </select>
           </motion.div>
 
