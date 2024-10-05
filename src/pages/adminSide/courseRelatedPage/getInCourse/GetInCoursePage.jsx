@@ -56,7 +56,7 @@ const GetInCoursePage = () => {
     <>
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="bg-white my-4 p-8 rounded-lg shadow-lg w-full max-w-lg">
-        <h1 className="text-2xl font-bold mb-6 text-gray-800 text-center"> Create Get In Course for {singleCourseData.course_name}  </h1>
+        <h1 className="text-2xl font-bold mb-6 text-gray-800 text-center"> Create Get In Course for ({singleCourseData.course_name}) </h1>
 
         <form onSubmit={handleSubmitForm} className="space-y-6">
           {/* Course ID */}

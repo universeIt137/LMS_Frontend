@@ -31,7 +31,7 @@ const GetInCourseTablePage = () => {
   return (
     <div>
       <div className="container mx-auto mt-8">
-        <h2 className="text-2xl font-semibold mb-6 text-center">Course Details</h2>
+        <h2 className="text-2xl font-semibold mb-6 text-center">Get In Course Details</h2>
         <div className="overflow-x-auto">
           <table className="min-w-full bg-white border border-gray-200">
             <thead>
