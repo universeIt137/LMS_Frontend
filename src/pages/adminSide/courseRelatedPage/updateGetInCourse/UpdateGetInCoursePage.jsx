@@ -13,7 +13,8 @@ const UpdateGetInCoursePage = () => {
     (async()=>{
       await getInCourseSingleDataApi(id);
     })()
-  },[id]);
+  }, [id]);
+  
   let { logo: incomingLogo } = getInCourseSingleData;
   
   const handleUpdate = async (e) => {
