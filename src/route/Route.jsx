@@ -38,6 +38,7 @@ import UpdateCurriculumPage from './../pages/adminSide/courseRelatedPage/curricu
 import InstructorCreatePage from "../pages/adminSide/instructor/InstructorCreatePage.jsx";
 import ProjectCreatePage from './../pages/adminSide/courseRelatedPage/project/ProjectCreatePage';
 import UpdateGetInCoursePage from './../pages/adminSide/courseRelatedPage/updateGetInCourse/UpdateGetInCoursePage';
+import UpdateProject from "../pages/adminSide/courseRelatedPage/project/UpdateProject.jsx";
 
 const token = {
   headers: {
@@ -61,7 +62,7 @@ export const router = createBrowserRouter([
         element: <HomePage></HomePage>
 
       },
-      
+
 
 
       {
@@ -115,20 +116,20 @@ export const router = createBrowserRouter([
 
       },
       {
-        path:"profile",
-        element:<Profile></Profile>,
-        children:[
+        path: "profile",
+        element: <Profile></Profile>,
+        children: [
           {
-            path:"profile/form",
-            element:<ProfileForm></ProfileForm>
+            path: "profile/form",
+            element: <ProfileForm></ProfileForm>
           },
           {
-            path:"profile/my-course",
-            element:<MyCourse></MyCourse>
+            path: "profile/my-course",
+            element: <MyCourse></MyCourse>
           },
           {
-            path:'profile/my-reviews',
-            element:<MyReviews></MyReviews>
+            path: 'profile/my-reviews',
+            element: <MyReviews></MyReviews>
           }
         ]
       }
@@ -154,52 +155,56 @@ export const router = createBrowserRouter([
     element: <PrivateRoutes><DashboardLayout></DashboardLayout></PrivateRoutes>,
     children: [
       {
-        path : "add-course",
-        element : <AddCoursePage></AddCoursePage>
+        path: "add-course",
+        element: <AddCoursePage></AddCoursePage>
       },
       {
-        path : "manage-courses",
-        element : <ManageCoursePage></ManageCoursePage>
+        path: "manage-courses",
+        element: <ManageCoursePage></ManageCoursePage>
       },
       {
-        path : "course-update/:id",
-        element : <UpdateCoursePage></UpdateCoursePage>
+        path: "course-update/:id",
+        element: <UpdateCoursePage></UpdateCoursePage>
       },
       {
-        path : "course-details-create/:id",
-        element : <CourseDetailsCreatePage></CourseDetailsCreatePage>
+        path: "course-details-create/:id",
+        element: <CourseDetailsCreatePage></CourseDetailsCreatePage>
       },
       {
-        path : "manage-courses-details",
-        element : <ManageCourseDetailsPage></ManageCourseDetailsPage>
+        path: "manage-courses-details",
+        element: <ManageCourseDetailsPage></ManageCourseDetailsPage>
       },
       {
-        path : "get-in-course",
-        element : <GetInCoursePage></GetInCoursePage>
+        path: "get-in-course",
+        element: <GetInCoursePage></GetInCoursePage>
       },
       {
-        path : "curriculum-create",
-        element : <CurriculumCreatePage></CurriculumCreatePage>
+        path: "curriculum-create",
+        element: <CurriculumCreatePage></CurriculumCreatePage>
       },
-     {
-       path : "curriculum-update/:id",
-       element : <UpdateCurriculumPage></UpdateCurriculumPage>
-     },
-     {
-      path : "instructor-create",
-      element : <InstructorCreatePage></InstructorCreatePage>
-    },
-    {
-      path : "project-create",
-      element : <ProjectCreatePage></ProjectCreatePage>
+      {
+        path: "curriculum-update/:id",
+        element: <UpdateCurriculumPage></UpdateCurriculumPage>
+      },
+      {
+        path: "instructor-create",
+        element: <InstructorCreatePage></InstructorCreatePage>
+      },
+      {
+        path: "project-create",
+        element: <ProjectCreatePage></ProjectCreatePage>
     },
     {
       path : "update/:id",
       element : <UpdateGetInCoursePage></UpdateGetInCoursePage>
-    }
-      
+      },
+      {
+        path: "project-update/:id",
+        element: <UpdateProject></UpdateProject>
+      }
 
-      ]
+
+    ]
   }
-  
+
 ]);
