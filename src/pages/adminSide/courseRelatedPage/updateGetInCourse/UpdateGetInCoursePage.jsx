@@ -69,7 +69,7 @@ const UpdateGetInCoursePage = () => {
     <div>
       <div className="flex justify-center items-center h-screen bg-gray-100">
       <div className="w-full max-w-lg bg-white rounded-lg shadow-lg p-8">
-        <h2 className="text-2xl font-semibold text-center mb-6">Course Form</h2>
+        <h2 className="text-2xl font-semibold text-center mb-6"> Update Get IN Course For {getInCourseSingleData[0]?.courseData?.course_name} </h2>
         <form onSubmit={handleUpdate} >
           {/* Course Name */}
           <div className="mb-4">
