@@ -2,17 +2,18 @@ import React, { useEffect } from 'react'
 import courseStore from '../../../../apiRequest/courseApi';
 import curriculumStore from '../../../../apiRequest/curriculumApi';
 import CurriculumTable from './CurriculumTable';
+import Swal from 'sweetalert2';
 import { Helmet } from 'react-helmet-async';
 
 const CurriculumCreatePage = () => {
-  window.scrollTo(0, 0);
-  const {courseNameList,courseNameListApi} = courseStore();
+  const {singleCourseData,singleCourseDataApi} = courseStore();
   const {createCurriculumApi} = curriculumStore();
   useEffect(()=>{
     (async()=>{
-        await courseNameListApi();
+        await singleCourseDataApi();
     })()
 },[]);
+console.log(singleCourseData[0]?.course_name);
 const handelSubmitValue  = async (e) =>{
   e.preventDefault();
   const course_id = e.target.course_id.value;
@@ -31,10 +32,21 @@ const handelSubmitValue  = async (e) =>{
     description
   };
 
-  // let res = await
-
-
-
+  let res = await createCurriculumApi(payload);
+  if(res){
+    Swal.fire({
+      position: 'top-end',
+      icon:'success',
+      title: 'Curriculum created successfully',
+    })
+  }else{
+    Swal.fire({
+      position: 'top-end',
+      icon:'error',
+      title: 'Failed to create curriculum',
+    })
+  }
+  e.target.reset();
 }
   return (
     <>
@@ -43,7 +55,7 @@ const handelSubmitValue  = async (e) =>{
       </Helmet>
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-4xl">
-        <h1 className="text-2xl font-bold mb-6 text-gray-800 text-center">Curriculum Form</h1>
+        <h1 className="text-2xl font-bold mb-6 text-gray-800 text-center"> {singleCourseData?.course_name} Curriculum Form</h1>
 
         <form onSubmit={handelSubmitValue} className="space-y-6">
           {/* Grid for two input fields per row */}
@@ -54,12 +66,8 @@ const handelSubmitValue  = async (e) =>{
                 Course Name
               </label>
               <select id="course_id" name="course_id" className="form-select w-full px-3 py-[10px] mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-indigo-200">
-                <option value="">Select Course</option>
-              {
-                courseNameList.map((course, index) => (
-                  <option key={index} value={course._id}>{course.course_name}</option>
-                ))
-              }
+                
+                  <option  value={singleCourseData?._id}>{singleCourseData?.course_name}</option>
             </select>
             </div>
 
