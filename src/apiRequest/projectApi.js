@@ -13,6 +13,18 @@ const projectStore = create((set)=>({
         }
     },
 
+    singleProjectData: [],
+    singleProjectDataApi: async (id) => {
+
+        let res = await axiosPublic.get(`/single/project/${id}`);
+        if (res.data.status === "success") {
+            set({singleProjectData : res.data.data})
+        } else {
+            return false;
+        }
+        
+    }
+
 }));
 
 export default projectStore;
