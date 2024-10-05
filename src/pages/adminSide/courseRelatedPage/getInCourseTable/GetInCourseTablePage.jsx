@@ -7,6 +7,8 @@ import { NavLink, useParams } from 'react-router-dom';
 import toast from 'react-hot-toast';
 
 const GetInCourseTablePage = () => {
+  
+  window.screenTop(0,0)
   const { getInCourseDeleteApi, getInCourseUpdateApi, getInCourseSingleDataApi, getInCourseSingleData, getInCourseDataList, getInCourseListApi } = getInCourseStore();
   const { id } = useParams();
 
