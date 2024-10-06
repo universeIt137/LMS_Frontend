@@ -4,15 +4,17 @@ import courseStore from '../../../../apiRequest/courseApi';
 import { useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { uploadImg } from '../../../../uploadImage/UploadImage';
+import CourseSuccessfulStudentTable from './CourseSuccessfulStudentTable';
 
 const CreateCourseSuccessfulPage = () => {
+  window.scrollTo(0, 0);
   const {id} = useParams();
   const {successfulStudentCreate,successfulStudentDataListApi} = successfulStudentStore();
   const {singleCourseDataApi,singleCourseData} = courseStore();
   window.scrollTo(0, 0);
   useEffect(()=>{
     (async()=>{
-      await singleCourseDataApi();
+      await singleCourseDataApi(id);
     })()
   
   },[id])
@@ -61,7 +63,7 @@ const CreateCourseSuccessfulPage = () => {
     <div>
       <div className="flex justify-center items-center h-screen bg-gray-100">
       <div className="w-full max-w-lg bg-white rounded-lg shadow-lg p-8">
-        <h2 className="text-2xl font-semibold text-center mb-6">Student Information Form</h2>
+        <h2 className="text-2xl font-semibold text-center mb-6"> ({singleCourseData?.course_name}) Course Successful Student </h2>
         <form onSubmit={handleSubmit}>
           {/* Course name */}
           <div className="mb-4">
@@ -155,6 +157,7 @@ const CreateCourseSuccessfulPage = () => {
         </form>
       </div>
     </div>
+    <CourseSuccessfulStudentTable></CourseSuccessfulStudentTable>
     </div>
   )
 }
