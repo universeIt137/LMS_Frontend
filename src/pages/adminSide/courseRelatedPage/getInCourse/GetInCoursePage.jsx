@@ -7,7 +7,7 @@ import toast from 'react-hot-toast';
 import GetInCourseTablePage from '../getInCourseTable/GetInCourseTablePage';
 import { useParams } from 'react-router-dom';
 const GetInCoursePage = () => {
-  window.screenTop(0,0)
+  window.scrollTo(0, 0) 
   const {id} = useParams();
     const {singleCourseData,singleCourseDataApi} = courseStore();
     const {getInCourseCreateApi,getInCourseListApi} = getInCourseStore()
