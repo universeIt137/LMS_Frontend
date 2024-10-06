@@ -5,7 +5,7 @@ import { uploadImg } from '../../../../uploadImage/UploadImage';
 import Swal from 'sweetalert2';
 
 const UpdateGetInCoursePage = () => {
-  window.screenTop(0,0)
+  window.scrollTo(0, 0);
   let {getInCourseSingleDataApi,getInCourseSingleData,getInCourseUpdateApi,getInCourseListApi} = getInCourseStore();
   const {id} = useParams();
   const navigate = useNavigate();

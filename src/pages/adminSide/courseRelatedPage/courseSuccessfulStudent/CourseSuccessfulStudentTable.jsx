@@ -65,7 +65,7 @@ const CourseSuccessfulStudentTable = () => {
                   <td className="border border-gray-300 px-4 py-2">{item?.company_name}</td>
                   <td className=" px-4 py-2 flex justify-center gap-4">
                     <button className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-lg flex items-center gap-2">
-                      <NavLink title='update' to={`/update/${item._id}`}>
+                      <NavLink title='update' to={`/dashboard/course-successful-student-update/${item._id}`}>
                         <RxUpdate className="text-xl" /> 
                       </NavLink>
                     </button>

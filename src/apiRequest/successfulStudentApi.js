@@ -20,6 +20,7 @@ const successfulStudentStore = create((set)=>({
             return false;
         }
     },
+
     successfulStudentDelete : async (id) => {
         let res = await useAxios.delete(`/student/delete/${id}`);
         if(res.data["status"] ==='success'){
@@ -28,6 +29,7 @@ const successfulStudentStore = create((set)=>({
             return false;
         }
     },
+
     successfulStudentDataList : [],
     successfulStudentDataListApi: async () => {
         let res = await useAxios.get(`all-successful-student`);
@@ -39,9 +41,12 @@ const successfulStudentStore = create((set)=>({
     },
 
     singleSuccessStudentData : [],
+
     singleSuccessStudentDatApi: async (id)=>{
+        console.log(id);
         let res = await useAxios.get(`/single/successful-student/${id}`);
         if(res.data["status"] ==='success'){
+            console.log(res);
             set({singleSuccessStudentData : res.data.data});
         } else{
             return false;
