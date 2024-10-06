@@ -10,6 +10,7 @@ const CurriculumCreatePage = () => {
   const {id} = useParams();
   const {singleCourseData,singleCourseDataApi} = courseStore();
   const {createCurriculumApi,allCurriculumDataApi,allCurriculumDataList} = curriculumStore();
+  window.scrollTo(0, 0);
   useEffect(()=>{
     (async()=>{
         await singleCourseDataApi(id);
