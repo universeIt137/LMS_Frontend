@@ -41,6 +41,8 @@ import UpdateGetInCoursePage from './../pages/adminSide/courseRelatedPage/update
 import UpdateProject from "../pages/adminSide/courseRelatedPage/project/UpdateProject.jsx";
 import SuccessfulStudent from "../pages/clientSide/course/SuccessfulStudent.jsx";
 import CreateCourseSuccessfulPage from "../pages/adminSide/courseRelatedPage/courseSuccessfulStudent/CreateCourseSuccessfulPage.jsx";
+import CourseSuccessfulStudentTable from "../pages/adminSide/courseRelatedPage/courseSuccessfulStudent/CourseSuccessfulStudentTable.jsx";
+import CourseSuccessfulStudentUpdatePage from "../pages/adminSide/courseRelatedPage/courseSuccessfulStudent/CourseSuccessfulStudentUpdatePage.jsx";
 
 const token = {
   headers: {
@@ -207,6 +209,10 @@ export const router = createBrowserRouter([
       {
         path : "successful-course-student-create",
         element : <CreateCourseSuccessfulPage></CreateCourseSuccessfulPage>
+      },
+      {
+        path : "course-successful-student-update/:id",
+        element : <CourseSuccessfulStudentUpdatePage></CourseSuccessfulStudentUpdatePage>
       }
 
 
