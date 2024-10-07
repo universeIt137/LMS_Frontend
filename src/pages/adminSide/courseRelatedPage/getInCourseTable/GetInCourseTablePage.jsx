@@ -7,6 +7,7 @@ import { NavLink, useParams } from 'react-router-dom';
 import toast from 'react-hot-toast';
 
 const GetInCourseTablePage = () => {
+  window.scrollTo(0, 0) 
   const { getInCourseDeleteApi, getInCourseUpdateApi, getInCourseSingleDataApi, getInCourseSingleData, getInCourseDataList, getInCourseListApi } = getInCourseStore();
   const { id } = useParams();
 
@@ -31,7 +32,7 @@ const GetInCourseTablePage = () => {
   return (
     <div>
       <div className="container mx-auto mt-8">
-        <h2 className="text-2xl font-semibold mb-6 text-center">Course Details</h2>
+        <h2 className="text-2xl font-semibold mb-6 text-center">Get In Course Details</h2>
         <div className="overflow-x-auto">
           <table className="min-w-full bg-white border border-gray-200">
             <thead>

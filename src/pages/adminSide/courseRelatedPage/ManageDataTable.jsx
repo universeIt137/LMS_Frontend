@@ -5,7 +5,7 @@ import { RxUpdate } from 'react-icons/rx';
 import { Link } from 'react-router-dom';
 
 const ManageDataTable = () => {
-
+  window.scrollTo(0, 0);
   return (
     <div>
       <div className="min-h-screen flex items-center justify-center bg-gray-100">
@@ -16,108 +16,118 @@ const ManageDataTable = () => {
             <table className="table-auto w-full border-collapse border text-center border-gray-300">
               <thead>
                 <tr className="bg-gray-200">
-                  <th className="border border-gray-300 px-4 py-2  w-1/2 ">Topic</th>
-                  <th className="border border-gray-300 px-4 py-2  w-1/2">Manage Topic</th>
-
+                  <th className="border border-gray-300 px-4 py-2 w-1/2">Topic</th>
+                  <th className="border border-gray-300 px-4 py-2 w-1/2">Manage Topic</th>
                 </tr>
               </thead>
-              <tbody className=''>
+              <tbody>
                 <tr className="hover:bg-gray-100">
                   <td className="border border-gray-300 px-4 py-2 font-bold w-1/2">Curriculum</td>
-                  <td className="flex justify-center px-4 py-2 border  ">
-                    <Link to="/dashboard/curriculum-create"><MdOutlineKeyboardCommandKey className='text-3xl' /></Link>
-
+                  <td className="flex justify-center px-4 py-2 border">
+                    <Link to="/dashboard/curriculum-create">
+                      <MdOutlineKeyboardCommandKey className="text-3xl" />
+                    </Link>
                   </td>
                 </tr>
 
                 <tr className="hover:bg-gray-100">
                   <td className="border border-gray-300 px-4 py-2 font-bold w-1/2">Get_in_course</td>
-                  <td className="flex justify-center px-4 py-2 border  ">
-                    <Link to="/dashboard/get-in-course"><MdOutlineKeyboardCommandKey className='text-3xl' /></Link>
-
+                  <td className="flex justify-center px-4 py-2 border">
+                    <Link to="/dashboard/get-in-course">
+                      <MdOutlineKeyboardCommandKey className="text-3xl" />
+                    </Link>
                   </td>
                 </tr>
 
                 <tr className="hover:bg-gray-100">
                   <td className="border border-gray-300 px-4 py-2 font-bold w-1/2">Project</td>
-                  <td className="flex justify-center px-4 py-2 border  ">
-                    <Link to="/dashboard/project-create"><MdOutlineKeyboardCommandKey className='text-3xl' /></Link>
-
+                  <td className="flex justify-center px-4 py-2 border">
+                    <Link to="/dashboard/project-create">
+                      <MdOutlineKeyboardCommandKey className="text-3xl" />
+                    </Link>
                   </td>
                 </tr>
 
                 <tr className="hover:bg-gray-100">
                   <td className="border border-gray-300 px-4 py-2 font-bold w-1/2">Instructor</td>
-                  <td className="flex justify-center px-4 py-2 border  ">
-                    <Link to="/dashboard/instructor-create"><MdOutlineKeyboardCommandKey className='text-3xl' /></Link>
-
+                  <td className="flex justify-center px-4 py-2 border">
+                    <Link to="/dashboard/instructor-create">
+                      <MdOutlineKeyboardCommandKey className="text-3xl" />
+                    </Link>
                   </td>
                 </tr>
 
                 <tr className="hover:bg-gray-100">
                   <td className="border border-gray-300 px-4 py-2 font-bold w-1/2">Course Successful Student</td>
-                  <td className="flex justify-center px-4 py-2 border  ">
-                    <Link to="/dashboard/curriculum-create"><MdOutlineKeyboardCommandKey className='text-3xl'/></Link>
-
+                  <td className="flex justify-center px-4 py-2 border">
+                    <Link to="/dashboard/successful-course-student-create">
+                      <MdOutlineKeyboardCommandKey className="text-3xl" />
+                    </Link>
                   </td>
                 </tr>
 
                 <tr className="hover:bg-gray-100">
                   <td className="border border-gray-300 px-4 py-2 font-bold w-1/2">Feedback</td>
-                  <td className="flex justify-center px-4 py-2 border  ">
-                    <Link to="/dashboard/curriculum-create"><MdOutlineKeyboardCommandKey className='text-3xl' /></Link>
-
+                  <td className="flex justify-center px-4 py-2 border">
+                    <Link to="/dashboard/feedback-create">
+                      <MdOutlineKeyboardCommandKey className="text-3xl" />
+                    </Link>
                   </td>
                 </tr>
 
                 <tr className="hover:bg-gray-100">
                   <td className="border border-gray-300 px-4 py-2 font-bold w-1/2">Module</td>
-                  <td className="flex justify-center px-4 py-2 border  ">
-                    <Link to="/dashboard/curriculum-create"><MdOutlineKeyboardCommandKey className='text-3xl' /></Link>
-
+                  <td className="flex justify-center px-4 py-2 border">
+                    <Link to="/dashboard/module-create">
+                      <MdOutlineKeyboardCommandKey className="text-3xl" />
+                    </Link>
                   </td>
                 </tr>
 
                 <tr className="hover:bg-gray-100">
                   <td className="border border-gray-300 px-4 py-2 font-bold w-1/2">Module Details</td>
-                  <td className="flex justify-center px-4 py-2 border  ">
-                    <Link to="/dashboard/curriculum-create"><MdOutlineKeyboardCommandKey className='text-3xl' /></Link>
-
+                  <td className="flex justify-center px-4 py-2 border">
+                    <Link to="/dashboard/module-details-create">
+                      <MdOutlineKeyboardCommandKey className="text-3xl" />
+                    </Link>
                   </td>
                 </tr>
 
                 <tr className="hover:bg-gray-100">
                   <td className="border border-gray-300 px-4 py-2 font-bold w-1/2">Assignment</td>
-                  <td className="flex justify-center px-4 py-2 border  ">
-                    <Link to="/dashboard/curriculum-create"><MdOutlineKeyboardCommandKey className='text-3xl' /></Link>
-
+                  <td className="flex justify-center px-4 py-2 border">
+                    <Link to="/dashboard/assignment-create">
+                      <MdOutlineKeyboardCommandKey className="text-3xl" />
+                    </Link>
                   </td>
                 </tr>
 
                 <tr className="hover:bg-gray-100">
                   <td className="border border-gray-300 px-4 py-2 font-bold w-1/2">Resources</td>
-                  <td className="flex justify-center px-4 py-2 border  ">
-                    <Link to="/dashboard/curriculum-create"><MdOutlineKeyboardCommandKey className='text-3xl' /></Link>
-
+                  <td className="flex justify-center px-4 py-2 border">
+                    <Link to="/dashboard/resources-create">
+                      <MdOutlineKeyboardCommandKey className="text-3xl" />
+                    </Link>
                   </td>
                 </tr>
 
                 <tr className="hover:bg-gray-100">
                   <td className="border border-gray-300 px-4 py-2 font-bold w-1/2">Pre-Recorded Videos</td>
-                  <td className="flex justify-center px-4 py-2 border  ">
-                    <Link to="/dashboard/curriculum-create"><MdOutlineKeyboardCommandKey className='text-3xl' /></Link>
-
+                  <td className="flex justify-center px-4 py-2 border">
+                    <Link to="/dashboard/pre-recorded-videos-create">
+                      <MdOutlineKeyboardCommandKey className="text-3xl" />
+                    </Link>
                   </td>
                 </tr>
 
                 <tr className="hover:bg-gray-100">
                   <td className="border border-gray-300 px-4 py-2 font-bold w-1/2">Live Class</td>
-                  <td className="flex justify-center px-4 py-2 border  ">
-                    <Link to="/dashboard/curriculum-create"><MdOutlineKeyboardCommandKey className='text-3xl' /></Link>
-
+                  <td className="flex justify-center px-4 py-2 border">
+                    <Link to="/dashboard/live-class-create">
+                      <MdOutlineKeyboardCommandKey className="text-3xl" />
+                    </Link>
                   </td>
                 </tr>
-
 
               </tbody>
             </table>
