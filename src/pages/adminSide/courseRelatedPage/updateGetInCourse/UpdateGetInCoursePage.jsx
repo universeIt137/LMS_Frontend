@@ -15,6 +15,7 @@ const UpdateGetInCoursePage = () => {
     })()
   }, [id]);
   
+  console.log(getInCourseSingleData);
   let { logo: incomingLogo } = getInCourseSingleData;
   
   const handleUpdate = async (e) => {

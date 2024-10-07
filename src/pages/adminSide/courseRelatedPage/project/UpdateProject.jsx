@@ -18,6 +18,9 @@ const UpdateProject = () => {
     }, []);
 
     console.log(singleProjectData);
+
+    
+
     // const { data: project = [] } = useQuery({
     //     queryKey: ['project'],
     //     queryFn: async () => {
@@ -26,9 +29,9 @@ const UpdateProject = () => {
     //     }
     // })
 
-    const incomingImgUrl = singleProjectData[0]?.project_img;
-
-    console.log(incomingImgUrl);
+    // let [{ project_img: incomingUrl }] = singleProjectData;
+    
+    // console.log(incomingUrl);
 
 
     const handleSubmit = async (e) => {
