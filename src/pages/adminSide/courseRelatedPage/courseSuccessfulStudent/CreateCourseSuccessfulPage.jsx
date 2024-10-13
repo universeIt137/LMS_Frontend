@@ -70,10 +70,10 @@ const CreateCourseSuccessfulPage = () => {
             <label htmlFor="course_id" className="block text-sm font-medium text-gray-700 mb-1">
               Course Name
             </label>
-            <select id="course_id" name="course_id" className="form-select w-full px-3 py-[10px] mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-indigo-200">
-                
-                  <option  value={singleCourseData?._id}>{singleCourseData?.course_name}</option>
-            </select>
+              <select id="course_id" name="course_id" className="form-select w-full px-3 py-[10px] mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-indigo-200">
+                  
+                    <option  value={singleCourseData?._id}>{singleCourseData?.course_name}</option>
+              </select>
           </div>
 
           {/* Student Name */}
