@@ -32,6 +32,14 @@ const feedbackStore = create((set)=>({
             return false;
         }
     },
+    feedbackDeleteApi : async (id)=>{
+        let res = await useAxios.delete(`/feedback/delete/${id}`);
+        if(res.data["status"] ==='success'){
+            return res.data["status"];
+        } else{
+            return false;
+        }
+    }
 
 }));
 

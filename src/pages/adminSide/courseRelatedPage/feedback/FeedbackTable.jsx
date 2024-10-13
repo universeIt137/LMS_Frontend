@@ -1,21 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import feedbackStore from '../../../../apiRequest/feedbackApi';
-import { useParams } from 'react-router-dom';
+import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import { FaEdit } from "react-icons/fa";
 import { FaDeleteLeft } from 'react-icons/fa6';
 import { MdDeleteOutline } from 'react-icons/md';
+import { deleteAlert } from '../../../../helper/deleteAlert';
+import toast from 'react-hot-toast';
 
 
 const FeedbackTable = () => {
     const [loader,setLoader] = useState(false);
   const { id } = useParams();
   const {
-    singleFeedbackDataApi,
-    singleFeedbackData,
+    
     allFeedbackListApi,
     allFeedbackList,
+    feedbackDeleteApi
   } = feedbackStore();
-
+  const navigate = useNavigate();
   useEffect(() => {
     (async () => {
         setLoader(true);
@@ -25,13 +27,20 @@ const FeedbackTable = () => {
   }, [id]);
 
   const handleEdit = (feedbackId) => {
-    console.log(`Edit feedback with ID: ${feedbackId}`);
-    // Redirect to edit page or show a modal (implement as per requirement)
+    navigate("/dashboard/feedback-update")
   };
 
-  const handleDelete = (feedbackId) => {
-    console.log(`Delete feedback with ID: ${feedbackId}`);
-    // Call API to delete feedback (implement your delete logic)
+  const handleDelete = async (id) => {
+    let resp = await deleteAlert();
+    if (resp.isConfirmed) {
+        let res = await feedbackDeleteApi(id);
+        if (res) {
+            await allFeedbackListApi();
+            toast.success("Feedback deleted successfully")
+        }else{
+            toast.error("Failed to delete Feedback");
+        }
+    }
   };
 
   return (
@@ -74,7 +83,7 @@ const FeedbackTable = () => {
                     <span> <FaEdit></FaEdit> </span>
                   </button>
                   <button
-                    onClick={() => handleDelete(feedback.id)}
+                    onClick={() => handleDelete(feedback["_id"])}
                     className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 rounded"
                   >
                     <MdDeleteOutline />

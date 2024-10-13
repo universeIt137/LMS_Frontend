@@ -9,7 +9,7 @@ import Loader from '../../../../components/clideSide/loader/Loader';
 import FeedbackTable from './FeedbackTable';
 
 const CreateFeedbackPage = () => {
-  const { createFeedbackApi } = feedbackStore();
+  const { createFeedbackApi , allFeedbackListApi} = feedbackStore();
   const { singleCourseDataApi, singleCourseData } = courseStore();
   const { id } = useParams();
   const [loader, setLoader] = useState(false); // Loader state
@@ -40,6 +40,7 @@ const CreateFeedbackPage = () => {
     setLoader(false); // Hide loader
 
     if (res) {
+      await allFeedbackListApi()
       Swal.fire({
         position: 'top-end',
         icon: 'success',
