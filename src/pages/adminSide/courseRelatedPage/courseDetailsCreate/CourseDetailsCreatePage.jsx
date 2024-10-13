@@ -232,7 +232,7 @@ const CourseDetailsCreatePage = () => {
       {/* <div className="CourseDetails">
         <CourseDetailsTable courseDetails = {courseDetail}></CourseDetailsTable>
       </div> */}
-      <div>
+      <div className="my-8" >
         <ManageDataTable></ManageDataTable>
       </div>
       
