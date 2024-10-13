@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import feedbackStore from '../../../../apiRequest/feedbackApi';
-import { Navigate, useNavigate, useParams } from 'react-router-dom';
+import { Navigate, NavLink, useNavigate, useParams } from 'react-router-dom';
 import { FaEdit } from "react-icons/fa";
 import { FaDeleteLeft } from 'react-icons/fa6';
 import { MdDeleteOutline } from 'react-icons/md';
@@ -26,9 +26,7 @@ const FeedbackTable = () => {
     })();
   }, [id]);
 
-  const handleEdit = (feedbackId) => {
-    navigate("/dashboard/feedback-update")
-  };
+
 
   const handleDelete = async (id) => {
     let resp = await deleteAlert();
@@ -76,12 +74,13 @@ const FeedbackTable = () => {
                 </td>
                 <td className="py-3 px-6 text-center ">{feedback.feedback}</td>
                 <td className="py-3 px-6 flex ">
+                  <NavLink to = {`/dashboard/feedback-update/${feedback["_id"]}`}>
                   <button
-                    onClick={() => handleEdit(feedback.id)}
                     className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-3 rounded mr-2"
                   >
                     <span> <FaEdit></FaEdit> </span>
                   </button>
+                  </NavLink>
                   <button
                     onClick={() => handleDelete(feedback["_id"])}
                     className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 rounded"

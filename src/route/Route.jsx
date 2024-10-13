@@ -44,6 +44,7 @@ import CreateCourseSuccessfulPage from "../pages/adminSide/courseRelatedPage/cou
 import CourseSuccessfulStudentTable from "../pages/adminSide/courseRelatedPage/courseSuccessfulStudent/CourseSuccessfulStudentTable.jsx";
 import CourseSuccessfulStudentUpdatePage from "../pages/adminSide/courseRelatedPage/courseSuccessfulStudent/CourseSuccessfulStudentUpdatePage.jsx";
 import CreateFeedbackPage from "../pages/adminSide/courseRelatedPage/feedback/CreateFeedbackPage.jsx";
+import UpdateFeedbackPage from "../pages/adminSide/courseRelatedPage/feedback/UpdateFeedbackPage.jsx";
 
 const token = {
   headers: {
@@ -217,7 +218,12 @@ export const router = createBrowserRouter([
       },
       {
         path: "feedback-create",
-        element :<CreateFeedbackPage></CreateFeedbackPage>
+        element :<CreateFeedbackPage></CreateFeedbackPage>,
+      },
+
+      {
+        path : "feedback-update/:id",
+        element :<UpdateFeedbackPage></UpdateFeedbackPage>,
       }
 
 

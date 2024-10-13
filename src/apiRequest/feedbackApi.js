@@ -39,7 +39,15 @@ const feedbackStore = create((set)=>({
         } else{
             return false;
         }
-    }
+    },
+    feedbackUpdateApi : async (id,payload)=>{
+        let res = await useAxios.put(`/feedback/update/${id}`,payload);
+        if(res.data["status"] ==='success'){
+            return res.data["status"];
+        } else{
+            return false;
+        }
+    },
 
 }));
 
