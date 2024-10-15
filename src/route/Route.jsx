@@ -43,6 +43,7 @@ import SuccessfulStudent from "../pages/clientSide/course/SuccessfulStudent.jsx"
 import CreateCourseSuccessfulPage from "../pages/adminSide/courseRelatedPage/courseSuccessfulStudent/CreateCourseSuccessfulPage.jsx";
 import CourseSuccessfulStudentTable from "../pages/adminSide/courseRelatedPage/courseSuccessfulStudent/CourseSuccessfulStudentTable.jsx";
 import CourseSuccessfulStudentUpdatePage from "../pages/adminSide/courseRelatedPage/courseSuccessfulStudent/CourseSuccessfulStudentUpdatePage.jsx";
+import DashboardPage from "../pages/adminSide/dashboardRelated/DashboardPage.jsx";
 
 const token = {
   headers: {
@@ -159,6 +160,10 @@ export const router = createBrowserRouter([
     element: <PrivateRoutes><DashboardLayout></DashboardLayout></PrivateRoutes>,
     children: [
       {
+        path: "/dashboard",
+        element: <DashboardPage></DashboardPage>
+      },
+      {
         path: "add-course",
         element: <AddCoursePage></AddCoursePage>
       },
@@ -197,22 +202,22 @@ export const router = createBrowserRouter([
       {
         path: "project-create",
         element: <ProjectCreatePage></ProjectCreatePage>
-    },
-    {
-      path : "update/:id",
-      element : <UpdateGetInCoursePage></UpdateGetInCoursePage>
+      },
+      {
+        path: "update/:id",
+        element: <UpdateGetInCoursePage></UpdateGetInCoursePage>
       },
       {
         path: "project-update/:id",
         element: <UpdateProject></UpdateProject>
       },
       {
-        path : "successful-course-student-create",
-        element : <CreateCourseSuccessfulPage></CreateCourseSuccessfulPage>
+        path: "successful-course-student-create",
+        element: <CreateCourseSuccessfulPage></CreateCourseSuccessfulPage>
       },
       {
-        path : "course-successful-student-update/:id",
-        element : <CourseSuccessfulStudentUpdatePage></CourseSuccessfulStudentUpdatePage>
+        path: "course-successful-student-update/:id",
+        element: <CourseSuccessfulStudentUpdatePage></CourseSuccessfulStudentUpdatePage>
       }
 
 
