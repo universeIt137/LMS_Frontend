@@ -1,42 +1,63 @@
-import HomeImg from "../../assets/image/home-1.png"; // Ensure this path is correct
-
+import { Autoplay } from 'swiper/modules';
+import banner1 from '../../assets/bannerImg/banner1.png'
+import banner2 from '../../assets/bannerImg/banner2.png'
+import banner3 from '../../assets/bannerImg/banner3.png'
+import banner4 from '../../assets/bannerImg/banner4.png'
+import { Swiper, SwiperSlide } from "swiper/react";
 const HomeBanner = () => {
+  const data = [
+    {
+      title: 'Unlock Your Potential with Byway',
+      description: `Welcome to Byway, where learning knows no bounds. We believe that education is the key to personal and professional growth, and we're here to guide you on your journey to success. Whether you're a student, professional, or lifelong learner, our cutting-edge Learning Management System is designed to elevate your learning experience.`,
+      image: banner1,
+    },
+    {
+      title: 'Your Pathway to Success Starts Here',
+      description: `At Byway, we provide the support and resources you need to succeed in your educational journey. Our platform is built to empower you every step of the way, whether you're starting a new career or advancing in your current one.`,
+      image: banner4,
+    },
+    {
+      title: 'Join the Byway Revolution',
+      description: `Experience a revolutionary way of learning with Byway. Our innovative platform offers a dynamic learning environment that caters to your unique needs and aspirations. Transform the way you learn, grow, and succeed with us.`,
+      image: banner2,
+    },
+    {
+      title: 'Master New Skills with Byway',
+      description: `Byway is your go-to platform for mastering new skills. From professional development to personal enrichment, our courses are designed to give you the tools you need to succeed in any field.`,
+      image: banner3,
+    },
+
+  ];
   return (
-    <div
-      className="h-[70vh] md:h-[80vh] w-full bg-center  bg-no-repeat bg-cover z-50 "
-      style={{ backgroundImage: `url(${HomeImg})`, backgroundSize: "100%" }}
+
+    <Swiper
+      loop={true}
+      modules={[Autoplay]}
+      
+      autoplay={{
+        delay: 4000,
+        disableOnInteraction: false,
+      }}
+      speed={1000}
     >
-      <div className="flex flex-col h-full justify-between">
-        <div className="flex flex-col md:flex-row justify-between items-center md:items-start h-full md:mt-10">
-          <div className="w-full md:w-1/3 p-4 md:p-6 text-center md:text-left space-y-4 h-full items-end">
-            <p className=" hiden md:block text-sm md:text-base lg:text-lg">
-              Study any topic, anytime. Explore thousands of courses for the lowest price ever!
-            </p>
-            <form>
-              <label className="input border border-[#754FFE] flex items-center gap-2 focus:outline-none focus:ring-0 focus:border-none">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 16 16"
-                  fill="currentColor"
-                  className="h-4 w-4 opacity-70"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <input
-                  type="text"
-                  className="grow p-2 md:p-3"
-                  placeholder="What do you want to learn"
-                />
-              </label>
-            </form>
+      {
+        data?.map((item, idx) => <SwiperSlide
+          key={idx}
+        >
+          <div className='grid grid-cols-2 pt-5'>
+            <div className='p-5 space-y-5 flex flex-col justify-center'>
+              <h1 className='text-[40px] font-bold max-w-[500px]'>{item.title}</h1>
+              <p className='max-w-[600px] text-gray-600'>{item.description}</p>
+              <button className='btn bg-primary text-white  rounded-lg max-w-max'>Start your instructor journey</button>
+            </div>
+            <img src={item.image} alt="" />
+
           </div>
-        </div>
-      </div>
-    </div>
+        </SwiperSlide>)
+      }
+
+
+    </Swiper>
   );
 };
 
