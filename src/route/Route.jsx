@@ -46,6 +46,7 @@ import CourseSuccessfulStudentUpdatePage from "../pages/adminSide/courseRelatedP
 import CreateFeedbackPage from "../pages/adminSide/courseRelatedPage/feedback/CreateFeedbackPage.jsx";
 import UpdateFeedbackPage from "../pages/adminSide/courseRelatedPage/feedback/UpdateFeedbackPage.jsx";
 import ModuleCreatePage from "../pages/adminSide/courseRelatedPage/module/ModuleCreatePage.jsx";
+import DashboardPage from "../pages/adminSide/dashboardRelated/DashboardPage.jsx";
 
 const token = {
   headers: {
@@ -162,6 +163,10 @@ export const router = createBrowserRouter([
     element: <PrivateRoutes><DashboardLayout></DashboardLayout></PrivateRoutes>,
     children: [
       {
+        path: "/dashboard",
+        element: <DashboardPage></DashboardPage>
+      },
+      {
         path: "add-course",
         element: <AddCoursePage></AddCoursePage>
       },
@@ -200,35 +205,22 @@ export const router = createBrowserRouter([
       {
         path: "project-create",
         element: <ProjectCreatePage></ProjectCreatePage>
-    },
-    {
-      path : "update/:id",
-      element : <UpdateGetInCoursePage></UpdateGetInCoursePage>
+      },
+      {
+        path: "update/:id",
+        element: <UpdateGetInCoursePage></UpdateGetInCoursePage>
       },
       {
         path: "project-update/:id",
         element: <UpdateProject></UpdateProject>
       },
       {
-        path : "successful-course-student-create",
-        element : <CreateCourseSuccessfulPage></CreateCourseSuccessfulPage>
+        path: "successful-course-student-create",
+        element: <CreateCourseSuccessfulPage></CreateCourseSuccessfulPage>
       },
       {
         path : "course-successful-student-update/:id",
         element : <CourseSuccessfulStudentUpdatePage></CourseSuccessfulStudentUpdatePage>
-      },
-      {
-        path: "feedback-create",
-        element :<CreateFeedbackPage></CreateFeedbackPage>,
-      },
-
-      {
-        path : "feedback-update/:id",
-        element :<UpdateFeedbackPage></UpdateFeedbackPage>,
-      },
-      {
-        path : "module-create",
-        element : <ModuleCreatePage></ModuleCreatePage>
       }
 
 

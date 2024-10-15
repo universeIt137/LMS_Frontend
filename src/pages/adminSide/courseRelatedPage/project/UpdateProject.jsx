@@ -17,7 +17,10 @@ const UpdateProject = () => {
         })();
     }, []);
 
-    console.log(singleProjectData);
+    // console.log(singleProjectData);
+
+    
+
     // const { data: project = [] } = useQuery({
     //     queryKey: ['project'],
     //     queryFn: async () => {
@@ -26,8 +29,11 @@ const UpdateProject = () => {
     //     }
     // })
 
-    const incomingImgUrl = singleProjectData[0]?.project_img;
+    // let { project_img: incomingImgUrl } = singleProjectData;
 
+    let incomingImgUrl = singleProjectData[0]?.project_img;
+    
+    // console.log(incomingUrl);
     console.log(incomingImgUrl);
 
 
@@ -36,15 +42,18 @@ const UpdateProject = () => {
         const form = e.target;
         const image = form.project_img.files[0];
         const project_name = form.project_name.value;
+        console.log(image);
 
 
-        let project_img = '';
+        let project_img_url = '';
 
         if (!image?.name) {
-            project_img = incomingImgUrl;
+            project_img_url = incomingImgUrl;
         } else {
-            project_img = await uploadImg(image);
+            project_img_url = await uploadImg(image);
         }
+
+        const project_img = project_img_url;
 
         const data = { project_img, project_name };
         console.log(data);
