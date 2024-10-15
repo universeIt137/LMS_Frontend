@@ -33,7 +33,7 @@ const HomeBanner = () => {
     <Swiper
       loop={true}
       modules={[Autoplay]}
-      
+
       autoplay={{
         delay: 4000,
         disableOnInteraction: false,
@@ -44,14 +44,18 @@ const HomeBanner = () => {
         data?.map((item, idx) => <SwiperSlide
           key={idx}
         >
-          <div className='grid grid-cols-2 pt-5'>
-            <div className='p-5 space-y-5 flex flex-col justify-center'>
-              <h1 className='text-[40px] font-bold max-w-[500px]'>{item.title}</h1>
-              <p className='max-w-[600px] text-gray-600'>{item.description}</p>
-              <button className='btn bg-primary text-white  rounded-lg max-w-max'>Start your instructor journey</button>
-            </div>
-            <img src={item.image} alt="" />
+          <div className='grid lg:grid-cols-2 pt-5'>
+            <div className='min-h-[60vh] relative'>
+              {/* <img src={item.image} className='absolute w-full h-full object-cover block lg:hidden' alt="" /> */}
+              <div className='p-5 space-y-5 flex flex-col justify-center relative bg-white/85 h-full'>
+                <h1 className='text-[40px] font-bold max-w-[500px]'>{item.title}</h1>
+                <p className='max-w-[600px] text-gray-600'>{item.description}</p>
+                <button className='btn bg-primary text-white  rounded-lg max-w-max'>Start your instructor journey</button>
+              </div>
 
+
+            </div>
+            <img className='hidden lg:block' src={item.image} alt="" />
           </div>
         </SwiperSlide>)
       }
