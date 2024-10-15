@@ -7,11 +7,14 @@ import Swal from 'sweetalert2';
 import ProjectTable from './ProjectTable';
 import useAxiosPublic from '../../../../hook/UseAxiosPublic';
 import { useQuery } from '@tanstack/react-query';
+import { useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const ProjectCreatePage = () => {
   const { singleCourseDataApi, singleCourseData } = courseStore();
   const { projectCreateApi } = projectStore();
   const axiosPublic = useAxiosPublic();
+  const id = useParams();
 
   const { data: projects = [], refetch } = useQuery({
     queryKey: ['projects'],
@@ -23,12 +26,18 @@ const ProjectCreatePage = () => {
 
 
 
+
   useEffect(() => {
     (async () => {
       await singleCourseDataApi();
     })();
   }, []);
 
+  console.log(projects)
+  const filteredProjects = projects?.filter(project => project.course_id === id);
+
+
+  // console.log(singleCourseData)
   const handleSubmit = async (e) => {
     e.preventDefault();
     const course_id = e.target.course_id.value;
@@ -66,9 +75,46 @@ const ProjectCreatePage = () => {
     e.target.reset();
   };
 
+
+  const handleDelete = (id) => {
+
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosPublic.delete(`/project/delete/${id}`)
+          .then(res => {
+            if (res) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Project has been deleted.",
+                icon: "success"
+              });
+              refetch()
+            }
+          })
+          .catch(err => {
+            console.log(err);
+          })
+
+      }
+    });
+
+  }
+
+
   return (
     <>
-      <div className="flex justify-center items-center bg-gray-100">
+      <Helmet>
+        <title>Dashboard | Project Create</title>
+      </Helmet>
+      <div className="flex justify-center items-center ">
         <motion.div
           className="bg-white shadow-md rounded-lg p-8 max-w-lg w-full"
           initial={{ opacity: 0, scale: 0.9 }}
@@ -162,7 +208,7 @@ const ProjectCreatePage = () => {
       </div>
 
       <div className="">
-        <ProjectTable projects={projects}></ProjectTable>
+        <ProjectTable projects={filteredProjects} handleDelete={handleDelete}></ProjectTable>
       </div>
     </>
   );

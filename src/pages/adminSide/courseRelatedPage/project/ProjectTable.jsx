@@ -3,7 +3,7 @@ import { FaRegEdit } from 'react-icons/fa';
 import { MdDeleteOutline } from 'react-icons/md';
 import { NavLink } from 'react-router-dom';
 
-const ProjectTable = ({ projects }) => {
+const ProjectTable = ({ projects, handleDelete }) => {
     const project = {
         project_img: "https://res.cloudinary.com/dnvmj9pvk/image/upload/v1727763619/project-images/t1r0pmnmfysg6laqoxie.png",
         project_name: "Task Manager",
@@ -50,7 +50,7 @@ const ProjectTable = ({ projects }) => {
                                                 <NavLink title="update" to={`/dashboard/project-update/${project._id}`}>
                                                     <FaRegEdit />
                                                 </NavLink>
-                                                <span title="delete" className="cursor-pointer text-[22px]">
+                                                <span title="delete" onClick={()=>handleDelete(project._id)} className="cursor-pointer text-[22px]">
                                                     <MdDeleteOutline />
                                                 </span>
                                             </div>

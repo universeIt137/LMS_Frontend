@@ -233,7 +233,7 @@ const CourseDetailsCreatePage = () => {
         <CourseDetailsTable courseDetails = {courseDetail}></CourseDetailsTable>
       </div> */}
       <div className="my-8" >
-        <ManageDataTable></ManageDataTable>
+        <ManageDataTable  course_id={id}></ManageDataTable>
       </div>
       
     </>

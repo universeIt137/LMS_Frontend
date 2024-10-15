@@ -5,6 +5,7 @@ import { useQuery } from '@tanstack/react-query';
 import projectStore from '../../../../apiRequest/projectApi';
 import { uploadImg } from '../../../../uploadImage/UploadImage';
 import Swal from 'sweetalert2';
+import { Helmet } from 'react-helmet-async';
 
 const UpdateProject = () => {
     const { singleProjectData, singleProjectDataApi } = projectStore();
@@ -80,6 +81,9 @@ const UpdateProject = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Dashboard | Update Project</title>
+            </Helmet>
             <div className="flex justify-center items-center bg-gray-100">
                 <div
                     className="bg-white shadow-md rounded-lg p-8 max-w-lg w-full"
