@@ -1,23 +1,19 @@
 import { Pagination, A11y, Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
 import TopTenCard from './TopTenCard';
 
 const TopTenCards = () => {
   return (
     <Swiper
-      modules={[ Pagination, A11y, Autoplay]}
+      modules={[A11y, Autoplay]}
       spaceBetween={30}
       slidesPerView={4}
-      pagination={{ clickable: true }}
       loop={true}
-      // autoplay={{
-      //   delay: 2000,
-      //   disableOnInteraction: false
-      // }}
+      autoplay={{
+        delay: 2000,
+        disableOnInteraction: false
+      }}
+      speed={1000}
       breakpoints={{
         320: {
           slidesPerView: 1,
@@ -36,7 +32,7 @@ const TopTenCards = () => {
           spaceBetween: 40,
         },
       }}
-     
+
     >
       <SwiperSlide><TopTenCard /></SwiperSlide>
       <SwiperSlide><TopTenCard /></SwiperSlide>
@@ -46,7 +42,6 @@ const TopTenCards = () => {
       <SwiperSlide><TopTenCard /></SwiperSlide>
       <SwiperSlide><TopTenCard /></SwiperSlide>
       <SwiperSlide><TopTenCard /></SwiperSlide>
-      {/* Add more slides as needed */}
     </Swiper>
   );
 };
