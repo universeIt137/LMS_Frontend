@@ -203,7 +203,7 @@ export const router = createBrowserRouter([
         element: <InstructorCreatePage></InstructorCreatePage>
       },
       {
-        path: "project-create",
+        path: "project-create/:id",
         element: <ProjectCreatePage></ProjectCreatePage>
       },
       {
