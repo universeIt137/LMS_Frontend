@@ -3,13 +3,18 @@ import courseStore from './../../../apiRequest/courseApi';
 import { uploadImg } from '../../../uploadImage/UploadImage';
 import instructorStore from '../../../apiRequest/instructorApi';
 import Swal from 'sweetalert2';
+import { useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
+import InstructorManageTable from './InstractorManageTable';
 
 const InstructorCreatePage = () => {
+  const {id} = useParams();
+  console.log(id);
     const {singleCourseDataApi,singleCourseData} = courseStore();
     const {instructorCreateApi} = instructorStore();
     useEffect(()=>{
         (async()=>{
-            await singleCourseDataApi();
+            await singleCourseDataApi(id);
         })()
     },[]);
     const handleValueSubmit = async (e) =>{
@@ -54,6 +59,11 @@ const InstructorCreatePage = () => {
     }
   return (
     <div>
+      <div>
+        <Helmet>
+          <title>Dashboard | Instructor Create</title>
+        </Helmet>
+      </div>
         <div className="flex justify-center items-center  min-h-[calc(100vh-135px)] ">
       <div className="bg-white shadow-md rounded-lg p-8 max-w-lg w-full">
         <h2 className="text-2xl font-bold text-center mb-6"> {singleCourseData?.course_name}  Instructor Create</h2>
@@ -120,6 +130,9 @@ const InstructorCreatePage = () => {
           </div>
         </form>
       </div>
+    </div>
+    <div>
+      <InstructorManageTable courseId = {id} ></InstructorManageTable>
     </div>
     </div>
   )

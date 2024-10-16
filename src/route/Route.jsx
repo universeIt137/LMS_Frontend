@@ -52,6 +52,7 @@ import UpdateModuleDetails from "../pages/adminSide/courseRelatedPage/mouduleDet
 import AssignmentManage from "../pages/adminSide/courseRelatedPage/assignment/AssignmentManage.jsx";
 import RecordedForm from "../pages/adminSide/courseRelatedPage/pre-recorded/RecordedForm.jsx";
 import RecordedManage from "../pages/adminSide/courseRelatedPage/pre-recorded/RecordedManage.jsx";
+import InstructorUpdatePage from "../pages/adminSide/instructor/InstructorUpdatePage.jsx";
 
 const token = {
   headers: {
@@ -210,6 +211,10 @@ export const router = createBrowserRouter([
       {
         path: "instructor-create/:id",
         element: <InstructorCreatePage></InstructorCreatePage>
+      },
+      {
+        path: "instructor/update/:id/:id",
+        element: <InstructorUpdatePage></InstructorUpdatePage>
       },
       {
         path: "project-create/:id",

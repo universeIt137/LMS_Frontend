@@ -19,7 +19,17 @@ const instructorStore = create((set)=>({
         } else{
             return false;
         }
-    }
+    },
+    instructorDataByCourseId : [],
+    instructorDataByCourseIdApi: async (courseId) => {
+        let res = await axiosPublic.get(`/instructor-by/course-id/${courseId}`);
+        if(res.data["status"] ==='success'){
+            set({instructorDataByCourseId : res.data.data});
+        } else{
+            return false;
+        }
+    },
+
 }));
 
 export default instructorStore;
