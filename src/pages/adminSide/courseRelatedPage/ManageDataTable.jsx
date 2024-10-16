@@ -87,7 +87,7 @@ const ManageDataTable = ({course_id}) => {
                 <tr className="hover:bg-gray-100">
                   <td className="border border-gray-300 px-4 py-2 font-bold w-1/2">Module Details</td>
                   <td className="flex justify-center px-4 py-2 border">
-                    <Link to="/dashboard/module-details-create">
+                    <Link to={`/dashboard/module-details/${course_id}`}>
                       <MdOutlineKeyboardCommandKey className="text-3xl" />
                     </Link>
                   </td>
@@ -96,7 +96,7 @@ const ManageDataTable = ({course_id}) => {
                 <tr className="hover:bg-gray-100">
                   <td className="border border-gray-300 px-4 py-2 font-bold w-1/2">Assignment</td>
                   <td className="flex justify-center px-4 py-2 border">
-                    <Link to="/dashboard/assignment-create">
+                    <Link to={`/dashboard/assignment-create/${course_id}`}>
                       <MdOutlineKeyboardCommandKey className="text-3xl" />
                     </Link>
                   </td>
@@ -114,7 +114,7 @@ const ManageDataTable = ({course_id}) => {
                 <tr className="hover:bg-gray-100">
                   <td className="border border-gray-300 px-4 py-2 font-bold w-1/2">Pre-Recorded Videos</td>
                   <td className="flex justify-center px-4 py-2 border">
-                    <Link to="/dashboard/pre-recorded-videos-create">
+                    <Link to={`/dashboard/pre-recorded-videos-create/${course_id}`}>
                       <MdOutlineKeyboardCommandKey className="text-3xl" />
                     </Link>
                   </td>
