@@ -7,18 +7,31 @@ import Swal from 'sweetalert2';
 import { Helmet } from 'react-helmet-async';
 import Loader from '../../../../components/clideSide/loader/Loader';
 import FeedbackTable from './FeedbackTable';
+import { useQuery } from '@tanstack/react-query';
+import useAxiosPublic from '../../../../hook/UseAxiosPublic';
 
 const CreateFeedbackPage = () => {
   const { createFeedbackApi , allFeedbackListApi} = feedbackStore();
   const { singleCourseDataApi, singleCourseData } = courseStore();
   const { id } = useParams();
+  const axiosPublic = useAxiosPublic();
   const [loader, setLoader] = useState(false); // Loader state
 
-  useEffect(() => {
-      (async()=>{
-        await singleCourseDataApi(id);
-      })()
-  }, [id]);
+  // useEffect(() => {
+  //     (async()=>{
+  //       await singleCourseDataApi(id);
+  //     })()
+  // }, [id]);
+
+  const { data: singleCourse = {} } = useQuery({
+    queryKey: ['singleCourse'],
+    queryFn: async () => {
+      const res = await axiosPublic.get(`/single-course/${id}`);
+      return res.data.data;
+    }
+  })
+
+  console.log(singleCourse)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -59,6 +72,8 @@ const CreateFeedbackPage = () => {
     }
   };
 
+  // console.log(singleCourseData);
+
   return (
 
     <>
@@ -74,7 +89,7 @@ const CreateFeedbackPage = () => {
         <div className="container flex flex-col items-center mx-auto px-4">
           <div className="bg-white w-1/2 p-6 rounded-lg shadow-lg">
             <h2 className="text-2xl font-bold text-center mb-4 text-gray-800">
-              ({singleCourseData?.course_name}) Course Feedback
+              ({singleCourse?.course_name}) Course Feedback
             </h2>
 
             <form onSubmit={handleSubmit} className="space-y-4">
@@ -110,7 +125,7 @@ const CreateFeedbackPage = () => {
                   className="form-select w-full px-3 py-[10px] mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-indigo-200"
                 >
                   <option value={singleCourseData?._id}>
-                    {singleCourseData?.course_name}
+                    {singleCourse?.course_name}
                   </option>
                 </select>
               </div>
