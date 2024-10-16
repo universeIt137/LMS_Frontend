@@ -1,12 +1,10 @@
 import {
   createBrowserRouter,
 } from "react-router-dom";
-import Dashboard from "../pages/adminSide/Dashboard";
-import AdminHome from "../pages/adminSide/AdminHome";
+
 import HomePage from "../pages/clientSide/HomePage";
 import MainLayout from "../layouts/MainLayout";
-import Students from "../pages/adminSide/pages/Students";
-import Teachers from "../pages/adminSide/pages/Teachers";
+
 import CourseBundle from "../pages/clientSide/CourseBundle";
 import BootCamp from "../pages/clientSide/BootCamp";
 import TeamTraining from "../pages/clientSide/TeamTraining";
@@ -47,6 +45,7 @@ import CreateFeedbackPage from "../pages/adminSide/courseRelatedPage/feedback/Cr
 import UpdateFeedbackPage from "../pages/adminSide/courseRelatedPage/feedback/UpdateFeedbackPage.jsx";
 import ModuleCreatePage from "../pages/adminSide/courseRelatedPage/module/ModuleCreatePage.jsx";
 import DashboardPage from "../pages/adminSide/dashboardRelated/DashboardPage.jsx";
+import UpdateModuleForm from "../pages/adminSide/courseRelatedPage/module/UpdateModuleForm.jsx";
 
 const token = {
   headers: {
@@ -229,6 +228,14 @@ export const router = createBrowserRouter([
       {
         path: "feedback-update/:id",
         element: <UpdateFeedbackPage></UpdateFeedbackPage>
+      },
+      {
+        path: "module-create/:id",
+        element: <ModuleCreatePage></ModuleCreatePage>
+      },
+      {
+        path: "module-update/:id",
+        element: <UpdateModuleForm></UpdateModuleForm>
       }
 
 
