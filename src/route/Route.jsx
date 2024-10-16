@@ -221,6 +221,14 @@ export const router = createBrowserRouter([
       {
         path : "course-successful-student-update/:id",
         element : <CourseSuccessfulStudentUpdatePage></CourseSuccessfulStudentUpdatePage>
+      },
+      {
+        path: "feedback-create/:id",
+        element: <CreateFeedbackPage></CreateFeedbackPage>
+      },
+      {
+        path: "feedback-update/:id",
+        element: <UpdateFeedbackPage></UpdateFeedbackPage>
       }
 
 

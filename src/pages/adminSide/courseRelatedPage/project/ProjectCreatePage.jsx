@@ -14,7 +14,7 @@ const ProjectCreatePage = () => {
   const { singleCourseDataApi, singleCourseData } = courseStore();
   const { projectCreateApi } = projectStore();
   const axiosPublic = useAxiosPublic();
-  const id = useParams();
+  const {id} = useParams();
 
   const { data: projects = [], refetch } = useQuery({
     queryKey: ['projects'],
@@ -25,15 +25,19 @@ const ProjectCreatePage = () => {
   })
 
 
+  const { data: singleCourse = {} } = useQuery({
+    queryKey: ['singleCourse'],
+    queryFn: async () => {
+      const res = await axiosPublic.get(`/single-course/${id}`);
+      return res.data.data;
+    }
+  })
 
 
-  useEffect(() => {
-    (async () => {
-      await singleCourseDataApi();
-    })();
-  }, []);
 
-  console.log(projects)
+
+  console.log(id);
+  console.log(singleCourse)
   const filteredProjects = projects?.filter(project => project.course_id === id);
 
 
@@ -187,8 +191,8 @@ const ProjectCreatePage = () => {
                 required
                 className="form-select w-full px-3 py-[10px] mt-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-indigo-200"
               >
-                <option value={singleCourseData?._id}>
-                  {singleCourseData?.course_name}
+                <option value={singleCourse?._id}>
+                  {singleCourse?.course_name}
                 </option>
 
               </select>
