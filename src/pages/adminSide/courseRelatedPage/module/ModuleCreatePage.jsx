@@ -2,52 +2,63 @@
 import React from "react";
 import { FaEdit } from "react-icons/fa";
 import { MdDeleteOutline } from "react-icons/md";
+import useAxiosPublic from "../../../../hook/UseAxiosPublic";
+import { useQuery } from "@tanstack/react-query";
+import { useParams } from "react-router-dom";
+import CreateModuleForm from "./CreateModuleForm";
+import ModulesTable from "./ModuleTable";
 
 const ModuleTable = () => {
+  const axiosPublic = useAxiosPublic();
+  const { id } = useParams();
+  const { data: singleCourse = {} } = useQuery({
+    queryKey: ['singleCourse'],
+    queryFn: async () => {
+      const res = await axiosPublic.get(`/single-course/${id}`);
+      return res.data.data;
+    }
+  })
+
+
+  console.log(singleCourse);
+  const dummyModules = [
+    {
+        _id: "1",
+        module_name: "Introduction to JavaScript",
+        module_topic: "Basics of JS",
+        total_days_module: 14,
+        total_live_class: 3,
+        total_assignment: 2,
+        total_pre_record_video: 8,
+        total_quiz_test: 1,
+    },
+    {
+        _id: "2",
+        module_name: "Advanced React",
+        module_topic: "React Hooks, Context API",
+        total_days_module: 21,
+        total_live_class: 5,
+        total_assignment: 4,
+        total_pre_record_video: 12,
+        total_quiz_test: 3,
+    },
+    {
+        _id: "3",
+        module_name: "Node.js & Express",
+        module_topic: "Server-side Development",
+        total_days_module: 18,
+        total_live_class: 4,
+        total_assignment: 3,
+        total_pre_record_video: 10,
+        total_quiz_test: 2,
+    }
+];
+
   return (
-    <div className="container mx-auto p-6">
-      <h2 className="text-3xl font-bold text-center mb-6">Course Module Table</h2>
-      <div className="overflow-x-auto">
-        <table className="min-w-full bg-white shadow-md rounded-lg">
-          <thead>
-            <tr className="bg-gray-200 text-center text-gray-600 uppercase text-sm leading-normal">
-              <th className="py-3 px-6 text-left">Course ID</th>
-              <th className="py-3 px-6 text-left">Module Name</th>
-              <th className="py-3 px-6 text-left">Module Topic</th>
-              <th className="py-3 px-6 text-left">Total Days</th>
-              <th className="py-3 px-6 text-left">Live Classes</th>
-              <th className="py-3 px-6 text-left">Assignments</th>
-              <th className="py-3 px-6 text-left">Pre-recorded Videos</th>
-              <th className="py-3 px-6 text-left">Quiz Tests</th>
-              <th className="py-3 px-6 text-center">Action</th>
-            </tr>
-          </thead>
-          <tbody className="text-gray-700 text-sm">
-            <tr className="border-b border-gray-200 hover:bg-gray-100">
-          
-            </tr>
-            <tr className="border-b border-gray-200 text-center hover:bg-gray-100">
-              <td className="py-3 px-6">C102</td>
-              <td className="py-3 px-6">Advanced JavaScript</td>
-              <td className="py-3 px-6">ES6 and Beyond</td>
-              <td className="py-3 px-6">10</td>
-              <td className="py-3 px-6">4</td>
-              <td className="py-3 px-6">3</td>
-              <td className="py-3 px-6">6</td>
-              <td className="py-3 px-6">2</td>
-              <td className="py-3 px-6 text-center flex ">
-                <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-3 rounded mr-2">
-                <span> <FaEdit></FaEdit> </span>
-                </button>
-                <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-3 rounded">
-                <MdDeleteOutline />
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+    <>
+      <CreateModuleForm></CreateModuleForm>
+      <ModulesTable modules={dummyModules}></ModulesTable>
+    </>
   );
 };
 
