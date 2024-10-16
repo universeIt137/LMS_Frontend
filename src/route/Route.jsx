@@ -46,6 +46,12 @@ import UpdateFeedbackPage from "../pages/adminSide/courseRelatedPage/feedback/Up
 import ModuleCreatePage from "../pages/adminSide/courseRelatedPage/module/ModuleCreatePage.jsx";
 import DashboardPage from "../pages/adminSide/dashboardRelated/DashboardPage.jsx";
 import UpdateModuleForm from "../pages/adminSide/courseRelatedPage/module/UpdateModuleForm.jsx";
+import ModuleDetailsForm from "../pages/adminSide/courseRelatedPage/mouduleDetails/ModuleDetailsForm.jsx";
+import ManageModuleDetails from "../pages/adminSide/courseRelatedPage/mouduleDetails/ManageModuleDetails.jsx";
+import UpdateModuleDetails from "../pages/adminSide/courseRelatedPage/mouduleDetails/UpdateModuleDetails.jsx";
+import AssignmentManage from "../pages/adminSide/courseRelatedPage/assignment/AssignmentManage.jsx";
+import RecordedForm from "../pages/adminSide/courseRelatedPage/pre-recorded/RecordedForm.jsx";
+import RecordedManage from "../pages/adminSide/courseRelatedPage/pre-recorded/RecordedManage.jsx";
 
 const token = {
   headers: {
@@ -236,6 +242,22 @@ export const router = createBrowserRouter([
       {
         path: "module-update/:id",
         element: <UpdateModuleForm></UpdateModuleForm>
+      },
+      {
+        path: "module-details/:id",
+        element: <ManageModuleDetails></ManageModuleDetails>
+      },
+      {
+        path: "module-details-update/:id",
+        element: <UpdateModuleDetails></UpdateModuleDetails>
+      },
+      {
+        path: "assignment-create/:id",
+        element: <AssignmentManage></AssignmentManage>
+      },
+      {
+        path: "pre-recorded-videos-create/:id",
+        element: <RecordedManage></RecordedManage>
       }
 
 
