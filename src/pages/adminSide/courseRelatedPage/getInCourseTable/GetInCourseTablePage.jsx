@@ -53,10 +53,10 @@ const GetInCourseTablePage = () => {
                     <td className="py-2 px-4 border-b text-center">
                       <img src={item.logo} alt="Course Logo" className="w-12 h-12 inline-block" />
                     </td>
-                    <td className="py-2 px-4 border-b text-left">{item.description}</td>
+                    <td className="py-2 px-4 border-b text-left">{item.description.slice(0,15)}...</td>
                     <td className="py-[26px] px-4 text-center flex justify-center space-x-2">
                       <button className="bg-blue-500 text-white py-1 px-3 rounded hover:bg-blue-600 no-underline">
-                        <NavLink to={`/dashboard/update/${item._id}`} ><FaRegEdit /></NavLink>
+                        <NavLink to={`/dashboard/update-get-in-course/${item._id}`} ><FaRegEdit /></NavLink>
                       </button>
                       <button
                         onClick={handleDelete.bind(this, item._id)}

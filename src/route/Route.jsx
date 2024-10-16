@@ -192,11 +192,15 @@ export const router = createBrowserRouter([
         element: <ManageCourseDetailsPage></ManageCourseDetailsPage>
       },
       {
-        path: "get-in-course",
+        path: "get-in-course/:id",
         element: <GetInCoursePage></GetInCoursePage>
       },
       {
-        path: "curriculum-create",
+        path : "update-get-in-course/:id",
+        element: <UpdateGetInCoursePage></UpdateGetInCoursePage>
+      },
+      {
+        path: "curriculum-create/:id",
         element: <CurriculumCreatePage></CurriculumCreatePage>
       },
       {
@@ -204,7 +208,7 @@ export const router = createBrowserRouter([
         element: <UpdateCurriculumPage></UpdateCurriculumPage>
       },
       {
-        path: "instructor-create",
+        path: "instructor-create/:id",
         element: <InstructorCreatePage></InstructorCreatePage>
       },
       {
@@ -220,7 +224,7 @@ export const router = createBrowserRouter([
         element: <UpdateProject></UpdateProject>
       },
       {
-        path: "successful-course-student-create",
+        path: "successful-course-student-create/:id",
         element: <CreateCourseSuccessfulPage></CreateCourseSuccessfulPage>
       },
       {
