@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import moduleStore from "../../../../apiRequest/moduleApi";
 
-const ModulesTable = ({ modules, onUpdate, onDelete }) => {
+const ModulesTable = ({ courseId}) => {
+    const {moduleByCourseIdApi,moduleByCourseId} = moduleStore();
+    useEffect(() => {
+        (async () => {
+            await moduleByCourseIdApi(courseId);
+        })();
+    }, [courseId]);
     return (
         <div className="overflow-x-auto mt-3 rounded-2xl border">
             <table className="min-w-full bg-white ">
@@ -34,7 +41,7 @@ const ModulesTable = ({ modules, onUpdate, onDelete }) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {modules?.map((module) => (
+                     {moduleByCourseId?.map((module) => (
                         <tr key={module._id} className="border-b">
                             <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">
                                 {module.module_name}

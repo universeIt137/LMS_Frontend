@@ -5,8 +5,9 @@ import useAxiosPublic from "../../../../hook/UseAxiosPublic";
 import { useParams } from "react-router-dom";
 import courseStore from "../../../../apiRequest/courseApi";
 import moduleStore from './../../../../apiRequest/moduleApi';
+import ModulesTable from "./ModuleTable";
 
-const CreateModuleForm = ({ refetch }) => {
+const CreateModuleForm = () => {
     const {singleCourseDataApi,singleCourseData} = courseStore();
     const {moduleCreateApi} = moduleStore();
     useEffect(()=>{
@@ -63,7 +64,8 @@ const CreateModuleForm = ({ refetch }) => {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center px-4">
+        <>
+            <div className="min-h-screen flex items-center justify-center px-4">
             <div className="bg-white rounded-lg shadow-lg p-8  w-full">
                 <h2 className="text-2xl font-bold text-gray-800 mb-6 text-center">Create Module for {singleCourseData.course_name}</h2>
                 
@@ -192,6 +194,8 @@ const CreateModuleForm = ({ refetch }) => {
                 </form>
             </div>
         </div>
+        <ModulesTable courseId = {id} ></ModulesTable>
+        </>
     );
 };
 

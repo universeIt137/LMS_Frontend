@@ -12,7 +12,16 @@ const moduleStore = create((set)=>({
         } else{
             return false;
         }
-    }
+    },
+    moduleByCourseId : [],
+    moduleByCourseIdApi: async (courseId) => {
+        let res = await axiosPublic.get(`/module-by-course-id/${courseId}`);
+        if(res.data["status"] ==='success'){
+            set({moduleByCourseId : res.data.data});
+        } else{
+            console.log("error",res.data);
+        }
+    },
 }));
 
 export default moduleStore;
