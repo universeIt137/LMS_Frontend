@@ -20,7 +20,6 @@ const ModuleTable = () => {
   })
 
 
-  console.log(singleCourse);
   const dummyModules = [
     {
         _id: "1",
@@ -57,7 +56,7 @@ const ModuleTable = () => {
   return (
     <>
       <CreateModuleForm></CreateModuleForm>
-      <ModulesTable modules={dummyModules}></ModulesTable>
+      {/* <ModulesTable modules={dummyModules}></ModulesTable> */}
     </>
   );
 };
