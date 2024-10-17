@@ -9,7 +9,7 @@ import toast from 'react-hot-toast';
 const CurriculumCreatePage = () => {
   const {id} = useParams();
   const {singleCourseData,singleCourseDataApi} = courseStore();
-  const {createCurriculumApi,allCurriculumDataApi,allCurriculumDataList} = curriculumStore();
+  const {createCurriculumApi,allCurriculumDataApi,allCurriculumDataList,curriculumByCourseIdDataApi} = curriculumStore();
   window.scrollTo(0, 0);
   useEffect(()=>{
     (async()=>{
@@ -36,7 +36,7 @@ const handelSubmitValue  = async (e) =>{
 
   let res = await createCurriculumApi(payload);
   if(res){
-    await allCurriculumDataApi()
+    await curriculumByCourseIdDataApi(id)
     Swal.fire({
       position: 'top-end',
       icon:'success',
@@ -159,7 +159,7 @@ const handelSubmitValue  = async (e) =>{
     </div>
 
     <div className="alreadyUploaded max-w-4xl">
-        <CurriculumTable></CurriculumTable>
+        <CurriculumTable courseId = {id} ></CurriculumTable>
       </div>
     </>
   )
