@@ -157,7 +157,7 @@ const CreateCourseSuccessfulPage = () => {
         </form>
       </div>
     </div>
-    <CourseSuccessfulStudentTable></CourseSuccessfulStudentTable>
+    <CourseSuccessfulStudentTable courseId = {id} ></CourseSuccessfulStudentTable>
     </div>
   )
 }

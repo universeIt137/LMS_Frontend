@@ -53,7 +53,6 @@ const CourseSuccessfulStudentUpdatePage = () => {
         let res = await successfulStudentUpdate(id, payload);
         if (res) {
             await successfulStudentDataListApi();
-            navigate("/dashboard/successful-course-student-create")
             Swal.fire({
                 position: "top-end",
                 icon: "success",

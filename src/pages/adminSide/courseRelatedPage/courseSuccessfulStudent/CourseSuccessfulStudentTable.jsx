@@ -6,14 +6,13 @@ import { NavLink, useParams } from 'react-router-dom';
 import { deleteAlert } from '../../../../helper/deleteAlert';
 import toast from 'react-hot-toast';
 
-const CourseSuccessfulStudentTable = () => {
+const CourseSuccessfulStudentTable = ({courseId}) => {
     window.scrollTo(0, 0);
-    const {id} = useParams();
-  const { successfulStudentDataListApi, successfulStudentDataList,successfulStudentDelete } = successfulStudentStore();
+  const {successfulStudentDelete,successfulStudentByCourseIdApi,successfulStudentByCourseIdData } = successfulStudentStore();
   
   useEffect(() => {
     (async () => {
-      await successfulStudentDataListApi();
+      await successfulStudentByCourseIdApi(courseId);
     })();
   }, []);
 
@@ -22,7 +21,7 @@ const CourseSuccessfulStudentTable = () => {
     if (res.isConfirmed) {
         let resp = await successfulStudentDelete(id);
         if (resp) {
-            await successfulStudentDataListApi();
+            await successfulStudentByCourseIdApi(courseId);
             toast.success('Student deleted successfully');
         }
     }else{
@@ -49,7 +48,7 @@ const CourseSuccessfulStudentTable = () => {
               </tr>
             </thead>
             <tbody>
-              {successfulStudentDataList && successfulStudentDataList.map((item, i) => (
+              {successfulStudentByCourseIdData && successfulStudentByCourseIdData.map((item, i) => (
                 <tr key={i} className="hover:bg-gray-100 border border-b border-gray-300 ">
                   <td className="border border-gray-300 px-4 py-2">{item?.courseData?.course_name}</td>
                   <td className="border border-gray-300 px-4 py-2">
