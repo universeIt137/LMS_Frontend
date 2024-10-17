@@ -9,9 +9,10 @@ import ModulesTable from "./ModuleTable";
 
 const CreateModuleForm = () => {
     const {singleCourseDataApi,singleCourseData} = courseStore();
-    const {moduleCreateApi} = moduleStore();
+    const {moduleCreateApi,moduleByCourseIdApi} = moduleStore();
     useEffect(()=>{
         (async()=>{
+
             await singleCourseDataApi(id);
         })()
     },[]);
@@ -44,6 +45,7 @@ const CreateModuleForm = () => {
 
         let res = await moduleCreateApi(payload);
         if (res) {
+            await moduleByCourseIdApi(id);
             Swal.fire({
                 position: 'top-end',
                 icon: 'success',
