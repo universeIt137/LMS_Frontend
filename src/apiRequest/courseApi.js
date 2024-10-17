@@ -12,6 +12,7 @@ const courseStore = create((set)=>({
             return false;
         }
     },
+
     singleCourseData : [],
     singleCourseDataApi: async (id) => {
         console.log(id);
@@ -22,6 +23,7 @@ const courseStore = create((set)=>({
             return false;
         }
     },
+
     allCourseList : null,
     allCourseListApi : async ()=>{
         let res = await axiosPublic.get(`/all-course`);
@@ -31,6 +33,7 @@ const courseStore = create((set)=>({
             return false;
         }
     },
+
     updateCourseApi : async (id,payload)=>{
         let res = await axiosPublic.put(`/course/update/${id}`,payload);
         if(res.data.status ==='success'){
@@ -39,6 +42,7 @@ const courseStore = create((set)=>({
             return false;
         }
     },
+
     deleteCourseApi : async (id)=>{
         let res = await axiosPublic.delete(`/course/delete/${id}`);
         if(res.data.status ==='success'){
@@ -47,6 +51,7 @@ const courseStore = create((set)=>({
             return false;
         }
     },
+
     courseNameList : [],
     courseNameListApi : async ()=>{
         let res = await axiosPublic.get(`/all-course-name`);
@@ -56,6 +61,7 @@ const courseStore = create((set)=>({
             return false;
         }
     }
+    
 }));
 
 export default courseStore;
