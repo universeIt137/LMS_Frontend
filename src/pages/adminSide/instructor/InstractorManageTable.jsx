@@ -1,17 +1,37 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaRegEdit } from 'react-icons/fa';
 import { MdDeleteOutline } from 'react-icons/md';
 import { NavLink } from 'react-router-dom';
 import instructorStore from '../../../apiRequest/instructorApi';
+import { deleteAlert } from '../../../helper/deleteAlert';
+import toast from 'react-hot-toast';
 
 const InstructorManageTable = ({ courseId }) => {
-    const { instructorDataByCourseIdApi, instructorDataByCourseId } = instructorStore();
+    const [loader,setLoader] = useState(false);
+    const { instructorDataByCourseIdApi,instructorDataByCourseId,allInstructorDataListApi,instructorDeleteApi } = instructorStore();
 
     useEffect(() => {
         (async () => {
+            setLoader(true);
             await instructorDataByCourseIdApi(courseId);
+            setLoader(false);
         })();
     }, [courseId]);
+
+    const instructorDelete = async (id)=>{
+        let resp = await deleteAlert();
+        if (resp.isConfirmed) {
+            setLoader(true);
+            const res = await instructorDeleteApi(id);
+            setLoader(false);
+            if (res) {
+                await instructorDataByCourseIdApi(courseId);
+                toast.success("Instructor deleted successfully")
+            }else{
+                toast.error("Failed to delete Instructor");
+            }
+        }
+    }
 
     return (
         <div className="container mx-auto mt-10">
@@ -45,7 +65,7 @@ const InstructorManageTable = ({ courseId }) => {
                                     <NavLink to={`/dashboard/instructor/update/${courseId}/${item?._id}`}>
                                         <FaRegEdit size="22px" className="text-blue-500 cursor-pointer" />
                                     </NavLink>
-                                    <button className="text-red-500">
+                                    <button onClick={()=>{instructorDelete(item._id)}} className="text-red-500">
                                         <MdDeleteOutline size="22px" />
                                     </button>
                                 </div>

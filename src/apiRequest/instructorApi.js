@@ -55,7 +55,15 @@ const instructorStore = create((set) => ({
         } else{
             return false;
         }
-    }
+    },
+    instructorDeleteApi: async function (id) {
+        let res = await axiosPublic.delete(`/instructor/delete/${id}`);
+        if(res.data["status"] ==='success'){
+            return res.data["status"];
+        } else{
+            return false;
+        }
+    },
 
 }));
 
