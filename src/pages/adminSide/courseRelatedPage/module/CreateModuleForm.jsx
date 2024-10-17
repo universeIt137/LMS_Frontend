@@ -58,10 +58,10 @@ const CreateModuleForm = () => {
                 title: 'Module created fail',
                 showConfirmButton: false,
                 timer: 1500,
-              });
+            });
         }
-        
     };
+    
 
     return (
         <>
