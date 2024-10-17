@@ -4,13 +4,7 @@ import { MdDeleteOutline } from 'react-icons/md';
 import { NavLink } from 'react-router-dom';
 
 const ProjectTable = ({ projects, handleDelete }) => {
-    const project = {
-        project_img: "https://res.cloudinary.com/dnvmj9pvk/image/upload/v1727763619/project-images/t1r0pmnmfysg6laqoxie.png",
-        project_name: "Task Manager",
-        corseData: {
-            course_name: "Next Js"
-        }
-    };
+
     return (
         <div className="w-full mx-auto flex items-center justify-center my-10 bg-gray-100">
             <div className="w-full mx-auto">

@@ -60,7 +60,7 @@ const ManageDataTable = ({course_id}) => {
                 <tr className="hover:bg-gray-100">
                   <td className="border border-gray-300 px-4 py-2 font-bold w-1/2">Course Successful Student</td>
                   <td className="flex justify-center px-4 py-2 border">
-                    <Link to="/dashboard/successful-course-student-create">
+                    <Link to={`/dashboard/successful-course-student-create/${course_id}`}>
                       <MdOutlineKeyboardCommandKey className="text-3xl" />
                     </Link>
                   </td>

@@ -8,23 +8,21 @@ import { deleteAlert } from '../../../../helper/deleteAlert';
 import toast from 'react-hot-toast';
 
 
-const FeedbackTable = () => {
+const FeedbackTable = ({courseId}) => {
     const [loader,setLoader] = useState(false);
-  const { id } = useParams();
+
   const {
-    
-    allFeedbackListApi,
-    allFeedbackList,
+    feedbackByCourseIdDataApi,feedbackByCourseIdData,
     feedbackDeleteApi
   } = feedbackStore();
-  const navigate = useNavigate();
+
   useEffect(() => {
     (async () => {
         setLoader(true);
-      await allFeedbackListApi();
+      await feedbackByCourseIdDataApi(courseId);
       setLoader(false);
     })();
-  }, [id]);
+  }, [courseId]);
 
 
 
@@ -33,7 +31,7 @@ const FeedbackTable = () => {
     if (resp.isConfirmed) {
         let res = await feedbackDeleteApi(id);
         if (res) {
-            await allFeedbackListApi();
+            await feedbackByCourseIdDataApi(courseId);
             toast.success("Feedback deleted successfully")
         }else{
             toast.error("Failed to delete Feedback");
@@ -57,7 +55,7 @@ const FeedbackTable = () => {
             </tr>
           </thead>
           <tbody className="text-gray-700 text-sm">
-            {allFeedbackList.map((feedback, index) => (
+            {feedbackByCourseIdData.map((feedback, index) => (
               <tr
                 key={feedback.id}
                 className="border-b border-gray-200 hover:bg-gray-100"

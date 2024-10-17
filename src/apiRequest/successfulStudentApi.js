@@ -12,6 +12,7 @@ const successfulStudentStore = create((set)=>({
             return false;
         }
     },
+
     successfulStudentUpdate : async (id,payload)=>{
         let res = await useAxios.put(`/student/update/${id}`,payload);
         if(res.data["status"] ==='success'){
@@ -53,6 +54,18 @@ const successfulStudentStore = create((set)=>({
         }
 
     },
+
+    successfulStudentByCourseIdData : [],
+    successfulStudentByCourseIdApi : async (courseId)=>{
+        let res = await useAxios.get(`/successful-student-by-course-id/${courseId}`);
+        if(res.data["status"] ==='success'){
+            set({successfulStudentByCourseIdData : res.data.data});
+        } else{
+            return false;
+        }
+    }
+
+
 
 }));
 
