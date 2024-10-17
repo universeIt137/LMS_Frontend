@@ -1,7 +1,28 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import moduleStore from "../../../../apiRequest/moduleApi";
+import { deleteAlert } from "../../../../helper/deleteAlert";
+import toast from "react-hot-toast";
 
-const ModulesTable = ({ modules, onUpdate, onDelete }) => {
+const ModulesTable = ({ courseId}) => {
+    const {moduleByCourseIdApi,moduleByCourseId,moduleDeleteApi} = moduleStore();
+    useEffect(() => {
+        (async () => {
+            await moduleByCourseIdApi(courseId);
+        })();
+    }, [courseId]);
+    const moduleDelete = async (id)=>{
+        let resp = await deleteAlert();
+        if(resp.isConfirmed){
+            let res = await moduleDeleteApi(id);
+            if(res){
+                await moduleByCourseIdApi(courseId);
+                toast.success("Module deleted successfully");
+            }else{
+                toast.error("Failed to delete module");
+            }
+        }
+    }
     return (
         <div className="overflow-x-auto mt-3 rounded-2xl border">
             <table className="min-w-full bg-white ">
@@ -34,7 +55,7 @@ const ModulesTable = ({ modules, onUpdate, onDelete }) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {modules?.map((module) => (
+                     {moduleByCourseId?.map((module) => (
                         <tr key={module._id} className="border-b">
                             <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-700">
                                 {module.module_name}
@@ -67,7 +88,7 @@ const ModulesTable = ({ modules, onUpdate, onDelete }) => {
                                     </button>
                                 </Link>
 
-                                <button
+                                <button onClick={moduleDelete.bind(this,module._id)}
                                     className="bg-red-500 text-white px-3 py-1 rounded-md text-sm"
 
                                 >
