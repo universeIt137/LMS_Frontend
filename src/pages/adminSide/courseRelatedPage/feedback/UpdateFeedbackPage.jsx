@@ -9,7 +9,7 @@ import Loader from '../../../../components/clideSide/loader/Loader';
 
 const UpdateFeedbackPage = () => {
   const [loader,setLoader] = useState(false);
-    const {singleFeedbackDataApi,singleFeedbackData,feedbackUpdateApi,allFeedbackListApi} = feedbackStore();
+    const {singleFeedbackDataApi,feedbackByCourseIdDataApi,singleFeedbackData,feedbackUpdateApi} = feedbackStore();
     const { id } = useParams();
     let { img: incomingImg } = singleFeedbackData;
     useEffect(()=>{
@@ -41,7 +41,7 @@ const UpdateFeedbackPage = () => {
           let res = await feedbackUpdateApi(id,payload);
           setLoader(false);
           if(res){
-            await allFeedbackListApi()
+            await feedbackByCourseIdDataApi(id)
             Swal.fire({
               position: "top-end",
               icon: "success",

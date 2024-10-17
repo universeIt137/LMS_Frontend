@@ -13,6 +13,7 @@ const feedbackStore = create((set)=>({
             return false;
         }
     },
+
     allFeedbackList : [],
     allFeedbackListApi : async ()=>{
         let res = await useAxios.get(`/all-feedback`);
@@ -32,6 +33,7 @@ const feedbackStore = create((set)=>({
             return false;
         }
     },
+
     feedbackDeleteApi : async (id)=>{
         let res = await useAxios.delete(`/feedback/delete/${id}`);
         if(res.data["status"] ==='success'){
@@ -40,10 +42,21 @@ const feedbackStore = create((set)=>({
             return false;
         }
     },
+
     feedbackUpdateApi : async (id,payload)=>{
         let res = await useAxios.put(`/feedback/update/${id}`,payload);
         if(res.data["status"] ==='success'){
             return res.data["status"];
+        } else{
+            return false;
+        }
+    },
+
+    feedbackByCourseIdData : [],
+    feedbackByCourseIdDataApi: async (courseId)=>{
+        let res = await useAxios.get(`/feedback-by-courseId/${courseId}`);
+        if(res.data["status"] ==='success'){
+            set({feedbackByCourseIdData : res.data["data"]});
         } else{
             return false;
         }
