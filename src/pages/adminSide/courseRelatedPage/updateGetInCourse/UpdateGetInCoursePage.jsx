@@ -16,7 +16,6 @@ const UpdateGetInCoursePage = () => {
     })()
   }, [id]);
   
-  console.log(getInCourseSingleData);
   let { logo: incomingLogo } = getInCourseSingleData;
   
   const handleUpdate = async (e) => {
@@ -47,7 +46,6 @@ const UpdateGetInCoursePage = () => {
     let res = await getInCourseUpdateApi(id,payload);
     if (res) {
       await getInCourseListApi();
-      navigate("/dashboard/get-in-course");
       Swal.fire({
         position: "top-end",
         icon: "success",

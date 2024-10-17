@@ -7,14 +7,14 @@ import courseStore from '../../../../apiRequest/courseApi';
 import { deleteAlert } from '../../../../helper/deleteAlert';
 import toast from 'react-hot-toast';
 
-const CurriculumTable = () => {
+const CurriculumTable = ({courseId}) => {
   const {singleCourseDataApi,singleCourseData} = courseStore();
-  const { allCurriculumDataApi, allCurriculumDataList,deleteCurriculumDataApi} = curriculumStore();
+  const { curriculumByCourseIdDataApi, curriculumByCourseIdData,deleteCurriculumDataApi} = curriculumStore();
   const { id } = useParams();
 
   useEffect(() => {
     (async () => {
-      await allCurriculumDataApi();
+      await curriculumByCourseIdDataApi(courseId);
       await singleCourseDataApi(id);
     })();
   }, []);
@@ -24,7 +24,7 @@ const CurriculumTable = () => {
     if (res.isConfirmed) {
       let res = await deleteCurriculumDataApi(id);
       if (res) {
-        await allCurriculumDataApi();
+        await curriculumByCourseIdDataApi(courseId);
         toast.success(res);
       }
     }else{
@@ -54,8 +54,8 @@ const CurriculumTable = () => {
               </thead>
               <tbody>
                 {
-                  allCurriculumDataList &&
-                  allCurriculumDataList.map((item, i) => {
+                  curriculumByCourseIdData &&
+                  curriculumByCourseIdData.map((item, i) => {
                     return (
                       <tr key={i} className="hover:bg-gray-100 text-center">
                         <td className="border border-gray-300 px-2 py-2 text-xs sm:text-sm">

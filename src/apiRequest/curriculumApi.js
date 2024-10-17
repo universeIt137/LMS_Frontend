@@ -46,7 +46,21 @@ const curriculumStore = create((set)=>({
         } else{
             return false;
         }
-    }
+    },
+
+    curriculumByCourseIdData: [],
+    curriculumByCourseIdDataApi: async (courseId) => {
+        let res = await axiosPublic.get(`/curriculum-by-course-id/${courseId}`);
+        if(res.data["status"] ==='success'){
+            set({curriculumByCourseIdData : res.data.data});
+        } else{
+            return false;
+        }
+    },
+
+
+
+
 }));
 
 export default curriculumStore;

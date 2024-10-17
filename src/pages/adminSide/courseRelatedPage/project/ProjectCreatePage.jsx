@@ -33,11 +33,6 @@ const ProjectCreatePage = () => {
     }
   })
 
-
-
-
-  console.log(id);
-  console.log(singleCourse)
   const filteredProjects = projects?.filter(project => project.course_id === id);
 
 

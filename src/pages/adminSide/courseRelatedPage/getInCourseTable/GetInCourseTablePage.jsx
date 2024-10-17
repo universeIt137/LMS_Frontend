@@ -3,17 +3,15 @@ import { FaRegEdit } from 'react-icons/fa';
 import { MdDeleteOutline } from 'react-icons/md';
 import getInCourseStore from '../../../../apiRequest/getInCourseApi';
 import { deleteAlert } from '../../../../helper/deleteAlert';
-import { NavLink, useParams } from 'react-router-dom';
+import { NavLink} from 'react-router-dom';
 import toast from 'react-hot-toast';
 
-const GetInCourseTablePage = () => {
+const GetInCourseTablePage = ({courseId}) => {
   window.scrollTo(0, 0) 
-  const { getInCourseDeleteApi, getInCourseUpdateApi, getInCourseSingleDataApi, getInCourseSingleData, getInCourseDataList, getInCourseListApi } = getInCourseStore();
-  const { id } = useParams();
-
+  const { getInCourseDeleteApi,getInCourseByCourseIdApi,gitInCourseByCourseId, getInCourseListApi } = getInCourseStore();
   useEffect(() => {
     (async()=>{
-      await getInCourseListApi();
+      await getInCourseByCourseIdApi(courseId);
     })()
   },[])
 
@@ -21,9 +19,11 @@ const GetInCourseTablePage = () => {
     console.log(id);
     let res = await deleteAlert();
     if (res.isConfirmed) {
-      await getInCourseDeleteApi(id);
-      toast.success('Course deleted successfully');
-      await getInCourseListApi(); 
+      let res = await getInCourseDeleteApi(id);
+      if(res){
+        await getInCourseByCourseIdApi(courseId); 
+        toast.success('Course deleted successfully');
+      }
     }else{
       toast.error('Failed to delete ');
     }
@@ -45,8 +45,8 @@ const GetInCourseTablePage = () => {
               </tr>
             </thead>
             <tbody>
-              {getInCourseDataList &&
-                getInCourseDataList.map((item, i) => (
+              {gitInCourseByCourseId &&
+                gitInCourseByCourseId.map((item, i) => (
                   <tr key={i} className="hover:bg-gray-100 border">
                     <td className="py-2 px-4 border-b text-left">{item.courseData.course_name}</td>
                     <td className="py-2 px-4 border-b text-left">{item.title}</td>
