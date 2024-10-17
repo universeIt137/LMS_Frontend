@@ -10,7 +10,7 @@ const GetInCoursePage = () => {
   window.scrollTo(0, 0) 
   const {id} = useParams();
     const {singleCourseData,singleCourseDataApi} = courseStore();
-    const {getInCourseCreateApi,getInCourseListApi} = getInCourseStore()
+    const {getInCourseCreateApi,getInCourseByCourseIdApi} = getInCourseStore()
     useEffect(()=>{
         (async()=>{
             await singleCourseDataApi(id);
@@ -40,7 +40,7 @@ const GetInCoursePage = () => {
 
         let res = await getInCourseCreateApi(payload);
         if(res){
-          await getInCourseListApi()
+          await getInCourseByCourseIdApi(id)
             Swal.fire({
                 position: "top-end",
                 icon: "success",
@@ -83,7 +83,7 @@ const GetInCoursePage = () => {
             />
           </div>
            {/* Nav Logo */}
-           <div>
+          <div>
             <label htmlFor="logo" className="block text-sm font-medium text-gray-700">
               Logo
             </label>
@@ -121,7 +121,7 @@ const GetInCoursePage = () => {
         </form>
       </div>
     </div>
-    <GetInCourseTablePage></GetInCourseTablePage>
+    <GetInCourseTablePage courseId = {id} ></GetInCourseTablePage>
     </>
   )
 }

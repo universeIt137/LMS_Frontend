@@ -43,16 +43,14 @@ import CourseSuccessfulStudentTable from "../pages/adminSide/courseRelatedPage/c
 import CourseSuccessfulStudentUpdatePage from "../pages/adminSide/courseRelatedPage/courseSuccessfulStudent/CourseSuccessfulStudentUpdatePage.jsx";
 import CreateFeedbackPage from "../pages/adminSide/courseRelatedPage/feedback/CreateFeedbackPage.jsx";
 import UpdateFeedbackPage from "../pages/adminSide/courseRelatedPage/feedback/UpdateFeedbackPage.jsx";
-import ModuleCreatePage from "../pages/adminSide/courseRelatedPage/module/ModuleCreatePage.jsx";
 import DashboardPage from "../pages/adminSide/dashboardRelated/DashboardPage.jsx";
 import UpdateModuleForm from "../pages/adminSide/courseRelatedPage/module/UpdateModuleForm.jsx";
-import ModuleDetailsForm from "../pages/adminSide/courseRelatedPage/mouduleDetails/ModuleDetailsForm.jsx";
 import ManageModuleDetails from "../pages/adminSide/courseRelatedPage/mouduleDetails/ManageModuleDetails.jsx";
 import UpdateModuleDetails from "../pages/adminSide/courseRelatedPage/mouduleDetails/UpdateModuleDetails.jsx";
 import AssignmentManage from "../pages/adminSide/courseRelatedPage/assignment/AssignmentManage.jsx";
-import RecordedForm from "../pages/adminSide/courseRelatedPage/pre-recorded/RecordedForm.jsx";
 import RecordedManage from "../pages/adminSide/courseRelatedPage/pre-recorded/RecordedManage.jsx";
 import InstructorUpdatePage from "../pages/adminSide/instructor/InstructorUpdatePage.jsx";
+import CreateModuleForm from './../pages/adminSide/courseRelatedPage/module/CreateModuleForm';
 
 const token = {
   headers: {
@@ -246,7 +244,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "module-create/:id",
-        element: <ModuleCreatePage></ModuleCreatePage>
+        element: <CreateModuleForm></CreateModuleForm>
       },
       {
         path: "module-update/:id",

@@ -5,23 +5,18 @@ import { uploadImg } from './../../../../uploadImage/UploadImage';
 import feedbackStore from '../../../../apiRequest/feedbackApi';
 import Swal from 'sweetalert2';
 import { Helmet } from 'react-helmet-async';
-import Loader from '../../../../components/clideSide/loader/Loader';
 import FeedbackTable from './FeedbackTable';
 import { useQuery } from '@tanstack/react-query';
 import useAxiosPublic from '../../../../hook/UseAxiosPublic';
 
 const CreateFeedbackPage = () => {
-  const { createFeedbackApi , allFeedbackListApi} = feedbackStore();
+  const { createFeedbackApi , allFeedbackListApi,feedbackByCourseIdDataApi} = feedbackStore();
   const { singleCourseDataApi, singleCourseData } = courseStore();
   const { id } = useParams();
   const axiosPublic = useAxiosPublic();
   const [loader, setLoader] = useState(false); // Loader state
 
-  // useEffect(() => {
-  //     (async()=>{
-  //       await singleCourseDataApi(id);
-  //     })()
-  // }, [id]);
+
 
   const { data: singleCourse = {} } = useQuery({
     queryKey: ['singleCourse'],
@@ -31,7 +26,6 @@ const CreateFeedbackPage = () => {
     }
   })
 
-  console.log(singleCourse)
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -53,7 +47,7 @@ const CreateFeedbackPage = () => {
     setLoader(false); // Hide loader
 
     if (res) {
-      await allFeedbackListApi()
+      await feedbackByCourseIdDataApi(id);
       Swal.fire({
         position: 'top-end',
         icon: 'success',
@@ -71,22 +65,13 @@ const CreateFeedbackPage = () => {
       });
     }
   };
-
-  // console.log(singleCourseData);
-
   return (
 
     <>
     <Helmet>
       <title>Dashboard | Feedback Create Page </title>
     </Helmet>
-    <div className="flex items-center justify-center bg-gray-100 min-h-screen">
-      {loader ? (
-        <div className="flex items-center justify-center h-screen">
-          <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-blue-500 border-solid"></div>
-        </div>
-      ) : (
-        <div className="container flex flex-col items-center mx-auto px-4">
+    <div className="container flex flex-col items-center mx-auto px-4">
           <div className="bg-white w-1/2 p-6 rounded-lg shadow-lg">
             <h2 className="text-2xl font-bold text-center mb-4 text-gray-800">
               ({singleCourse?.course_name}) Course Feedback
@@ -177,17 +162,9 @@ const CreateFeedbackPage = () => {
             </form>
           </div>
         </div>
-      )}
-    </div>
-    {
-      loader && (
-        <div>
-          <Loader></Loader>
-        </div>
-      )
-    }
+    
     <div className='my-9' >
-      <FeedbackTable></FeedbackTable>
+      <FeedbackTable courseId = {id} ></FeedbackTable>
     </div>
     </>
   );

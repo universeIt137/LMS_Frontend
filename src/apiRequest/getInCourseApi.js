@@ -50,6 +50,15 @@ const getInCourseStore = create((set)=>({
             return false;
         }
     },
+    gitInCourseByCourseId : [],
+    getInCourseByCourseIdApi: async (courseId) => {
+        let res = await useAxios.get(`/get-in-corse/by-corse-id/${courseId}`);
+        if(res.data["status"] ==='success'){
+            set({gitInCourseByCourseId : res.data.data});
+        } else{
+            return false;
+        }
+    },
 }));
 
 export default getInCourseStore;

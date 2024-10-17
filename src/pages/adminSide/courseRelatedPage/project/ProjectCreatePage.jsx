@@ -33,15 +33,8 @@ const ProjectCreatePage = () => {
     }
   })
 
-
-
-
-  console.log(id);
-  console.log(singleCourse)
   const filteredProjects = projects?.filter(project => project.course_id === id);
 
-
-  // console.log(singleCourseData)
   const handleSubmit = async (e) => {
     e.preventDefault();
     const course_id = e.target.course_id.value;
