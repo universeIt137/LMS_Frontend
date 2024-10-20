@@ -51,6 +51,8 @@ import AssignmentManage from "../pages/adminSide/courseRelatedPage/assignment/As
 import RecordedManage from "../pages/adminSide/courseRelatedPage/pre-recorded/RecordedManage.jsx";
 import InstructorUpdatePage from "../pages/adminSide/instructor/InstructorUpdatePage.jsx";
 import CreateModuleForm from './../pages/adminSide/courseRelatedPage/module/CreateModuleForm';
+import CourseDetailsUpdate from "../pages/adminSide/courseRelatedPage/courseDetailsCreate/CourseDetailsUpdatePage.jsx";
+import CourseDetailsUpdatePage from './../pages/adminSide/courseRelatedPage/courseDetailsCreate/CourseDetailsUpdatePage';
 
 const token = {
   headers: {
@@ -265,6 +267,10 @@ export const router = createBrowserRouter([
       {
         path: "pre-recorded-videos-create/:id",
         element: <RecordedManage></RecordedManage>
+      },
+      {
+        path : "course-details-update/:id",
+        element : <CourseDetailsUpdatePage></CourseDetailsUpdatePage>
       }
 
 
