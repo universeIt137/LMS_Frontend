@@ -1,14 +1,36 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import courseDetailsStore from '../../../../apiRequest/courseDetailsApi'
 import { NavLink } from 'react-router-dom';
+import { deleteAlert } from '../../../../helper/deleteAlert';
+import Swal from 'sweetalert2';
+import toast from 'react-hot-toast';
 
 const CourseDetailsTable = ({course_id}) => {
-    const {singleCourseDetailsByCourseIdApi,singleCourseDetailsByCourseId} = courseDetailsStore();
+  const [loader,setLoader] = useState(false);
+    const {singleCourseDetailsByCourseIdApi,singleCourseDetailsByCourseId,deleteCourseDetailsApi} = courseDetailsStore();
     useEffect(()=>{
         (()=>{
             singleCourseDetailsByCourseIdApi(course_id);
         }) ()
-    },[course_id])
+    },[course_id]);
+    const courseDelete = async (id)=>{
+      let resp = await deleteAlert();
+      if(resp.isConfirmed){
+        setLoader(true);
+        const res = await deleteCourseDetailsApi(id);
+        setLoader(false);
+        if(res){
+          Swal.fire({
+            title: "Deleted!",
+            text: "Your file has been deleted.",
+            icon: "success"
+          });
+            singleCourseDetailsByCourseIdApi(course_id);
+        }else{
+            toast.error('Failed to delete course');
+        }
+      }
+    }
   return (
     <div className='max-w-screen-xl mx-auto ' >
       <div className="">
@@ -54,7 +76,7 @@ const CourseDetailsTable = ({course_id}) => {
                 <button className="bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-1 px-3 rounded mr-2">
                   <NavLink to={`/dashboard/course-details-update/${singleCourseDetailsByCourseId[0]?._id}`} >Edit</NavLink>
                 </button>
-                <button className="bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded">
+                <button onClick={()=>{courseDelete(singleCourseDetailsByCourseId[0]?._id)}} className="bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-3 rounded">
                   Delete
                 </button>
               </td>

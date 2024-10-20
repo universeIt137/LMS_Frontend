@@ -31,7 +31,7 @@ const courseDetailsStore = create((set)=>({
         }
     },
     updateCourseDetailsApi : async (id,payload)=>{
-        let res = await axiosPublic.put(`/course/details/update/${id}`,payload);
+        let res = await axiosPublic.put(`/curriculum/delete/${id}`,payload);
         if(res.data["status"]==="success"){
             return res.data["status"];
         } else{
