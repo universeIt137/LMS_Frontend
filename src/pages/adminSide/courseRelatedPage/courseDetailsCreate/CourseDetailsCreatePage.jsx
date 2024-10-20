@@ -11,6 +11,7 @@ import useAxiosPublic from "../../../../hook/UseAxiosPublic";
 import ManageDataTable from "../ManageDataTable";
 
 const CourseDetailsCreatePage = () => {
+  const [loader,setLoader] = useState(false);
   const { singleCourseDataApi, singleCourseData } = courseStore();
   const { createCourseDetailsApi } = courseDetailsStore();
   const { id } = useParams();
@@ -60,8 +61,9 @@ const CourseDetailsCreatePage = () => {
     }
 
 
-
+    setLoader(true);
     let res = await createCourseDetailsApi(payload);
+    setLoader(false);
     if (res) {
       Swal.fire({
         position: "top-end",
@@ -113,6 +115,7 @@ const CourseDetailsCreatePage = () => {
                 id="title"
                 className="w-full p-2 border border-gray-300 rounded mt-1"
                 placeholder="Enter Course Title"
+                required
               />
             </div>
             {/* description    */}
@@ -124,6 +127,7 @@ const CourseDetailsCreatePage = () => {
                 className="w-full p-2 border border-gray-300 rounded mt-1"
                 rows={"5"}
                 placeholder="Enter Course Description"
+                required
               ></textarea>
             </div>
             {/* rating */}
@@ -132,10 +136,10 @@ const CourseDetailsCreatePage = () => {
               <input
                 type="number"
                 id="rating"
-
                 name="rating"
                 className="w-full p-2 border border-gray-300 rounded mt-1"
                 placeholder="Enter Rating (1-5)"
+                required
               />
             </div>
             {/* course_fee */}
@@ -147,6 +151,7 @@ const CourseDetailsCreatePage = () => {
                 name="course_fee"
                 className="w-full p-2 border border-gray-300 rounded mt-1"
                 placeholder="Enter Course Fee"
+                required
               />
             </div>
             {/* total_live_class */}
@@ -158,6 +163,7 @@ const CourseDetailsCreatePage = () => {
                 id="total_live_class"
                 className="w-full p-2 border border-gray-300 rounded mt-1"
                 placeholder="Enter Total Live Classes"
+                required
               />
             </div>
             {/* total_project */}
@@ -169,6 +175,7 @@ const CourseDetailsCreatePage = () => {
                 id="total_project"
                 className="w-full p-2 border border-gray-300 rounded mt-1"
                 placeholder="Enter Total Projects"
+                required
               />
             </div>
             {/* total_video */}
@@ -180,6 +187,7 @@ const CourseDetailsCreatePage = () => {
                 name="total_video"
                 className="w-full p-2 border border-gray-300 rounded mt-1"
                 placeholder="Enter Total Videos"
+                required
               />
             </div>
             {/* course_duration */}
@@ -191,6 +199,7 @@ const CourseDetailsCreatePage = () => {
                 name="course_duration"
                 className="w-full p-2 border border-gray-300 rounded mt-1"
                 placeholder="Course Duration"
+                required
               />
             </div>
             {/* course related video */}
@@ -216,12 +225,39 @@ const CourseDetailsCreatePage = () => {
               />
             </div>
           </div>
-          <div className="text-center mt-6">
+          <div className="mt-8">
             <button
               type="submit"
-              className="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-600 transition duration-300"
+              className="bg-indigo-600 text-white py-3 px-6 rounded-lg shadow-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50 transition-all duration-300"
+              disabled={loader} // Disable button when loading
             >
-              Create Course Details
+              {loader ? (
+                <span className="flex items-center justify-center">
+                  <svg
+                    className="animate-spin h-5 w-5 mr-3 text-white"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    ></circle>
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+                    ></path>
+                  </svg>
+                  Processing...
+                </span>
+              ) : (
+                'Create Course Details'
+              )}
             </button>
           </div>
         </form>
@@ -229,11 +265,13 @@ const CourseDetailsCreatePage = () => {
 
       </div>
 
-      {/* <div className="CourseDetails">
-        <CourseDetailsTable courseDetails = {courseDetail}></CourseDetailsTable>
-      </div> */}
+    
       <div className="my-8" >
         <ManageDataTable  course_id={id}></ManageDataTable>
+      </div>
+      
+      <div className="my-8" >
+        <CourseDetailsTable course_id={id}></CourseDetailsTable>
       </div>
       
     </>

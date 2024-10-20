@@ -3,6 +3,7 @@ import { IoCreateOutline } from 'react-icons/io5';
 import { MdDeleteOutline, MdOutlineKeyboardCommandKey } from 'react-icons/md';
 import { RxUpdate } from 'react-icons/rx';
 import { Link } from 'react-router-dom';
+import CourseDetailsTable from './courseDetailsCreate/CourseDetailsTable';
 
 const ManageDataTable = ({course_id}) => {
   window.scrollTo(0, 0);
